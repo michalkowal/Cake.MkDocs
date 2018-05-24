@@ -274,3 +274,9 @@ __pycache__/
 tools/**
 !tools/packages.config
 BuildArtifacts/
+*.temp.nuspec
+tests/integration/repos/
+src/version.cake
+
+# Cake.Graph related
+docs/input/tasks/*.json

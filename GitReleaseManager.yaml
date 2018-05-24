@@ -1,0 +1,14 @@
+issue-labels-include:
+- Type: Enhancement
+- Type: Bug
+- Type: Maintenance
+- Type: Documentation
+issue-labels-exclude:
+- Type: Question
+issue-labels-alias:
+    - name:    Documentation
+      header:  Documentation
+      plural:  Documentation
+    - name:    Maintenance
+      header:  Maintenance
+      plural:  Maintenance
