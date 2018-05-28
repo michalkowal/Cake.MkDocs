@@ -11,9 +11,9 @@ namespace Cake.MkDocs.Tests.Unit
             : MkDocsToolTests<MkDocsNewRunnerFixture, MkDocsNewSettings>
         {
             [Theory]
-            [InlineData("./project")]
-            [InlineData("/project the second/")]
-            public void Should_Add_New_Command(string dir)
+            [InlineData("./project", "/Working/project")]
+            [InlineData("/project the second/", "/project the second")]
+            public void Should_Add_New_Command(string dir, string expected)
             {
                 // Given
                 var fixture = new MkDocsNewRunnerFixture();
@@ -23,7 +23,7 @@ namespace Cake.MkDocs.Tests.Unit
                 var result = fixture.Run();
 
                 // Then
-                Assert.Equal($"new \"{dir}\"", result.Args);
+                Assert.Equal($"new \"{expected}\"", result.Args);
             }
 
             [Fact]

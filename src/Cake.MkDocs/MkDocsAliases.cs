@@ -124,6 +124,9 @@ namespace Cake.MkDocs
             {
                 throw new ArgumentNullException(nameof(context));
             }
+
+            var runner = new MkDocsNewRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            runner.New(projectDirectory, settings);
         }
 
         /// <summary>
@@ -152,6 +155,9 @@ namespace Cake.MkDocs
             {
                 throw new ArgumentNullException(nameof(context));
             }
+
+            var runner = new MkDocsBuildRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            runner.Build(settings);
         }
 
         /// <summary>
@@ -180,6 +186,9 @@ namespace Cake.MkDocs
             {
                 throw new ArgumentNullException(nameof(context));
             }
+
+            var runner = new MkDocsServeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            runner.Serve(settings);
         }
 
         /// <summary>
@@ -208,6 +217,9 @@ namespace Cake.MkDocs
             {
                 throw new ArgumentNullException(nameof(context));
             }
+
+            var runner = new MkDocsGhDeployRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            runner.GhDeploy(settings);
         }
     }
 }

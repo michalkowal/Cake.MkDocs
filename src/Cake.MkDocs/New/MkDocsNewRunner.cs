@@ -10,6 +10,8 @@ namespace Cake.MkDocs.New
     /// </summary>
     public sealed class MkDocsNewRunner : MkDocsTool<MkDocsNewSettings>
     {
+        private readonly ICakeEnvironment _environment;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MkDocsNewRunner"/> class.
         /// </summary>
@@ -20,6 +22,7 @@ namespace Cake.MkDocs.New
         public MkDocsNewRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator tools)
             : base(fileSystem, environment, processRunner, tools)
         {
+            _environment = environment;
         }
 
         /// <summary>
@@ -27,14 +30,14 @@ namespace Cake.MkDocs.New
         /// </summary>
         /// <param name="projectDirectory">New project directory path.</param>
         /// <param name="settings">The settings</param>
-        public void New(string projectDirectory, MkDocsNewSettings settings)
+        public void New(DirectoryPath projectDirectory, MkDocsNewSettings settings)
         {
-            if (string.IsNullOrWhiteSpace(projectDirectory))
+            if (projectDirectory == null)
             {
                 throw new ArgumentNullException(nameof(projectDirectory));
             }
 
-            Run(settings, arguments => arguments.AppendQuoted(projectDirectory));
+            Run(settings, arguments => arguments.AppendQuoted(projectDirectory.MakeAbsolute(_environment).FullPath));
         }
     }
 }
