@@ -1,11 +1,10 @@
-﻿using Cake.Core.Tooling;
-
-namespace Cake.MkDocs.New
+﻿namespace Cake.MkDocs.New
 {
     /// <summary>
-    /// MkDocsNewSettings
+    /// Contains settings used by <see cref="MkDocsNewRunner"/>.
     /// </summary>
-    public sealed class MkDocsNewSettings : ToolSettings
+    [MkDocsCommand("new")]
+    public sealed class MkDocsNewSettings : MkDocsSettings
     {
     }
 }

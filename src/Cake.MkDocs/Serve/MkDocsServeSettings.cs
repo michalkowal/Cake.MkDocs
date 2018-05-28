@@ -1,11 +1,10 @@
-﻿using Cake.Core.Tooling;
-
-namespace Cake.MkDocs.Serve
+﻿namespace Cake.MkDocs.Serve
 {
     /// <summary>
     /// MkDocsServeSettings
     /// </summary>
-    public sealed class MkDocsServeSettings : ToolSettings
+    [MkDocsCommand("serve")]
+    public sealed class MkDocsServeSettings : MkDocsSettings
     {
     }
 }

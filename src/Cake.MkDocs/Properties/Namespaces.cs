@@ -13,6 +13,19 @@ namespace Cake.MkDocs
     }
 }
 
+namespace Cake.MkDocs.Version
+{
+    /// <summary>
+    /// This namespace contain types used for common operations
+    /// such as parsing release notes, retrieving arguments and
+    /// to read and write environment variables.
+    /// </summary>
+    [CompilerGenerated]
+    internal class NamespaceDoc
+    {
+    }
+}
+
 namespace Cake.MkDocs.New
 {
     /// <summary>

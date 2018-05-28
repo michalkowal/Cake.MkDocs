@@ -1,4 +1,6 @@
-﻿using System;
+﻿// DupFinder exclude
+
+using System;
 using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.IO;
@@ -6,6 +8,7 @@ using Cake.MkDocs.Build;
 using Cake.MkDocs.GhDeploy;
 using Cake.MkDocs.New;
 using Cake.MkDocs.Serve;
+using Cake.MkDocs.Version;
 
 namespace Cake.MkDocs
 {
@@ -23,6 +26,76 @@ namespace Cake.MkDocs
     [CakeAliasCategory("MkDocs")]
     public static class MkDocsAliases
     {
+        /// <summary>
+        /// Show the MkDocs version.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>MkDocs tool version.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Version")]
+        [CakeNamespaceImport("Cake.MkDocs.Version")]
+        public static System.Version MkDocsVersion(this ICakeContext context)
+        {
+            return MkDocsVersion(context, new MkDocsVersionSettings());
+        }
+
+        /// <summary>
+        /// Show the MkDocs version.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="settings">The settings.</param>
+        /// <returns>MkDocs tool version.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Version")]
+        [CakeNamespaceImport("Cake.MkDocs.Version")]
+        public static System.Version MkDocsVersion(this ICakeContext context, MkDocsVersionSettings settings)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            var runner = new MkDocsVersionRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var result = runner.Version(settings);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Check is provided MkDocs tool is in supported version.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns>true - version is supported</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Version")]
+        [CakeNamespaceImport("Cake.MkDocs.Version")]
+        public static bool MkDocsIsSupportedVersion(this ICakeContext context)
+        {
+            return MkDocsIsSupportedVersion(context, new MkDocsVersionSettings());
+        }
+
+        /// <summary>
+        /// Check is provided MkDocs tool is in supported version.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="settings">settings</param>
+        /// <returns>true - version is supported</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Version")]
+        [CakeNamespaceImport("Cake.MkDocs.Version")]
+        public static bool MkDocsIsSupportedVersion(this ICakeContext context, MkDocsVersionSettings settings)
+        {
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
+
+            var runner = new MkDocsVersionRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var result = runner.IsSupportedVersion(settings);
+
+            return result;
+        }
+
         /// <summary>
         /// Create a new MkDocs project.
         /// </summary>
