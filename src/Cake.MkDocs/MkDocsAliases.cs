@@ -1,7 +1,4 @@
-﻿// DupFinder exclude
-
-using System;
-using Cake.Core;
+﻿using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.IO;
 using Cake.MkDocs.Build;
@@ -50,12 +47,7 @@ namespace Cake.MkDocs
         [CakeNamespaceImport("Cake.MkDocs.Version")]
         public static System.Version MkDocsVersion(this ICakeContext context, MkDocsVersionSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            var runner = new MkDocsVersionRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var runner = MkDocsRunnerFactory.CreateVersionRunner(context);
             var result = runner.Version(settings);
 
             return result;
@@ -65,7 +57,7 @@ namespace Cake.MkDocs
         /// Check is provided MkDocs tool is in supported version.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns>true - version is supported</returns>
+        /// <returns><c>true</c> - version is supported; otherwise, <c>false</c>.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Version")]
         [CakeNamespaceImport("Cake.MkDocs.Version")]
@@ -79,18 +71,13 @@ namespace Cake.MkDocs
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">settings</param>
-        /// <returns>true - version is supported</returns>
+        /// <returns><c>true</c> - version is supported; otherwise, <c>false</c>.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Version")]
         [CakeNamespaceImport("Cake.MkDocs.Version")]
         public static bool MkDocsIsSupportedVersion(this ICakeContext context, MkDocsVersionSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            var runner = new MkDocsVersionRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var runner = MkDocsRunnerFactory.CreateVersionRunner(context);
             var result = runner.IsSupportedVersion(settings);
 
             return result;
@@ -120,12 +107,7 @@ namespace Cake.MkDocs
         [CakeNamespaceImport("Cake.MkDocs.New")]
         public static void MkDocsNew(this ICakeContext context, DirectoryPath projectDirectory, MkDocsNewSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            var runner = new MkDocsNewRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var runner = MkDocsRunnerFactory.CreateNewRunner(context);
             runner.New(projectDirectory, settings);
         }
 
@@ -151,12 +133,7 @@ namespace Cake.MkDocs
         [CakeNamespaceImport("Cake.MkDocs.Build")]
         public static void MkDocsBuild(this ICakeContext context, MkDocsBuildSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            var runner = new MkDocsBuildRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var runner = MkDocsRunnerFactory.CreateBuildRunner(context);
             runner.Build(settings);
         }
 
@@ -182,12 +159,7 @@ namespace Cake.MkDocs
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
         public static void MkDocsServe(this ICakeContext context, MkDocsServeSettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            var runner = new MkDocsServeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var runner = MkDocsRunnerFactory.CreateServeRunner(context);
             runner.Serve(settings);
         }
 
@@ -213,12 +185,7 @@ namespace Cake.MkDocs
         [CakeNamespaceImport("Cake.MkDocs.GhDeploy")]
         public static void MkDocsGhDeploy(this ICakeContext context, MkDocsGhDeploySettings settings)
         {
-            if (context == null)
-            {
-                throw new ArgumentNullException(nameof(context));
-            }
-
-            var runner = new MkDocsGhDeployRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            var runner = MkDocsRunnerFactory.CreateGhDeployRunner(context);
             runner.GhDeploy(settings);
         }
     }

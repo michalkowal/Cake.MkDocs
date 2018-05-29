@@ -7,7 +7,7 @@ namespace Cake.MkDocs.Tests.Unit
 {
     public sealed class MkDocsVersionRunnerTests
     {
-        public abstract class BaseMkDocsTests<TFixture>
+        public abstract class BaseMkDocsVersionTests<TFixture>
             : MkDocsToolTests<TFixture, MkDocsVersionSettings>
             where TFixture : BaseMkDocsVersionRunnerFixture, new()
         {
@@ -56,7 +56,7 @@ namespace Cake.MkDocs.Tests.Unit
         }
 
         public sealed class TheVersionMethod
-            : BaseMkDocsTests<MkDocsVersionRunnerFixture>
+            : BaseMkDocsVersionTests<MkDocsVersionRunnerFixture>
         {
             [Fact]
             public void Should_Return_Correct_Version()
@@ -88,7 +88,7 @@ namespace Cake.MkDocs.Tests.Unit
         }
 
         public sealed class TheIsSupportedVersionMethod
-            : BaseMkDocsTests<MkDocsVersionRunnerFixture>
+            : BaseMkDocsVersionTests<MkDocsVersionRunnerFixture>
         {
             [Theory]
             [InlineData("0.17.3")]

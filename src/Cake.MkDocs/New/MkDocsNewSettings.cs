@@ -1,4 +1,6 @@
-﻿namespace Cake.MkDocs.New
+﻿using Cake.MkDocs.Attributes;
+
+namespace Cake.MkDocs.New
 {
     /// <summary>
     /// Contains settings used by <see cref="MkDocsNewRunner"/>.

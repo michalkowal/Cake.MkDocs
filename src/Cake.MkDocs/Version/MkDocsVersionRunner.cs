@@ -68,7 +68,7 @@ namespace Cake.MkDocs.Version
         /// Checks if provided MkDocs tool version is compatible with addin
         /// </summary>
         /// <param name="settings">The settings.</param>
-        /// <returns>true - MkDocs version is compatible with addin.</returns>
+        /// <returns><c>true</c> - MkDocs version is compatible with addin; otherwise, <c>false</c>.</returns>
         public bool IsSupportedVersion(MkDocsSettings settings)
         {
             System.Version toolVersion = Version(settings);

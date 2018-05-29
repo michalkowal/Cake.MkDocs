@@ -1,6 +1,5 @@
 ﻿using System;
 using Cake.Core;
-using Cake.Core.Tooling;
 using Cake.MkDocs.Tests.Fixtures;
 using Cake.Testing;
 using Xunit;
@@ -9,7 +8,7 @@ namespace Cake.MkDocs.Tests.Unit
 {
     public abstract class MkDocsToolTests<TFixture, TSettings>
         where TFixture : MkDocsFixture<TSettings>, new()
-        where TSettings : ToolSettings, new()
+        where TSettings : MkDocsSettings, new()
     {
         [Fact]
         public void Should_Throw_If_Settings_Are_Null()
@@ -131,6 +130,60 @@ namespace Cake.MkDocs.Tests.Unit
             // Then
             Assert.IsType<CakeException>(result);
             Assert.Equal("MkDocs: Process returned an error (exit code 1).", ((CakeException)result).Message);
+        }
+
+        [Fact]
+        public void Should_Add_Quiet_Argument_If_Defined()
+        {
+            // Given
+            var fixture = new TFixture();
+            fixture.Settings.Quiet = true;
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Contains("--quiet", result.Args);
+        }
+
+        [Fact]
+        public void Should_Not_Add_Quiet_Argument_If_Not_Defined()
+        {
+            // Given
+            var fixture = new TFixture();
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.DoesNotContain("--quiet", result.Args);
+        }
+
+        [Fact]
+        public void Should_Add_Verbose_Argument_If_Defined()
+        {
+            // Given
+            var fixture = new TFixture();
+            fixture.Settings.Verbose = true;
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.Contains("--verbose", result.Args);
+        }
+
+        [Fact]
+        public void Should_Not_Add_Verbose_Argument_If_Not_Defined()
+        {
+            // Given
+            var fixture = new TFixture();
+
+            // When
+            var result = fixture.Run();
+
+            // Then
+            Assert.DoesNotContain("--verbose", result.Args);
         }
     }
 }

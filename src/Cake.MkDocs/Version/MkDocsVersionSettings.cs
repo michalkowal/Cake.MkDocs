@@ -1,4 +1,6 @@
-﻿namespace Cake.MkDocs.Version
+﻿using Cake.MkDocs.Attributes;
+
+namespace Cake.MkDocs.Version
 {
     /// <summary>
     /// Contains settings used by <see cref="MkDocsVersionRunner"/>.

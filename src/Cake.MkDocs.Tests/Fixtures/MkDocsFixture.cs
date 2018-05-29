@@ -1,12 +1,11 @@
 ﻿using Cake.Core.IO;
-using Cake.Core.Tooling;
 using Cake.Testing;
 using Cake.Testing.Fixtures;
 
 namespace Cake.MkDocs.Tests.Fixtures
 {
     public abstract class MkDocsFixture<TSettings> : ToolFixture<TSettings>
-        where TSettings : ToolSettings, new()
+        where TSettings : MkDocsSettings, new()
     {
         protected MkDocsFixture()
             : base("mkdocs")

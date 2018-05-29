@@ -13,6 +13,8 @@ namespace Cake.MkDocs
     public abstract class MkDocsTool<TSettings> : Tool<TSettings>
         where TSettings : MkDocsSettings
     {
+        private readonly ICakeEnvironment _environment;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MkDocsTool{TSettings}"/> class.
         /// </summary>
@@ -23,6 +25,7 @@ namespace Cake.MkDocs
         protected MkDocsTool(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator tools)
             : base(fileSystem, environment, processRunner, tools)
         {
+            _environment = environment;
         }
 
         /// <summary>
@@ -58,9 +61,15 @@ namespace Cake.MkDocs
                 setCommandValues?.Invoke(arguments);
             }
 
-            if (settings.HasArguments())
+            var settingsArguments = settings.GetArgumentsInline(_environment);
+            if (!string.IsNullOrWhiteSpace(settingsArguments))
             {
-                arguments.Append(settings.GetArgumentsInline());
+                arguments.Append(settingsArguments);
+            }
+
+            if (settings.HasFixedArguments())
+            {
+                arguments.Append(settings.GetFixedArgumentsInline());
             }
 
             Run(settings, arguments, processSettings, postAction);

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cake.MkDocs
+namespace Cake.MkDocs.Attributes
 {
     /// <summary>
     /// Describes tool commands related to settings <see cref="MkDocsSettings"/>
