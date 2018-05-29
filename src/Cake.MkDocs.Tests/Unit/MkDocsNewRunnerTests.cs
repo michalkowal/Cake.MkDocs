@@ -7,6 +7,24 @@ namespace Cake.MkDocs.Tests.Unit
 {
     public sealed class MkDocsNewRunnerTests
     {
+        public sealed class TheNewInWorkingDirMethod
+            : MkDocsToolTests<MkDocsNewRunnerWorkingDirFixture, MkDocsNewSettings>
+        {
+            [Theory]
+            [InlineData("/Working")]
+            public void Should_Add_New_Command(string expected)
+            {
+                // Given
+                var fixture = new MkDocsNewRunnerWorkingDirFixture();
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal($"new \"{expected}\"", result.Args);
+            }
+        }
+
         public sealed class TheNewMethod
             : MkDocsToolTests<MkDocsNewRunnerFixture, MkDocsNewSettings>
         {

@@ -23,12 +23,22 @@ namespace Cake.MkDocs.GhDeploy
         }
 
         /// <summary>
-        /// Deploy your documentation to GitHub Pages.
+        /// Deploy your documentation to GitHub Pages (project in working directory).
         /// </summary>
         /// <param name="settings">The settings</param>
         public void GhDeploy(MkDocsGhDeploySettings settings)
         {
             Run(settings);
+        }
+
+        /// <summary>
+        /// Deploy your documentation to GitHub Pages.
+        /// </summary>
+        /// <param name="projectDirectory">Project dir to deploy.</param>
+        /// <param name="settings">The settings</param>
+        public void GhDeploy(DirectoryPath projectDirectory, MkDocsGhDeploySettings settings)
+        {
+            Run(settings, projectDirectory);
         }
     }
 }

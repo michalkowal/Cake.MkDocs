@@ -23,12 +23,22 @@ namespace Cake.MkDocs.Serve
         }
 
         /// <summary>
-        /// Run the builtin development server.
+        /// Run the builtin development server in working directory.
         /// </summary>
         /// <param name="settings">The settings</param>
         public void Serve(MkDocsServeSettings settings)
         {
             Run(settings);
+        }
+
+        /// <summary>
+        /// Run the builtin development server.
+        /// </summary>
+        /// <param name="projectDirectory">Project dir to serve.</param>
+        /// <param name="settings">The settings</param>
+        public void Serve(DirectoryPath projectDirectory, MkDocsServeSettings settings)
+        {
+            Run(settings, projectDirectory);
         }
     }
 }

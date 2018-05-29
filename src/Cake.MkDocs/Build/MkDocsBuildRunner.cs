@@ -22,12 +22,22 @@ namespace Cake.MkDocs.Build
         }
 
         /// <summary>
-        /// Build the MkDocs documentation.
+        /// Build the MkDocs documentation in working directory.
         /// </summary>
         /// <param name="settings">The settings</param>
         public void Build(MkDocsBuildSettings settings)
         {
             Run(settings);
+        }
+
+        /// <summary>
+        /// Build the MkDocs documentation.
+        /// </summary>
+        /// <param name="projectDirectory">Project dir to build.</param>
+        /// <param name="settings">The settings</param>
+        public void Build(DirectoryPath projectDirectory, MkDocsBuildSettings settings)
+        {
+            Run(settings, projectDirectory);
         }
     }
 }

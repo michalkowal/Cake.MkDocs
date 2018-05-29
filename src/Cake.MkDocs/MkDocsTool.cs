@@ -40,6 +40,28 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
+        /// Runs the tool using the specified settings and change process workig directory.
+        /// Creates process arguments based on settings attribute.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="projectDirectory">Process working directory.</param>
+        /// <param name="setCommandValues">If specified called during process argument building.</param>
+        protected void Run(TSettings settings, DirectoryPath projectDirectory, Action<ProcessArgumentBuilder> setCommandValues = null)
+        {
+            if (projectDirectory == null)
+            {
+                throw new ArgumentNullException(nameof(projectDirectory));
+            }
+
+            var processSettings = new ProcessSettings()
+            {
+                WorkingDirectory = projectDirectory.MakeAbsolute(_environment)
+            };
+
+            Run(settings, processSettings, null, setCommandValues);
+        }
+
+        /// <summary>
         /// Runs the tool using a custom tool path and the specified settings.
         /// Creates process arguments based on settings attribute.
         /// </summary>

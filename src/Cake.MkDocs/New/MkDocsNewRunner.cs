@@ -26,6 +26,16 @@ namespace Cake.MkDocs.New
         }
 
         /// <summary>
+        /// Create a new MkDocs project in current directory.
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        public void New(MkDocsNewSettings settings)
+        {
+            var directoryArgument = _environment.WorkingDirectory.MakeAbsolute(_environment).FullPath;
+            Run(settings, arguments => arguments.AppendQuoted(directoryArgument));
+        }
+
+        /// <summary>
         /// Create a new MkDocs project.
         /// </summary>
         /// <param name="projectDirectory">New project directory path.</param>
@@ -37,7 +47,8 @@ namespace Cake.MkDocs.New
                 throw new ArgumentNullException(nameof(projectDirectory));
             }
 
-            Run(settings, arguments => arguments.AppendQuoted(projectDirectory.MakeAbsolute(_environment).FullPath));
+            var directoryArgument = projectDirectory.MakeAbsolute(_environment).FullPath;
+            Run(settings, arguments => arguments.AppendQuoted(directoryArgument));
         }
     }
 }

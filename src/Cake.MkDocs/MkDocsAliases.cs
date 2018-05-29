@@ -84,6 +84,32 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
+        /// Create a new MkDocs project in working directory.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("New")]
+        [CakeNamespaceImport("Cake.MkDocs.New")]
+        public static void MkDocsNew(this ICakeContext context)
+        {
+            context.MkDocsNew(new MkDocsNewSettings());
+        }
+
+        /// <summary>
+        /// Create a new MkDocs project in working directory.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="settings">The settings.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("New")]
+        [CakeNamespaceImport("Cake.MkDocs.New")]
+        public static void MkDocsNew(this ICakeContext context, MkDocsNewSettings settings)
+        {
+            var runner = MkDocsRunnerFactory.CreateNewRunner(context);
+            runner.New(settings);
+        }
+
+        /// <summary>
         /// Create a new MkDocs project.
         /// </summary>
         /// <param name="context">The context.</param>
@@ -112,7 +138,7 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Build the MkDocs documentation.
+        /// Build the MkDocs documentation in working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         [CakeMethodAlias]
@@ -124,7 +150,7 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Build the MkDocs documentation.
+        /// Build the MkDocs documentation in working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
@@ -138,7 +164,35 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Run the builtin development server.
+        /// Build the MkDocs documentation.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to build.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Build")]
+        [CakeNamespaceImport("Cake.MkDocs.Build")]
+        public static void MkDocsBuild(this ICakeContext context, DirectoryPath projectDirectory)
+        {
+            context.MkDocsBuild(projectDirectory, new MkDocsBuildSettings());
+        }
+
+        /// <summary>
+        /// Build the MkDocs documentation.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to build.</param>
+        /// <param name="settings">The settings.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Build")]
+        [CakeNamespaceImport("Cake.MkDocs.Build")]
+        public static void MkDocsBuild(this ICakeContext context, DirectoryPath projectDirectory, MkDocsBuildSettings settings)
+        {
+            var runner = MkDocsRunnerFactory.CreateBuildRunner(context);
+            runner.Build(projectDirectory, settings);
+        }
+
+        /// <summary>
+        /// Run the builtin development server in working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         [CakeMethodAlias]
@@ -150,7 +204,7 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Run the builtin development server.
+        /// Run the builtin development server in working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
@@ -164,7 +218,35 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Deploy your documentation to GitHub Pages.
+        /// Run the builtin development server.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to serve.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Serve")]
+        [CakeNamespaceImport("Cake.MkDocs.Serve")]
+        public static void MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory)
+        {
+            context.MkDocsServe(projectDirectory, new MkDocsServeSettings());
+        }
+
+        /// <summary>
+        /// Run the builtin development server.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to serve.</param>
+        /// <param name="settings">The settings.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Serve")]
+        [CakeNamespaceImport("Cake.MkDocs.Serve")]
+        public static void MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory, MkDocsServeSettings settings)
+        {
+            var runner = MkDocsRunnerFactory.CreateServeRunner(context);
+            runner.Serve(projectDirectory, settings);
+        }
+
+        /// <summary>
+        /// Deploy your documentation to GitHub Pages (project in working directory).
         /// </summary>
         /// <param name="context">The context.</param>
         [CakeMethodAlias]
@@ -176,7 +258,7 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Deploy your documentation to GitHub Pages.
+        /// Deploy your documentation to GitHub Pages (project in working directory).
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
@@ -187,6 +269,34 @@ namespace Cake.MkDocs
         {
             var runner = MkDocsRunnerFactory.CreateGhDeployRunner(context);
             runner.GhDeploy(settings);
+        }
+
+        /// <summary>
+        /// Deploy your documentation to GitHub Pages.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to deploy.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("GhDeploy")]
+        [CakeNamespaceImport("Cake.MkDocs.GhDeploy")]
+        public static void MkDocsGhDeploy(this ICakeContext context, DirectoryPath projectDirectory)
+        {
+            context.MkDocsGhDeploy(projectDirectory, new MkDocsGhDeploySettings());
+        }
+
+        /// <summary>
+        /// Deploy your documentation to GitHub Pages.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to deploy.</param>
+        /// <param name="settings">The settings.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("GhDeploy")]
+        [CakeNamespaceImport("Cake.MkDocs.GhDeploy")]
+        public static void MkDocsGhDeploy(this ICakeContext context, DirectoryPath projectDirectory, MkDocsGhDeploySettings settings)
+        {
+            var runner = MkDocsRunnerFactory.CreateGhDeployRunner(context);
+            runner.GhDeploy(projectDirectory, settings);
         }
     }
 }

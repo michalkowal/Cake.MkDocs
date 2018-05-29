@@ -121,6 +121,19 @@ namespace Cake.MkDocs.Tests.Unit
         public sealed class TheMkDocsNewMethod
         {
             [Fact]
+            public void Should_Not_Throw_For_Default_Settings_For_Working_Directory()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+
+                // When
+                var result = Record.Exception(() => context.MkDocsNew());
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
             public void Should_Not_Throw_For_Default_Settings()
             {
                 // Given
@@ -129,6 +142,20 @@ namespace Cake.MkDocs.Tests.Unit
 
                 // When
                 var result = Record.Exception(() => context.MkDocsNew(projectDir));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_For_Defined_Settings_For_Working_Directory()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var settings = new MkDocsNewSettings();
+
+                // When
+                var result = Record.Exception(() => context.MkDocsNew(settings));
 
                 // Then
                 Assert.Null(result);
@@ -150,6 +177,20 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Fact]
+            public void Should_Throw_For_Null_Context_For_Working_Directory()
+            {
+                // Given
+                var settings = new MkDocsNewSettings();
+
+                // When
+                var result = Record.Exception(() => MkDocsAliases.MkDocsNew(null, settings));
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("context", ((ArgumentNullException)result).ParamName);
+            }
+
+            [Fact]
             public void Should_Throw_For_Null_Context()
             {
                 // Given
@@ -168,7 +209,7 @@ namespace Cake.MkDocs.Tests.Unit
         public sealed class TheMkDocsBuildMethod
         {
             [Fact]
-            public void Should_Not_Throw_For_Default_Settings()
+            public void Should_Not_Throw_For_Default_Settings_For_Working_Directory()
             {
                 // Given
                 var context = new MkDocsContextFixture();
@@ -181,7 +222,21 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Fact]
-            public void Should_Not_Throw_For_Defined_Settings()
+            public void Should_Not_Throw_For_Default_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsBuild(projectDir));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_For_Defined_Settings_For_Working_Directory()
             {
                 // Given
                 var context = new MkDocsContextFixture();
@@ -195,7 +250,22 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Fact]
-            public void Should_Throw_For_Null_Context()
+            public void Should_Not_Throw_For_Defined_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var settings = new MkDocsBuildSettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsBuild(projectDir, settings));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context_For_Working_Directory()
             {
                 // Given
                 var settings = new MkDocsBuildSettings();
@@ -207,12 +277,27 @@ namespace Cake.MkDocs.Tests.Unit
                 Assert.IsType<ArgumentNullException>(result);
                 Assert.Equal("context", ((ArgumentNullException)result).ParamName);
             }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context()
+            {
+                // Given
+                var settings = new MkDocsBuildSettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => MkDocsAliases.MkDocsBuild(null, projectDir, settings));
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("context", ((ArgumentNullException)result).ParamName);
+            }
         }
 
         public sealed class TheMkDocsServeMethod
         {
             [Fact]
-            public void Should_Not_Throw_For_Default_Settings()
+            public void Should_Not_Throw_For_Default_Settings_For_Working_Directory()
             {
                 // Given
                 var context = new MkDocsContextFixture();
@@ -225,7 +310,21 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Fact]
-            public void Should_Not_Throw_For_Defined_Settings()
+            public void Should_Not_Throw_For_Default_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsServe(projectDir));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_For_Defined_Settings_For_Working_Directory()
             {
                 // Given
                 var context = new MkDocsContextFixture();
@@ -239,7 +338,22 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Fact]
-            public void Should_Throw_For_Null_Context()
+            public void Should_Not_Throw_For_Defined_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var settings = new MkDocsServeSettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsServe(projectDir, settings));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context_For_Working_Directory()
             {
                 // Given
                 var settings = new MkDocsServeSettings();
@@ -251,12 +365,27 @@ namespace Cake.MkDocs.Tests.Unit
                 Assert.IsType<ArgumentNullException>(result);
                 Assert.Equal("context", ((ArgumentNullException)result).ParamName);
             }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context()
+            {
+                // Given
+                var settings = new MkDocsServeSettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => MkDocsAliases.MkDocsServe(null, projectDir, settings));
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("context", ((ArgumentNullException)result).ParamName);
+            }
         }
 
         public sealed class TheMkDocsGhDeployMethod
         {
             [Fact]
-            public void Should_Not_Throw_For_Default_Settings()
+            public void Should_Not_Throw_For_Default_Settings_For_Working_Directory()
             {
                 // Given
                 var context = new MkDocsContextFixture();
@@ -269,7 +398,21 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Fact]
-            public void Should_Not_Throw_For_Defined_Settings()
+            public void Should_Not_Throw_For_Default_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsGhDeploy(projectDir));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_For_Defined_Settings_For_Working_Directory()
             {
                 // Given
                 var context = new MkDocsContextFixture();
@@ -283,13 +426,43 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Fact]
-            public void Should_Throw_For_Null_Context()
+            public void Should_Not_Throw_For_Defined_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var settings = new MkDocsGhDeploySettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsGhDeploy(projectDir, settings));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context_For_Working_Directory()
             {
                 // Given
                 var settings = new MkDocsGhDeploySettings();
 
                 // When
                 var result = Record.Exception(() => MkDocsAliases.MkDocsGhDeploy(null, settings));
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("context", ((ArgumentNullException)result).ParamName);
+            }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context()
+            {
+                // Given
+                var settings = new MkDocsGhDeploySettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => MkDocsAliases.MkDocsGhDeploy(null, projectDir, settings));
 
                 // Then
                 Assert.IsType<ArgumentNullException>(result);

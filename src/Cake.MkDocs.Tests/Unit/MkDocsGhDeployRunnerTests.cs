@@ -1,4 +1,6 @@
-﻿using Cake.MkDocs.GhDeploy;
+﻿using System;
+using Cake.MkDocs.GhDeploy;
+using Cake.MkDocs.Tests.Fixtures;
 using Cake.MkDocs.Tests.Fixtures.GhDeploy;
 using Xunit;
 
@@ -6,14 +8,15 @@ namespace Cake.MkDocs.Tests.Unit
 {
     public sealed class MkDocsGhDeployRunnerTests
     {
-        public sealed class TheGhDeployMethod
-            : MkDocsToolTests<MkDocsGhDeployRunnerFixture, MkDocsGhDeploySettings>
+        public abstract class BaseMkDocsGhDeployTests<TFixture>
+            : MkDocsToolTests<TFixture, MkDocsGhDeploySettings>
+            where TFixture : MkDocsFixture<MkDocsGhDeploySettings>, new()
         {
             [Fact]
             public void Should_Add_GhDeploy_Command()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
@@ -26,7 +29,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Add_Clean_Argument_If_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
                 fixture.Settings.Clean = true;
 
                 // When
@@ -40,7 +43,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Not_Add_Clean_Argument_If_Not_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
@@ -53,7 +56,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Add_Dirty_Argument_If_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new MkDocsGhDeployRunnerWorkingDirFixture();
                 fixture.Settings.Dirty = true;
 
                 // When
@@ -67,7 +70,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Not_Add_Dirty_Argument_If_Not_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
@@ -82,7 +85,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Add_Config_File_Argument_If_Defined(string configFile, string expected)
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
                 fixture.Settings.ConfigFile = configFile;
 
                 // When
@@ -96,7 +99,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Not_Add_Config_File_Argument_If_Not_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
@@ -111,7 +114,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Add_Message_Argument_If_Defined(string message)
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
                 fixture.Settings.Message = message;
 
                 // When
@@ -125,7 +128,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Not_Add_Message_Argument_If_Not_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
@@ -141,7 +144,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Add_Remote_Branch_Argument_If_Defined(string remoteBranch)
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
                 fixture.Settings.RemoteBranch = remoteBranch;
 
                 // When
@@ -155,7 +158,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Not_Add_Remote_Branch_Argument_If_Not_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
@@ -169,7 +172,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Add_Remote_Name_Argument_If_Defined(string remoteName)
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
                 fixture.Settings.RemoteName = remoteName;
 
                 // When
@@ -183,7 +186,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Not_Add_Remote_Name_Argument_If_Not_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
@@ -196,7 +199,7 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Add_Force_Argument_If_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
                 fixture.Settings.Force = true;
 
                 // When
@@ -210,13 +213,66 @@ namespace Cake.MkDocs.Tests.Unit
             public void Should_Not_Add_Force_Argument_If_Not_Defined()
             {
                 // Given
-                var fixture = new MkDocsGhDeployRunnerFixture();
+                var fixture = new TFixture();
 
                 // When
                 var result = fixture.Run();
 
                 // Then
                 Assert.DoesNotContain("--force", result.Args);
+            }
+        }
+
+        public sealed class TheGhDeployInWorkingDirMethod
+            : BaseMkDocsGhDeployTests<MkDocsGhDeployRunnerWorkingDirFixture>
+        {
+            [Theory]
+            [InlineData("/Working")]
+            public void Should_Not_Change_Process_Working_Directory(string expected)
+            {
+                // Given
+                var fixture = new MkDocsGhDeployRunnerWorkingDirFixture();
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal(expected, result.Process.WorkingDirectory.FullPath);
+            }
+        }
+
+        public sealed class TheGhDeployMethod
+            : BaseMkDocsGhDeployTests<MkDocsGhDeployRunnerWorkingDirFixture>
+        {
+            [Theory]
+            [InlineData("./project", "/Working/project")]
+            [InlineData("/project the second/", "/project the second")]
+            public void Should_Change_Process_Working_Directory(string dir, string expected)
+            {
+                // Given
+                var fixture = new MkDocsGhDeployRunnerFixture();
+                fixture.GivenProjectDirectory(dir);
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Equal(expected, result.Process.WorkingDirectory.FullPath);
+            }
+
+            [Fact]
+            public void Should_Throw_For_Empty_Project_Dir()
+            {
+                // Given
+                var fixture = new MkDocsGhDeployRunnerFixture();
+                fixture.GivenProjectDirectory(null);
+
+                // When
+                var result = Record.Exception(() => fixture.Run());
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("projectDirectory", ((ArgumentNullException)result).ParamName);
             }
         }
     }
