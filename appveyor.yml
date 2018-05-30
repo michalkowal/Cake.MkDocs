@@ -1,13 +1,38 @@
 #---------------------------------#
 #  Build Image                    #
 #---------------------------------#
-image: Visual Studio 2017
+image: 
+  - Visual Studio 2017
+  - Ubuntu
+  
+environment:
+  CAKE_SETTINGS_SKIPVERIFICATION: true
 
 #---------------------------------#
 #  Build Script                   #
 #---------------------------------#
-build_script:
-  - ps: .\build.ps1 -Target AppVeyor
+for:
+-
+  matrix:
+    only:
+      - image: Visual Studio 2017
+      
+  install:
+    - ps: pip install mkdocs
+    
+  build_script:
+    - ps: .\build.ps1 -Target AppVeyor
+-
+  matrix:
+    only:
+      - image: Ubuntu
+      
+  install:
+    - sh: sudo pip install mkdocs
+    
+  build_script:
+    - sh: chmod +x ./build.sh
+    - sh: ./build.sh --target AppVeyor
 
 # Tests
 test: off

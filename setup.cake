@@ -13,21 +13,6 @@ BuildParameters.SetParameters(context: Context,
 
 BuildParameters.PrintParameters(Context);
 
-ToolSettings.SetToolSettings(context: Context,
-							dupFinderExcludeFilesByStartingCommentSubstring: new string[] 
-							{
-								"DupFinder exclude"
-							});
-
-Task("Run-Local-Integration-Tests")
-    .IsDependentOn("Default")
-    .Does(() => {
-    CakeExecuteScript("./test.cake",
-        new CakeSettings {
-            Arguments = new Dictionary<string, string>{
-                { "version", BuildParameters.Version.SemVersion },
-                { "verbosity", Context.Log.Verbosity.ToString("F") }
-            }});
-});
+ToolSettings.SetToolSettings(context: Context);
 
 Build.RunDotNetCore();
