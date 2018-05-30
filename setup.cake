@@ -8,8 +8,7 @@ BuildParameters.SetParameters(context: Context,
                             title: "Cake.MkDocs",
                             repositoryOwner: "michalkowal",
                             repositoryName: "Cake.MkDocs",
-                            appVeyorAccountName: "michalkowal",
-							nuspecFilePath: "./nuspec/Cake.MkDocs.nuspec");
+                            appVeyorAccountName: "michalkowal");
 
 BuildParameters.PrintParameters(Context);
 
