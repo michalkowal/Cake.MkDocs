@@ -21,7 +21,7 @@ for:
     - ps: pip install mkdocs
     
   build_script:
-    - ps: .\build.ps1 -Target AppVeyor
+    - ps: .\build.ps1 -Target AppVeyor -Verbosity Diagnostic
 -
   matrix:
     only:
@@ -32,7 +32,7 @@ for:
     
   build_script:
     - sh: chmod +x ./build.sh
-    - sh: ./build.sh --target AppVeyor
+    - sh: ./build.sh --target AppVeyor --verbosity Diagnostic
 
 # Tests
 test: off
