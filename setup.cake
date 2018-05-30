@@ -8,7 +8,9 @@ BuildParameters.SetParameters(context: Context,
                             title: "Cake.MkDocs",
                             repositoryOwner: "michalkowal",
                             repositoryName: "Cake.MkDocs",
-                            appVeyorAccountName: "michalkowal");
+                            appVeyorAccountName: "michalkowal",
+							// Build issue on Unix
+							shouldExecuteGitLink: Context.IsRunningOnWindows());
 
 BuildParameters.PrintParameters(Context);
 
