@@ -2,7 +2,7 @@
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://cake-contrib.mit-license.org)
 
-Cake Addin that extends Cake with ability to run the MkDocs CLI.  
+Cake Addin that extends Cake with ability to run the MkDocs.  
 More about Cake at http://cakebuild.net and MkDocs at http://http://www.mkdocs.org
 
 ## Information

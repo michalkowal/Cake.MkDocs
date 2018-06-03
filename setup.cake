@@ -10,6 +10,7 @@ BuildParameters.SetParameters(context: Context,
                             repositoryOwner: "michalkowal",
                             repositoryName: "Cake.MkDocs",
                             appVeyorAccountName: "michalkowal",
+							webBaseEditUrl: $"https://github.com/michalkowal/Cake.MkDocs/tree/master/docs/input/",
 							shouldRunIntegrationTests: shouldRunIntegrationTests,
 							// Build issue on Unix
 							shouldExecuteGitLink: Context.IsRunningOnWindows());
