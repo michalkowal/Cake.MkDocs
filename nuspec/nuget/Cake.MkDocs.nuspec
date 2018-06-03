@@ -18,5 +18,6 @@
     <file src="netstandard2.0\Cake.MkDocs.dll" target="lib/netstandard2.0" />
     <file src="netstandard2.0\Cake.MkDocs.pdb" target="lib/netstandard2.0" />
 	<file src="netstandard2.0\Cake.MkDocs.xml" target="lib/netstandard2.0" />
+	<file src="netstandard2.0\Semver.dll" target="lib/netstandard2.0" />
   </files>
 </package>

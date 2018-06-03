@@ -1,4 +1,5 @@
-﻿using Cake.Core;
+﻿using System.Threading.Tasks;
+using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.IO;
 using Cake.MkDocs.Build;
@@ -195,12 +196,13 @@ namespace Cake.MkDocs
         /// Run the builtin development server in working directory.
         /// </summary>
         /// <param name="context">The context.</param>
+        /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static void MkDocsServe(this ICakeContext context)
+        public static Task MkDocsServe(this ICakeContext context)
         {
-            context.MkDocsServe(new MkDocsServeSettings());
+            return context.MkDocsServe(new MkDocsServeSettings());
         }
 
         /// <summary>
@@ -208,13 +210,14 @@ namespace Cake.MkDocs
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
+        /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static void MkDocsServe(this ICakeContext context, MkDocsServeSettings settings)
+        public static Task MkDocsServe(this ICakeContext context, MkDocsServeSettings settings)
         {
             var runner = MkDocsRunnerFactory.CreateServeRunner(context);
-            runner.Serve(settings);
+            return runner.Serve(settings);
         }
 
         /// <summary>
@@ -222,12 +225,13 @@ namespace Cake.MkDocs
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="projectDirectory">Project directory path to serve.</param>
+        /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static void MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory)
+        public static Task MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory)
         {
-            context.MkDocsServe(projectDirectory, new MkDocsServeSettings());
+            return context.MkDocsServe(projectDirectory, new MkDocsServeSettings());
         }
 
         /// <summary>
@@ -236,13 +240,14 @@ namespace Cake.MkDocs
         /// <param name="context">The context.</param>
         /// <param name="projectDirectory">Project directory path to serve.</param>
         /// <param name="settings">The settings.</param>
+        /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static void MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory, MkDocsServeSettings settings)
+        public static Task MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory, MkDocsServeSettings settings)
         {
             var runner = MkDocsRunnerFactory.CreateServeRunner(context);
-            runner.Serve(projectDirectory, settings);
+            return runner.Serve(projectDirectory, settings);
         }
 
         /// <summary>

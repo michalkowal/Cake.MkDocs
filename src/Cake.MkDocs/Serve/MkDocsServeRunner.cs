@@ -1,4 +1,5 @@
-﻿using Cake.Core;
+﻿using System.Threading.Tasks;
+using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
 
@@ -7,7 +8,7 @@ namespace Cake.MkDocs.Serve
     /// <summary>
     /// The MkDocs serve tool creates a new MkDocs project.
     /// </summary>
-    public sealed class MkDocsServeRunner : MkDocsTool<MkDocsServeSettings>
+    public sealed class MkDocsServeRunner : MkDocsAsyncTool<MkDocsServeSettings>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MkDocsServeRunner"/> class.
@@ -26,9 +27,10 @@ namespace Cake.MkDocs.Serve
         /// Run the builtin development server in working directory.
         /// </summary>
         /// <param name="settings">The settings</param>
-        public void Serve(MkDocsServeSettings settings)
+        /// <returns>Long running task.</returns>
+        public Task Serve(MkDocsServeSettings settings)
         {
-            Run(settings);
+            return RunAsync(settings);
         }
 
         /// <summary>
@@ -36,9 +38,10 @@ namespace Cake.MkDocs.Serve
         /// </summary>
         /// <param name="projectDirectory">Project dir to serve.</param>
         /// <param name="settings">The settings</param>
-        public void Serve(DirectoryPath projectDirectory, MkDocsServeSettings settings)
+        /// <returns>Long running task.</returns>
+        public Task Serve(DirectoryPath projectDirectory, MkDocsServeSettings settings)
         {
-            Run(settings, projectDirectory);
+            return RunAsync(settings, projectDirectory);
         }
     }
 }

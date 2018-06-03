@@ -71,6 +71,18 @@ namespace Cake.MkDocs
         /// <param name="setCommandValues">If specified called during process argument building.</param>
         protected void Run(TSettings settings, ProcessSettings processSettings, Action<IProcess> postAction, Action<ProcessArgumentBuilder> setCommandValues = null)
         {
+            ProcessArgumentBuilder arguments = BuildArguments(settings, setCommandValues);
+            Run(settings, arguments, processSettings, postAction);
+        }
+
+        /// <summary>
+        /// Builds process arguments based on settings
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <param name="setCommandValues">If specified called during process argument building.</param>
+        /// <returns><see cref="ProcessArgumentBuilder"/> with all commands and arguments for process.</returns>
+        protected ProcessArgumentBuilder BuildArguments(TSettings settings, Action<ProcessArgumentBuilder> setCommandValues = null)
+        {
             if (settings == null)
             {
                 throw new ArgumentNullException(nameof(settings));
@@ -94,7 +106,7 @@ namespace Cake.MkDocs
                 arguments.Append(settings.GetFixedArgumentsInline());
             }
 
-            Run(settings, arguments, processSettings, postAction);
+            return arguments;
         }
 
         /// <summary>
