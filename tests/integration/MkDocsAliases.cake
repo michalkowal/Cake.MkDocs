@@ -66,5 +66,5 @@ Task("MkDocsAliases")
 	.IsDependentOn("MkDocsVersion")
 	.IsDependentOn("MkDocsNew")
 	.IsDependentOn("MkDocsBuild")
-	.IsDependentOn("MkDocsServe");
+	.IsDependentOn("MkDocsServe")
 	.IsDependentOn("MkDocsGhDeploy");
