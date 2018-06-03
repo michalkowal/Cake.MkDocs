@@ -31,7 +31,10 @@ versionTasks.Add(
 		.Does(() =>
 		{
 			Information("Uninstall global mkdocs");
-			StartProcess("pip", new ProcessSettings() { Arguments = "uninstall mkdocs --y" });
+			if (Context.IsRunningOnWindows())
+				StartProcess("pip", new ProcessSettings() { Arguments = "uninstall mkdocs --y" });
+			else
+				StartProcess("sudo", new ProcessSettings() { Arguments = "pip uninstall mkdocs --y" });
 			
 			Information("Install local mkdocs");
 			StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.16.3 --target \"{Paths.Temp.Combine("packages/")}\"" });
@@ -88,7 +91,10 @@ versionTasks.Add(
 			DeleteDirectory(Paths.Temp.Combine("packages/"), new DeleteDirectorySettings() { Recursive = true });
 		
 			Information("Install global mkdocs");
-			StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.17.3" });
+			if (Context.IsRunningOnWindows())
+				StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.17.3" });
+			else
+				StartProcess("sudo", new ProcessSettings() { Arguments = $"pip install mkdocs==0.17.3" });
 		}));
 
 Task("MkDocsVersion")
