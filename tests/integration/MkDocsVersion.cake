@@ -37,7 +37,10 @@ versionTasks.Add(
 				StartProcess("sudo", new ProcessSettings() { Arguments = "pip uninstall mkdocs --y" });
 			
 			Information("Install local mkdocs");
-			StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.16.3 --target \"{Paths.Temp.Combine("packages/")}\"" });
+			if (Context.IsRunningOnWindows())
+				StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.16.3 --target \"{Paths.Temp.Combine("packages/")}\"" });
+			else
+				StartProcess("sudo", new ProcessSettings() { Arguments = $"pip install mkdocs==0.16.3 --prefix /usr/local" });
 		}));
 	
 versionTasks.Add(
@@ -46,13 +49,22 @@ versionTasks.Add(
 		.Does(() =>
 		{
 			// Given
-			var extension = Context.IsRunningOnWindows() ? ".exe" : "";
+			var localMkdocs = Context.IsRunningOnWindows() ? Paths.Temp.CombineWithFilePath("packages/bin/mkdocs.exe") : new FilePath("/usr/local/bin/mkdocs");
+			var pythonPath = (EnvironmentVariable("PYTHONPATH") ?? string.Empty);
+			if (!string.IsNullOrEmpty(pythonPath))
+			{
+				pythonPath += Context.IsRunningOnWindows() ? ";" : ":";
+			}
+			pythonPath += Context.IsRunningOnWindows()
+				? $"{Paths.Temp.Combine("packages")};{Paths.Temp.Combine("packages/bin")}"
+				: $"{new DirectoryPath("/usr/local")};{new DirectoryPath("/usr/local/bin")}";
+			
 			var settings = new MkDocsVersionSettings()
 			{
-				ToolPath = Paths.Temp.CombineWithFilePath("packages/bin/mkdocs" + extension),
+				ToolPath = localMkdocs,
 				EnvironmentVariables = new Dictionary<string, string>()
 				{
-					{ "PYTHONPATH", $"{Paths.Temp.Combine("packages")};{Paths.Temp.Combine("packages/bin")}" }
+					{ "PYTHONPATH", pythonPath }
 				}
 			};
 		
@@ -69,13 +81,22 @@ versionTasks.Add(
 		.Does(() =>
 		{
 			// Given
-			var extension = Context.IsRunningOnWindows() ? ".exe" : "";
+			var localMkdocs = Context.IsRunningOnWindows() ? Paths.Temp.CombineWithFilePath("packages/bin/mkdocs.exe") : new FilePath("/usr/local/bin/mkdocs");
+			var pythonPath = (EnvironmentVariable("PYTHONPATH") ?? string.Empty);
+			if (!string.IsNullOrEmpty(pythonPath))
+			{
+				pythonPath += Context.IsRunningOnWindows() ? ";" : ":";
+			}
+			pythonPath += Context.IsRunningOnWindows()
+				? $"{Paths.Temp.Combine("packages")};{Paths.Temp.Combine("packages/bin")}"
+				: $"{new DirectoryPath("/usr/local")};{new DirectoryPath("/usr/local/bin")}";
+			
 			var settings = new MkDocsVersionSettings()
 			{
-				ToolPath = Paths.Temp.CombineWithFilePath("packages/bin/mkdocs" + extension),
+				ToolPath = localMkdocs,
 				EnvironmentVariables = new Dictionary<string, string>()
 				{
-					{ "PYTHONPATH", $"{Paths.Temp.Combine("packages")};{Paths.Temp.Combine("packages/bin")}" }
+					{ "PYTHONPATH", pythonPath }
 				}
 			};
 			
@@ -87,9 +108,14 @@ versionTasks.Add(
 		})
 		.Finally(() =>
 		{
-			Information("Remove local packages");
-			DeleteDirectory(Paths.Temp.Combine("packages/"), new DeleteDirectorySettings() { Recursive = true });
-		
+			if (Context.IsRunningOnWindows())
+			{
+				Information("Remove local packages");
+				DeleteDirectory(Paths.Temp.Combine("packages/"), new DeleteDirectorySettings() { Recursive = true });
+			}
+			else
+				StartProcess("sudo", new ProcessSettings() { Arguments = $"pip uninstall mkdocs --y" });
+				
 			Information("Install global mkdocs");
 			if (Context.IsRunningOnWindows())
 				StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.17.3" });

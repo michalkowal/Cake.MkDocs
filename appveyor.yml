@@ -2,7 +2,6 @@
 #  Build Image                    #
 #---------------------------------#
 image: 
-  - Visual Studio 2017
   - Ubuntu
   
 environment:
@@ -12,16 +11,6 @@ environment:
 #  Build Script                   #
 #---------------------------------#
 for:
--
-  matrix:
-    only:
-      - image: Visual Studio 2017
-      
-  install:
-    - ps: pip install mkdocs==0.17.3
-    
-  build_script:
-    - ps: .\build.ps1 -Target AppVeyor -Verbosity Diagnostic
 -
   matrix:
     only:
