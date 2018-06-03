@@ -63,8 +63,8 @@ TaskTeardown((taskContext) =>
 });
 
 Task("MkDocsAliases")
-	//.IsDependentOn("MkDocsVersion")
-	//.IsDependentOn("MkDocsNew")
-	//.IsDependentOn("MkDocsBuild")
+	.IsDependentOn("MkDocsVersion")
+	.IsDependentOn("MkDocsNew")
+	.IsDependentOn("MkDocsBuild")
 	.IsDependentOn("MkDocsServe");
-	//.IsDependentOn("MkDocsGhDeploy");
+	.IsDependentOn("MkDocsGhDeploy");
