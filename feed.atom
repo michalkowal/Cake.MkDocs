@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<link rel="self" href="http://michalkowal.github.io/Cake.MkDocs" />
+	<id>http://michalkowal.github.io/Cake.MkDocs</id>
+	<title>Cake.MkDocs</title>
+	<rights>2018</rights>
+	<updated>2018-06-03T20:09:44Z</updated>
+</feed>

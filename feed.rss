@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+		<title>Cake.MkDocs</title>
+		<link>http://michalkowal.github.io/Cake.MkDocs</link>
+		<description />
+		<copyright>2018</copyright>
+		<pubDate>Sun, 03 Jun 2018 20:09:44 GMT</pubDate>
+		<lastBuildDate>Sun, 03 Jun 2018 20:09:44 GMT</lastBuildDate>
+	</channel>
+</rss>
