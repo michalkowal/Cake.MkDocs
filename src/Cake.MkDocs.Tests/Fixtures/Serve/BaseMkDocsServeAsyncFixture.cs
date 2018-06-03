@@ -4,13 +4,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
+using Cake.MkDocs.Serve;
 using Cake.Testing;
 using Cake.Testing.Fixtures;
 
-namespace Cake.MkDocs.Tests.Fixtures
+namespace Cake.MkDocs.Tests.Fixtures.Serve
 {
-    public abstract class MkDocsAsyncFixture<TToolSettings>
-        where TToolSettings : MkDocsAsyncSettings, new()
+    public abstract class BaseMkDocsServeAsyncFixture
     {
         public const string ToolFileName = "mkdocs";
         private bool _handleOperationCanceledException = true;
@@ -27,13 +27,13 @@ namespace Cake.MkDocs.Tests.Fixtures
 
         public IToolLocator Tools { get; set; }
 
-        public TToolSettings Settings { get; set; }
+        public MkDocsServeAsyncSettings Settings { get; set; }
 
         public FilePath DefaultToolPath { get; }
 
-        protected MkDocsAsyncFixture()
+        protected BaseMkDocsServeAsyncFixture()
         {
-            Settings = new TToolSettings();
+            Settings = new MkDocsServeAsyncSettings();
             ProcessRunner = new ToolFixtureProcessLongRunner(CreateResult);
             Environment = FakeEnvironment.CreateUnixEnvironment();
             FileSystem = new FakeFileSystem(Environment);

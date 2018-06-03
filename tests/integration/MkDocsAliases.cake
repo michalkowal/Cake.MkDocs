@@ -37,6 +37,10 @@ TaskTeardown((taskContext) =>
 				{
 					_taskData.CancellationSource.Cancel();
 				}
+				if (_taskData.LongRunTask != null)
+				{
+					_taskData.LongRunTask.Wait();
+				}
 			}
 			catch
 			{
@@ -59,8 +63,8 @@ TaskTeardown((taskContext) =>
 });
 
 Task("MkDocsAliases")
-	.IsDependentOn("MkDocsVersion")
-	.IsDependentOn("MkDocsNew")
-	.IsDependentOn("MkDocsBuild")
-	.IsDependentOn("MkDocsServe")
-	.IsDependentOn("MkDocsGhDeploy");
+	//.IsDependentOn("MkDocsVersion")
+	//.IsDependentOn("MkDocsNew")
+	//.IsDependentOn("MkDocsBuild")
+	.IsDependentOn("MkDocsServe");
+	//.IsDependentOn("MkDocsGhDeploy");

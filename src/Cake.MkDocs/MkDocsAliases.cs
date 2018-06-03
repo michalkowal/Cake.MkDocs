@@ -193,31 +193,29 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Run the builtin development server in working directory.
+        /// Run the builtin development server async in working directory.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static Task MkDocsServe(this ICakeContext context)
+        public static void MkDocsServe(this ICakeContext context)
         {
-            return context.MkDocsServe(new MkDocsServeSettings());
+            context.MkDocsServe(new MkDocsServeSettings());
         }
 
         /// <summary>
-        /// Run the builtin development server in working directory.
+        /// Run the builtin development server async in working directory.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="settings">The settings.</param>
-        /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static Task MkDocsServe(this ICakeContext context, MkDocsServeSettings settings)
+        public static void MkDocsServe(this ICakeContext context, MkDocsServeSettings settings)
         {
             var runner = MkDocsRunnerFactory.CreateServeRunner(context);
-            return runner.Serve(settings);
+            runner.Serve(settings);
         }
 
         /// <summary>
@@ -225,13 +223,12 @@ namespace Cake.MkDocs
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="projectDirectory">Project directory path to serve.</param>
-        /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static Task MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory)
+        public static void MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory)
         {
-            return context.MkDocsServe(projectDirectory, new MkDocsServeSettings());
+            context.MkDocsServe(projectDirectory, new MkDocsServeSettings());
         }
 
         /// <summary>
@@ -240,14 +237,71 @@ namespace Cake.MkDocs
         /// <param name="context">The context.</param>
         /// <param name="projectDirectory">Project directory path to serve.</param>
         /// <param name="settings">The settings.</param>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Serve")]
+        [CakeNamespaceImport("Cake.MkDocs.Serve")]
+        public static void MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory, MkDocsServeSettings settings)
+        {
+            var runner = MkDocsRunnerFactory.CreateServeRunner(context);
+            runner.Serve(projectDirectory, settings);
+        }
+
+        /// <summary>
+        /// Run the builtin development server async in working directory.
+        /// </summary>
+        /// <param name="context">The context.</param>
         /// <returns>Long running task.</returns>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
-        public static Task MkDocsServe(this ICakeContext context, DirectoryPath projectDirectory, MkDocsServeSettings settings)
+        public static Task MkDocsServeAsync(this ICakeContext context)
         {
-            var runner = MkDocsRunnerFactory.CreateServeRunner(context);
-            return runner.Serve(projectDirectory, settings);
+            return context.MkDocsServeAsync(new MkDocsServeAsyncSettings());
+        }
+
+        /// <summary>
+        /// Run the builtin development server async in working directory.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="settings">The settings.</param>
+        /// <returns>Long running task.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Serve")]
+        [CakeNamespaceImport("Cake.MkDocs.Serve")]
+        public static Task MkDocsServeAsync(this ICakeContext context, MkDocsServeAsyncSettings settings)
+        {
+            var runner = MkDocsRunnerFactory.CreateServeAsyncRunner(context);
+            return runner.ServeAsync(settings);
+        }
+
+        /// <summary>
+        /// Run the builtin development server async.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to serve.</param>
+        /// <returns>Long running task.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Serve")]
+        [CakeNamespaceImport("Cake.MkDocs.Serve")]
+        public static Task MkDocsServeAsync(this ICakeContext context, DirectoryPath projectDirectory)
+        {
+            return context.MkDocsServeAsync(projectDirectory, new MkDocsServeAsyncSettings());
+        }
+
+        /// <summary>
+        /// Run the builtin development server async.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="projectDirectory">Project directory path to serve.</param>
+        /// <param name="settings">The settings.</param>
+        /// <returns>Long running task.</returns>
+        [CakeMethodAlias]
+        [CakeAliasCategory("Serve")]
+        [CakeNamespaceImport("Cake.MkDocs.Serve")]
+        public static Task MkDocsServeAsync(this ICakeContext context, DirectoryPath projectDirectory, MkDocsServeAsyncSettings settings)
+        {
+            var runner = MkDocsRunnerFactory.CreateServeAsyncRunner(context);
+            return runner.ServeAsync(projectDirectory, settings);
         }
 
         /// <summary>

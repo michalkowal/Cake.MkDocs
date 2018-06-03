@@ -7,7 +7,7 @@ namespace Cake.MkDocs.Serve
     /// MkDocsServeSettings
     /// </summary>
     [MkDocsCommand("serve")]
-    public sealed class MkDocsServeSettings : MkDocsAsyncSettings
+    public class MkDocsServeSettings : MkDocsSettings
     {
         /// <summary>
         /// Gets or sets a value indicating whether a specific config is provided.

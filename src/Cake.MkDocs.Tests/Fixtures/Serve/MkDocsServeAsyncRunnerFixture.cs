@@ -1,9 +1,10 @@
-﻿using Cake.Core.IO;
+﻿using System.Threading.Tasks;
+using Cake.Core.IO;
 using Cake.MkDocs.Serve;
 
 namespace Cake.MkDocs.Tests.Fixtures.Serve
 {
-    public sealed class MkDocsServeRunnerFixture : MkDocsFixture<MkDocsServeSettings>
+    public sealed class MkDocsServeAsyncRunnerFixture : BaseMkDocsServeAsyncFixture
     {
         private DirectoryPath _projectDirectory = "project";
 
@@ -12,10 +13,10 @@ namespace Cake.MkDocs.Tests.Fixtures.Serve
             _projectDirectory = !string.IsNullOrWhiteSpace(projectDirectory) ? new DirectoryPath(projectDirectory) : null;
         }
 
-        protected override void RunTool()
+        protected override Task RunTool()
         {
-            var tool = new MkDocsServeRunner(FileSystem, Environment, ProcessRunner, Tools);
-            tool.Serve(_projectDirectory, Settings);
+            var tool = new MkDocsServeAsyncRunner(FileSystem, Environment, ProcessRunner, Tools);
+            return tool.ServeAsync(_projectDirectory, Settings);
         }
     }
 }

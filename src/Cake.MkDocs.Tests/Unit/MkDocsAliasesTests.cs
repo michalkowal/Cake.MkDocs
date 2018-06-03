@@ -298,13 +298,101 @@ namespace Cake.MkDocs.Tests.Unit
         public sealed class TheMkDocsServeMethod
         {
             [Fact]
+            public void Should_Not_Throw_For_Default_Settings_For_Working_Directory()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+
+                // When
+                var result = Record.Exception(() => context.MkDocsServe());
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_For_Default_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsServe(projectDir));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_For_Defined_Settings_For_Working_Directory()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var settings = new MkDocsServeSettings();
+
+                // When
+                var result = Record.Exception(() => context.MkDocsServe(settings));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Not_Throw_For_Defined_Settings()
+            {
+                // Given
+                var context = new MkDocsContextFixture();
+                var settings = new MkDocsServeSettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => context.MkDocsServe(projectDir, settings));
+
+                // Then
+                Assert.Null(result);
+            }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context_For_Working_Directory()
+            {
+                // Given
+                var settings = new MkDocsServeSettings();
+
+                // When
+                var result = Record.Exception(() => MkDocsAliases.MkDocsServe(null, settings));
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("context", ((ArgumentNullException)result).ParamName);
+            }
+
+            [Fact]
+            public void Should_Throw_For_Null_Context()
+            {
+                // Given
+                var settings = new MkDocsServeSettings();
+                var projectDir = new DirectoryPath("./project");
+
+                // When
+                var result = Record.Exception(() => MkDocsAliases.MkDocsServe(null, projectDir, settings));
+
+                // Then
+                Assert.IsType<ArgumentNullException>(result);
+                Assert.Equal("context", ((ArgumentNullException)result).ParamName);
+            }
+        }
+
+        public sealed class TheMkDocsServeAsyncMethod
+        {
+            [Fact]
             public async void Should_Not_Throw_For_Default_Settings_For_Working_Directory()
             {
                 // Given
                 var context = new MkDocsContextFixture();
 
                 // When
-                var result = await (Record.ExceptionAsync(() => context.MkDocsServe()) ?? Task.FromResult<Exception>(null));
+                var result = await (Record.ExceptionAsync(() => context.MkDocsServeAsync()) ?? Task.FromResult<Exception>(null));
 
                 // Then
                 Assert.Null(result);
@@ -318,7 +406,7 @@ namespace Cake.MkDocs.Tests.Unit
                 var projectDir = new DirectoryPath("./project");
 
                 // When
-                var result = await (Record.ExceptionAsync(() => context.MkDocsServe(projectDir)) ?? Task.FromResult<Exception>(null));
+                var result = await (Record.ExceptionAsync(() => context.MkDocsServeAsync(projectDir)) ?? Task.FromResult<Exception>(null));
 
                 // Then
                 Assert.Null(result);
@@ -329,10 +417,10 @@ namespace Cake.MkDocs.Tests.Unit
             {
                 // Given
                 var context = new MkDocsContextFixture();
-                var settings = new MkDocsServeSettings();
+                var settings = new MkDocsServeAsyncSettings();
 
                 // When
-                var result = await (Record.ExceptionAsync(() => context.MkDocsServe(settings)) ?? Task.FromResult<Exception>(null));
+                var result = await (Record.ExceptionAsync(() => context.MkDocsServeAsync(settings)) ?? Task.FromResult<Exception>(null));
 
                 // Then
                 Assert.Null(result);
@@ -343,11 +431,11 @@ namespace Cake.MkDocs.Tests.Unit
             {
                 // Given
                 var context = new MkDocsContextFixture();
-                var settings = new MkDocsServeSettings();
+                var settings = new MkDocsServeAsyncSettings();
                 var projectDir = new DirectoryPath("./project");
 
                 // When
-                var result = await (Record.ExceptionAsync(() => context.MkDocsServe(projectDir, settings)) ?? Task.FromResult<Exception>(null));
+                var result = await (Record.ExceptionAsync(() => context.MkDocsServeAsync(projectDir, settings)) ?? Task.FromResult<Exception>(null));
 
                 // Then
                 Assert.Null(result);
@@ -357,10 +445,10 @@ namespace Cake.MkDocs.Tests.Unit
             public async void Should_Throw_For_Null_Context_For_Working_Directory()
             {
                 // Given
-                var settings = new MkDocsServeSettings();
+                var settings = new MkDocsServeAsyncSettings();
 
                 // When
-                var result = await (Record.ExceptionAsync(() => MkDocsAliases.MkDocsServe(null, settings)) ?? Task.FromResult<Exception>(null));
+                var result = await (Record.ExceptionAsync(() => MkDocsAliases.MkDocsServeAsync(null, settings)) ?? Task.FromResult<Exception>(null));
 
                 // Then
                 Assert.IsType<ArgumentNullException>(result);
@@ -371,11 +459,11 @@ namespace Cake.MkDocs.Tests.Unit
             public async void Should_Throw_For_Null_Context()
             {
                 // Given
-                var settings = new MkDocsServeSettings();
+                var settings = new MkDocsServeAsyncSettings();
                 var projectDir = new DirectoryPath("./project");
 
                 // When
-                var result = await (Record.ExceptionAsync(() => MkDocsAliases.MkDocsServe(null, projectDir, settings)) ?? Task.FromResult<Exception>(null));
+                var result = await (Record.ExceptionAsync(() => MkDocsAliases.MkDocsServeAsync(null, projectDir, settings)) ?? Task.FromResult<Exception>(null));
 
                 // Then
                 Assert.IsType<ArgumentNullException>(result);

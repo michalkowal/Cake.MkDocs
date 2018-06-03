@@ -5,28 +5,48 @@ using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
 
-namespace Cake.MkDocs
+namespace Cake.MkDocs.Serve
 {
     /// <summary>
-    /// Base class for all MkDocs related async tools.
+    /// The MkDocs serve async tool creates a new MkDocs project.
     /// </summary>
-    /// <typeparam name="TSettings">the async settings type.</typeparam>
-    public abstract class MkDocsAsyncTool<TSettings> : MkDocsTool<TSettings>
-        where TSettings : MkDocsAsyncSettings
+    public sealed class MkDocsServeAsyncRunner : MkDocsTool<MkDocsServeAsyncSettings>
     {
         private readonly ICakeEnvironment _environment;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MkDocsAsyncTool{TSettings}"/> class.
+        /// Initializes a new instance of the <see cref="MkDocsServeAsyncRunner"/> class.
         /// </summary>
         /// <param name="fileSystem">The file system.</param>
         /// <param name="environment">The environment.</param>
         /// <param name="processRunner">The process runner.</param>
         /// <param name="tools">The tool locator.</param>
-        protected MkDocsAsyncTool(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator tools)
+        public MkDocsServeAsyncRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
+            IToolLocator tools)
             : base(fileSystem, environment, processRunner, tools)
         {
             _environment = environment;
+        }
+
+        /// <summary>
+        /// Run the builtin development server in working directory async.
+        /// </summary>
+        /// <param name="settings">The settings</param>
+        /// <returns>Long running task.</returns>
+        public Task ServeAsync(MkDocsServeAsyncSettings settings)
+        {
+            return RunAsync(settings);
+        }
+
+        /// <summary>
+        /// Run the builtin development server async.
+        /// </summary>
+        /// <param name="projectDirectory">Project dir to serve.</param>
+        /// <param name="settings">The settings</param>
+        /// <returns>Long running task.</returns>
+        public Task ServeAsync(DirectoryPath projectDirectory, MkDocsServeAsyncSettings settings)
+        {
+            return RunAsync(settings, projectDirectory);
         }
 
         /// <summary>
@@ -36,7 +56,7 @@ namespace Cake.MkDocs
         /// <param name="settings">The settings.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>
         /// <returns>Long running task.</returns>
-        protected Task RunAsync(TSettings settings, Action<ProcessArgumentBuilder> setCommandValues = null)
+        private Task RunAsync(MkDocsServeAsyncSettings settings, Action<ProcessArgumentBuilder> setCommandValues = null)
         {
             return RunAsync(settings, new ProcessSettings(), null, setCommandValues);
         }
@@ -49,7 +69,7 @@ namespace Cake.MkDocs
         /// <param name="projectDirectory">Process working directory.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>
         /// <returns>Long running task.</returns>
-        protected Task RunAsync(TSettings settings, DirectoryPath projectDirectory, Action<ProcessArgumentBuilder> setCommandValues = null)
+        private Task RunAsync(MkDocsServeAsyncSettings settings, DirectoryPath projectDirectory, Action<ProcessArgumentBuilder> setCommandValues = null)
         {
             if (projectDirectory == null)
             {
@@ -73,8 +93,8 @@ namespace Cake.MkDocs
         /// <param name="postAction">If specified called after process exit.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>
         /// <returns>Long running task.</returns>
-        protected Task RunAsync(
-            TSettings settings,
+        private Task RunAsync(
+            MkDocsServeAsyncSettings settings,
             ProcessSettings processSettings,
             Action<IProcess> postAction,
             Action<ProcessArgumentBuilder> setCommandValues = null)

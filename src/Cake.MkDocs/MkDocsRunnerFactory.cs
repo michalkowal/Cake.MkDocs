@@ -36,6 +36,10 @@ namespace Cake.MkDocs
             {
                 result = new MkDocsServeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
             }
+            else if (typeof(TSettings) == typeof(MkDocsServeAsyncSettings))
+            {
+                result = new MkDocsServeAsyncRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            }
             else if (typeof(TSettings) == typeof(MkDocsGhDeploySettings))
             {
                 result = new MkDocsGhDeployRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
@@ -55,6 +59,9 @@ namespace Cake.MkDocs
 
         public static MkDocsServeRunner CreateServeRunner(ICakeContext context)
             => (MkDocsServeRunner)CreateRunner<MkDocsServeSettings>(context);
+
+        public static MkDocsServeAsyncRunner CreateServeAsyncRunner(ICakeContext context)
+            => (MkDocsServeAsyncRunner)CreateRunner<MkDocsServeAsyncSettings>(context);
 
         public static MkDocsGhDeployRunner CreateGhDeployRunner(ICakeContext context)
             => (MkDocsGhDeployRunner)CreateRunner<MkDocsGhDeploySettings>(context);

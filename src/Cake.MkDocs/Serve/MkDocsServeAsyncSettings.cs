@@ -1,11 +1,13 @@
 ﻿using System.Threading;
+using Cake.MkDocs.Attributes;
 
-namespace Cake.MkDocs
+namespace Cake.MkDocs.Serve
 {
     /// <summary>
-    /// Base MkDocs settings class for async operation.
+    /// MkDocsServeAsyncSettings
     /// </summary>
-    public abstract class MkDocsAsyncSettings : MkDocsSettings
+    [MkDocsCommand("serve")]
+    public sealed class MkDocsServeAsyncSettings : MkDocsServeSettings
     {
         /// <summary>
         /// Gets or sets a value indicating whether cancellation token is defined for async operation.
