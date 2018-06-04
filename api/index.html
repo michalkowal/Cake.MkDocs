@@ -167,8 +167,7 @@
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs">Cake<wbr>.MkDocs</a></td>
 									<td>
     This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    and <code class="cs">Cake</code> aliases associated with <code class="cs">MkDocs</code>.
     </td>
 							</tr>
 							<tr>
@@ -178,41 +177,37 @@
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Build">Cake<wbr>.MkDocs<wbr>.Build</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> build operations
+    such as operation settings and project building.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.GhDeploy">Cake<wbr>.MkDocs<wbr>.GhDeploy</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> to <code class="cs">GitHub</code> deploy operations
+    such as operation settings and deployin to <code class="cs">GitHub Pages</code>.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.New">Cake<wbr>.MkDocs<wbr>.New</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> new operations
+    such as operation settings and creating new project.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve">Cake<wbr>.MkDocs<wbr>.Serve</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> serve operations
+    such as operation settings and documentation previewing.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Version">Cake<wbr>.MkDocs<wbr>.Version</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> version operations
+    such as operation settings, version displaying
+    or supported version checking.
     </td>
 							</tr>
 					</table>
@@ -234,7 +229,63 @@
             </footer>
         </div>
         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+        <div class="github-button">
+    <a href="https://github.com/michalkowal/Cake.MkDocs"><i class="fa fa-github"></i> GitHub</a>
+</div>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cake-contrib/Lobby'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/anchor.min.js"></script>
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    anchors.options.placement = 'left';
+    anchors.add('#content > h1,h2,h3,h4');
+
+    var snippets = document.querySelectorAll("pre > code");
+    [].forEach.call(snippets, function(snippet) {
+        snippet.insertAdjacentHTML("beforebegin", "<button class='btn-copy' data-clipboard-snippet><img class='clippy' width=13 src='/Cake.MkDocs/assets/images/clippy.svg' alt='Copy to clipboard'></button>");
+    });
+    var clipboardSnippets = new Clipboard('[data-clipboard-snippet]', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    clipboardSnippets.on('success', function(e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+    clipboardSnippets.on('error', function(e) {
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+    var btns = document.querySelectorAll('.btn-copy');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn-copy');
+            e.currentTarget.removeAttribute('aria-label');
+        });
+    }    
+    function showTooltip(elem, msg) {
+        elem.setAttribute('class', 'btn-copy tooltipped tooltipped-s');
+        elem.setAttribute('aria-label', msg);
+    }
+    function fallbackMessage(action) {
+        var actionMsg = '';
+        var actionKey = (action === 'cut' ? 'X' : 'C');
+        if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+        } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+        } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+        }
+        return actionMsg;
+    }        
+</script>
+
         <script>           
             // Close the sidebar if we select an anchor link
             $(".main-sidebar a[href^='#']:not('.expand')").click(function(){

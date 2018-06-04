@@ -163,7 +163,7 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    MkDocsServeSettings
+    Contains settings used by <code class="cs"><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner">MkDocsServeRunner</a></code>.
     </div>
 
 		<div class="panel panel-default">
@@ -257,7 +257,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether a specific config is provided.
     <p>Provide a specific MkDocs config.</p>
-    <value>Configuration file path and name;</value>
     </div>
 								</td>
 							</tr>
@@ -268,7 +267,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether custom dev address is provided.
     <p>IP address and port to serve documentation locally (default localhost:8000).</p>
-    <value>Custom IP address and port; otherwise - <c>localhost:8000</c>;</value>
     </div>
 								</td>
 							</tr>
@@ -279,7 +277,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether live reloading is enabled.
     <p>Enable the live reloading in the development server, but only re-build files that have changed.</p>
-    <value><c>true</c> - enabled dirty reload mode; otherwise - <c>false</c></value>
     </div>
 								</td>
 							</tr>
@@ -290,7 +287,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether live reloading is enabled.
     <p>Enable the live reloading in the development server (this is the default).</p>
-    <value><c>true</c> - enabled live reload mode; otherwise - <c>false</c></value>
     </div>
 								</td>
 							</tr>
@@ -301,7 +297,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether live reloading is disabled.
     <p>Disable the live reloading in the development server.</p>
-    <value><c>true</c> - disabled live reload mode; otherwise - <c>false</c></value>
     </div>
 								</td>
 							</tr>
@@ -312,8 +307,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether quiet mode is enabled.
     <p>Silence warnings.</p>
-    <value><c>true</c> - enabled run without infos and warnings;</value>
-    <value><c>false</c> - standard logging level (infos, warnings, errors);</value>
     </div>
 											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings">MkDocsSettings</a></em></small></div>
 								</td>
@@ -325,8 +318,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether strict mode is enabled.
     <p>Enable strict mode. This will cause MkDocs to abort the build on any warnings.</p>
-    <value><c>true</c> - enabled build in strict mode;</value>
-    <value><c>false</c> - normal build;</value>
     </div>
 								</td>
 							</tr>
@@ -349,7 +340,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether custom theme dir is provided.
     <p>The theme directory to use when building your documentation.</p>
-    <value>Custom theme directory path;</value>
     </div>
 								</td>
 							</tr>
@@ -360,8 +350,6 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
 									<div>
     Gets or sets a value indicating whether verbose mode is enabled.
     <p>Enable verbose output.</p>
-    <value><c>true</c> - enabled run with debug information;</value>
-    <value><c>false</c> - standard logging level;</value>
     </div>
 											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings">MkDocsSettings</a></em></small></div>
 								</td>
@@ -390,7 +378,63 @@ public class MkDocsServeSettings : MkDocsSettings</code></pre>
             </footer>
         </div>
         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+        <div class="github-button">
+    <a href="https://github.com/michalkowal/Cake.MkDocs"><i class="fa fa-github"></i> GitHub</a>
+</div>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cake-contrib/Lobby'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/anchor.min.js"></script>
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    anchors.options.placement = 'left';
+    anchors.add('#content > h1,h2,h3,h4');
+
+    var snippets = document.querySelectorAll("pre > code");
+    [].forEach.call(snippets, function(snippet) {
+        snippet.insertAdjacentHTML("beforebegin", "<button class='btn-copy' data-clipboard-snippet><img class='clippy' width=13 src='/Cake.MkDocs/assets/images/clippy.svg' alt='Copy to clipboard'></button>");
+    });
+    var clipboardSnippets = new Clipboard('[data-clipboard-snippet]', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    clipboardSnippets.on('success', function(e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+    clipboardSnippets.on('error', function(e) {
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+    var btns = document.querySelectorAll('.btn-copy');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn-copy');
+            e.currentTarget.removeAttribute('aria-label');
+        });
+    }    
+    function showTooltip(elem, msg) {
+        elem.setAttribute('class', 'btn-copy tooltipped tooltipped-s');
+        elem.setAttribute('aria-label', msg);
+    }
+    function fallbackMessage(action) {
+        var actionMsg = '';
+        var actionKey = (action === 'cut' ? 'X' : 'C');
+        if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+        } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+        } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+        }
+        return actionMsg;
+    }        
+</script>
+
         <script>           
             // Close the sidebar if we select an anchor link
             $(".main-sidebar a[href^='#']:not('.expand')").click(function(){

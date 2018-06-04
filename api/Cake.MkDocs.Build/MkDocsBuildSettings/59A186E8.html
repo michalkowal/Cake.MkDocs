@@ -74,9 +74,9 @@
                     	
 	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
 <p><a href="#Syntax">Syntax</a></p>
+<p><a href="#Remarks">Remarks</a></p>
 <p><a href="#Attributes">Attributes</a></p>
 <p><a href="#Value">Value</a></p>
-<p><a href="#SeeAlso">See Also</a></p>
 <hr class="infobar-hidden">
 </div>
 
@@ -174,8 +174,6 @@
 	<div class="lead">
     Gets or sets a value indicating whether different theme should be used.
     <p>The theme to use when building your documentation.</p>
-    
-    <value><c>null</c> - default theme; otherwise selected.</value>
     </div>
 
 		<div class="panel panel-default">
@@ -197,6 +195,10 @@
 public MkDocsTheme? Theme { get; set; }</code></pre>
 
 
+	<h1 id="Remarks">Remarks</h1>
+	<div>
+    <p>See also <a href="https://www.mkdocs.org/user-guide/styling-your-docs/#built-in-themes">Themes description</a>.</p>
+    </div>
 
 	<h1 id="Attributes">Attributes</h1>
 	<div class="box">
@@ -211,8 +213,8 @@ public MkDocsTheme? Theme { get; set; }</code></pre>
 					<tbody><tr>
 						<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentAttribute">Mk<wbr>Docs<wbr>Argument<wbr>Attribute</a></td>
 						<td>
-    Describes tool argument related to settings <code class="cs"><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings">MkDocsSettings</a></code>
-    </td>
+     Describes tool argument related to settings <code class="cs"><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings">MkDocsSettings</a></code>
+     </td>
 					</tr>
 			</tbody></table>
 		</div>
@@ -231,16 +233,12 @@ public MkDocsTheme? Theme { get; set; }</code></pre>
 				</thead>
 				<tbody><tr>
 					<td>Nullable<wbr>&lt;T&gt;<wbr></td>
-					<td></td>
+					<td><code class="cs">null</code> - default theme; otherwise selected.</td>
 				</tr>
 			</tbody></table>
 		</div>
 	</div>	
 
-	<h1 id="SeeAlso">See Also</h1>
-	<ul class="list-unstyled">
-			<li><a href="https://www.mkdocs.org/user-guide/styling-your-docs/#built-in-themes">Themes description.</a></li>
-	</ul>
 
 	
 </section>
@@ -258,7 +256,63 @@ public MkDocsTheme? Theme { get; set; }</code></pre>
             </footer>
         </div>
         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+        <div class="github-button">
+    <a href="https://github.com/michalkowal/Cake.MkDocs"><i class="fa fa-github"></i> GitHub</a>
+</div>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cake-contrib/Lobby'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/anchor.min.js"></script>
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    anchors.options.placement = 'left';
+    anchors.add('#content > h1,h2,h3,h4');
+
+    var snippets = document.querySelectorAll("pre > code");
+    [].forEach.call(snippets, function(snippet) {
+        snippet.insertAdjacentHTML("beforebegin", "<button class='btn-copy' data-clipboard-snippet><img class='clippy' width=13 src='/Cake.MkDocs/assets/images/clippy.svg' alt='Copy to clipboard'></button>");
+    });
+    var clipboardSnippets = new Clipboard('[data-clipboard-snippet]', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    clipboardSnippets.on('success', function(e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+    clipboardSnippets.on('error', function(e) {
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+    var btns = document.querySelectorAll('.btn-copy');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn-copy');
+            e.currentTarget.removeAttribute('aria-label');
+        });
+    }    
+    function showTooltip(elem, msg) {
+        elem.setAttribute('class', 'btn-copy tooltipped tooltipped-s');
+        elem.setAttribute('aria-label', msg);
+    }
+    function fallbackMessage(action) {
+        var actionMsg = '';
+        var actionKey = (action === 'cut' ? 'X' : 'C');
+        if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+        } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+        } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+        }
+        return actionMsg;
+    }        
+</script>
+
         <script>           
             // Close the sidebar if we select an anchor link
             $(".main-sidebar a[href^='#']:not('.expand')").click(function(){

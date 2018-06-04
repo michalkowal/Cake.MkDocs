@@ -166,7 +166,7 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Base class for all MkDocs related tools.
+    Base class for all <code class="cs">MkDocs</code> related tools.
     </div>
 
 		<div class="panel panel-default">
@@ -189,12 +189,12 @@
 								<dt>Derived Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner">MkDocsBuildRunner</a></li>								
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner">Mk<wbr>Docs<wbr>Serve<wbr>Async<wbr>Runner</a></li>								
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner">MkDocsGhDeployRunner</a></li>								
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner">MkDocsVersionRunner</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner">MkDocsServeRunner</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner">MkDocsNewRunner</a></li>								
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner">MkDocsGhDeployRunner</a></li>								
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner">MkDocsVersionRunner</a></li>								
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner">MkDocsBuildRunner</a></li>								
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner">Mk<wbr>Docs<wbr>Serve<wbr>Async<wbr>Runner</a></li>								
 									</ul>
 								</dd>			
 							
@@ -206,18 +206,18 @@
 	Base0["Tool&lt;&gt;"]--&gt;Type
 	Type["MkDocsTool&lt;TSettings&gt;"]
 class Type type-node
-	Type--&gt;Derived0["MkDocsBuildRunner"]
-	click Derived0 "/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner"
-	Type--&gt;Derived1["MkDocsServeAsyncRunner"]
-	click Derived1 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner"
+	Type--&gt;Derived0["MkDocsServeRunner"]
+	click Derived0 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner"
+	Type--&gt;Derived1["MkDocsNewRunner"]
+	click Derived1 "/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner"
 	Type--&gt;Derived2["MkDocsGhDeployRunner"]
 	click Derived2 "/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner"
 	Type--&gt;Derived3["MkDocsVersionRunner"]
 	click Derived3 "/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner"
-	Type--&gt;Derived4["MkDocsServeRunner"]
-	click Derived4 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner"
-	Type--&gt;Derived5["MkDocsNewRunner"]
-	click Derived5 "/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner"
+	Type--&gt;Derived4["MkDocsBuildRunner"]
+	click Derived4 "/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner"
+	Type--&gt;Derived5["MkDocsServeAsyncRunner"]
+	click Derived5 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner"
 
 						</div>
 					</div>
@@ -290,8 +290,8 @@ class Type type-node
 								<td>Process<wbr>Argument<wbr>Builder</td>
 								<td>
 									<div>
-    Builds process arguments based on settings
-    </div>
+     Builds process arguments based on settings
+     </div>
 								</td>
 							</tr>
 							<tr>
@@ -365,7 +365,63 @@ class Type type-node
             </footer>
         </div>
         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+        <div class="github-button">
+    <a href="https://github.com/michalkowal/Cake.MkDocs"><i class="fa fa-github"></i> GitHub</a>
+</div>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cake-contrib/Lobby'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/anchor.min.js"></script>
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    anchors.options.placement = 'left';
+    anchors.add('#content > h1,h2,h3,h4');
+
+    var snippets = document.querySelectorAll("pre > code");
+    [].forEach.call(snippets, function(snippet) {
+        snippet.insertAdjacentHTML("beforebegin", "<button class='btn-copy' data-clipboard-snippet><img class='clippy' width=13 src='/Cake.MkDocs/assets/images/clippy.svg' alt='Copy to clipboard'></button>");
+    });
+    var clipboardSnippets = new Clipboard('[data-clipboard-snippet]', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    clipboardSnippets.on('success', function(e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+    clipboardSnippets.on('error', function(e) {
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+    var btns = document.querySelectorAll('.btn-copy');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn-copy');
+            e.currentTarget.removeAttribute('aria-label');
+        });
+    }    
+    function showTooltip(elem, msg) {
+        elem.setAttribute('class', 'btn-copy tooltipped tooltipped-s');
+        elem.setAttribute('aria-label', msg);
+    }
+    function fallbackMessage(action) {
+        var actionMsg = '';
+        var actionKey = (action === 'cut' ? 'X' : 'C');
+        if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+        } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+        } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+        }
+        return actionMsg;
+    }        
+</script>
+
         <script>           
             // Close the sidebar if we select an anchor link
             $(".main-sidebar a[href^='#']:not('.expand')").click(function(){

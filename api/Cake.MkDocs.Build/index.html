@@ -168,9 +168,8 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> build operations
+    such as operation settings and project building.
     </div>
 
 
@@ -187,13 +186,13 @@
 							<tbody><tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner">MkDocsBuildRunner</a></td>
 									<td>
-    The MkDocs build tool creates a new MkDocs project.
+    The <code class="cs">MkDocs</code> build tool for <code class="cs">MkDocs</code> project.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildSettings">MkDocsBuildSettings</a></td>
 									<td>
-    MkDocsBuildSettings
+    Contains settings used by <code class="cs"><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner">MkDocsBuildRunner</a></code>.
     </td>
 							</tr>
 					</tbody></table>
@@ -216,7 +215,63 @@
             </footer>
         </div>
         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+        <div class="github-button">
+    <a href="https://github.com/michalkowal/Cake.MkDocs"><i class="fa fa-github"></i> GitHub</a>
+</div>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cake-contrib/Lobby'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/anchor.min.js"></script>
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    anchors.options.placement = 'left';
+    anchors.add('#content > h1,h2,h3,h4');
+
+    var snippets = document.querySelectorAll("pre > code");
+    [].forEach.call(snippets, function(snippet) {
+        snippet.insertAdjacentHTML("beforebegin", "<button class='btn-copy' data-clipboard-snippet><img class='clippy' width=13 src='/Cake.MkDocs/assets/images/clippy.svg' alt='Copy to clipboard'></button>");
+    });
+    var clipboardSnippets = new Clipboard('[data-clipboard-snippet]', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    clipboardSnippets.on('success', function(e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+    clipboardSnippets.on('error', function(e) {
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+    var btns = document.querySelectorAll('.btn-copy');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn-copy');
+            e.currentTarget.removeAttribute('aria-label');
+        });
+    }    
+    function showTooltip(elem, msg) {
+        elem.setAttribute('class', 'btn-copy tooltipped tooltipped-s');
+        elem.setAttribute('aria-label', msg);
+    }
+    function fallbackMessage(action) {
+        var actionMsg = '';
+        var actionKey = (action === 'cut' ? 'X' : 'C');
+        if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+        } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+        } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+        }
+        return actionMsg;
+    }        
+</script>
+
         <script>           
             // Close the sidebar if we select an anchor link
             $(".main-sidebar a[href^='#']:not('.expand')").click(function(){

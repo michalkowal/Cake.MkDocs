@@ -171,8 +171,7 @@
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
     This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    and <code class="cs">Cake</code> aliases associated with <code class="cs">MkDocs</code>.
     </div>
 
 
@@ -189,7 +188,7 @@
 							<tbody><tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTheme">MkDocsTheme</a></td>
 									<td>
-    Represents MkDocs themes.
+    Represents <code class="cs">MkDocs</code> themes.
     </td>
 							</tr>
 					</tbody></table>
@@ -209,31 +208,32 @@
 							<tbody><tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsAddress">MkDocsAddress</a></td>
 									<td>
-    Represents IP address and port used in settings.
+    Represents <code class="cs">IP</code> address and port used in settings.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsAliases">MkDocsAliases</a></td>
 									<td>
-    Contains functionalities for working with MkDocs CLI.
-    <p>Contains functionality related to <a href="https://github.com/mkdocs/mkdocs">MkDocs</a>.</p>
+    Contains functionalities for working with <code class="cs">MkDocs</code>.
+    <p>Contains functionality related to <code class="cs">MkDocs</code>.</p>
     <p>
     In order to use the commands for this alias, include the following in your build.cake file to download and
-    install from NuGet.org, or specify the ToolPath within the correct ToolSettings class:
-    </p><pre><code class="cs">#addin nuget:?package=Cake.MkDocs</code></pre>
+    install from <code class="cs">NuGet.org</code>, or specify the ToolPath within the correct ToolSettings class:
+    </p><pre><code class="cs">#addin "Cake.MkDocs"</code></pre>
+    <pre><code class="cs">#addin "nuget:?package=Cake.MkDocs"</code></pre>
     <p></p>
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings">MkDocsSettings</a></td>
 									<td>
-    Base MkDocs settings class.
+    Base <code class="cs">MkDocs</code> settings class.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></td>
 									<td>
-    Base class for all MkDocs related tools.
+    Base class for all <code class="cs">MkDocs</code> related tools.
     </td>
 							</tr>
 					</tbody></table>
@@ -257,41 +257,37 @@
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Build">Cake<wbr>.MkDocs<wbr>.Build</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> build operations
+    such as operation settings and project building.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.GhDeploy">Cake<wbr>.MkDocs<wbr>.GhDeploy</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> to <code class="cs">GitHub</code> deploy operations
+    such as operation settings and deployin to <code class="cs">GitHub Pages</code>.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.New">Cake<wbr>.MkDocs<wbr>.New</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> new operations
+    such as operation settings and creating new project.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve">Cake<wbr>.MkDocs<wbr>.Serve</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> serve operations
+    such as operation settings and documentation previewing.
     </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.Version">Cake<wbr>.MkDocs<wbr>.Version</a></td>
 									<td>
-    This namespace contain types used for common operations
-    such as parsing release notes, retrieving arguments and
-    to read and write environment variables.
+    This namespace contain types used for <code class="cs">MkDocs</code> version operations
+    such as operation settings, version displaying
+    or supported version checking.
     </td>
 							</tr>
 					</tbody></table>
@@ -314,7 +310,63 @@
             </footer>
         </div>
         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+        <div class="github-button">
+    <a href="https://github.com/michalkowal/Cake.MkDocs"><i class="fa fa-github"></i> GitHub</a>
+</div>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cake-contrib/Lobby'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/anchor.min.js"></script>
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    anchors.options.placement = 'left';
+    anchors.add('#content > h1,h2,h3,h4');
+
+    var snippets = document.querySelectorAll("pre > code");
+    [].forEach.call(snippets, function(snippet) {
+        snippet.insertAdjacentHTML("beforebegin", "<button class='btn-copy' data-clipboard-snippet><img class='clippy' width=13 src='/Cake.MkDocs/assets/images/clippy.svg' alt='Copy to clipboard'></button>");
+    });
+    var clipboardSnippets = new Clipboard('[data-clipboard-snippet]', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    clipboardSnippets.on('success', function(e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+    clipboardSnippets.on('error', function(e) {
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+    var btns = document.querySelectorAll('.btn-copy');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn-copy');
+            e.currentTarget.removeAttribute('aria-label');
+        });
+    }    
+    function showTooltip(elem, msg) {
+        elem.setAttribute('class', 'btn-copy tooltipped tooltipped-s');
+        elem.setAttribute('aria-label', msg);
+    }
+    function fallbackMessage(action) {
+        var actionMsg = '';
+        var actionKey = (action === 'cut' ? 'X' : 'C');
+        if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+        } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+        } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+        }
+        return actionMsg;
+    }        
+</script>
+
         <script>           
             // Close the sidebar if we select an anchor link
             $(".main-sidebar a[href^='#']:not('.expand')").click(function(){

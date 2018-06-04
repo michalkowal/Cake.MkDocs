@@ -164,7 +164,7 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Base MkDocs settings class.
+    Base <code class="cs">MkDocs</code> settings class.
     </div>
 
 		<div class="panel panel-default">
@@ -188,10 +188,10 @@
 								<dd>
 									<ul class="list-unstyled">
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeSettings">MkDocsServeSettings</a></li>								
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeploySettings">Mk<wbr>Docs<wbr>Gh<wbr>Deploy<wbr>Settings</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildSettings">MkDocsBuildSettings</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionSettings">Mk<wbr>Docs<wbr>Version<wbr>Settings</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings">MkDocsNewSettings</a></li>								
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeploySettings">Mk<wbr>Docs<wbr>Gh<wbr>Deploy<wbr>Settings</a></li>								
 									</ul>
 								</dd>			
 							
@@ -205,14 +205,14 @@
 class Type type-node
 	Type--&gt;Derived0["MkDocsServeSettings"]
 	click Derived0 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeSettings"
-	Type--&gt;Derived1["MkDocsGhDeploySettings"]
-	click Derived1 "/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeploySettings"
-	Type--&gt;Derived2["MkDocsBuildSettings"]
-	click Derived2 "/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildSettings"
-	Type--&gt;Derived3["MkDocsVersionSettings"]
-	click Derived3 "/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionSettings"
-	Type--&gt;Derived4["MkDocsNewSettings"]
-	click Derived4 "/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings"
+	Type--&gt;Derived1["MkDocsBuildSettings"]
+	click Derived1 "/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildSettings"
+	Type--&gt;Derived2["MkDocsVersionSettings"]
+	click Derived2 "/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionSettings"
+	Type--&gt;Derived3["MkDocsNewSettings"]
+	click Derived3 "/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings"
+	Type--&gt;Derived4["MkDocsGhDeploySettings"]
+	click Derived4 "/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeploySettings"
 
 						</div>
 					</div>
@@ -249,8 +249,6 @@ class Type type-node
 									<div>
     Gets or sets a value indicating whether quiet mode is enabled.
     <p>Silence warnings.</p>
-    <value><c>true</c> - enabled run without infos and warnings;</value>
-    <value><c>false</c> - standard logging level (infos, warnings, errors);</value>
     </div>
 								</td>
 							</tr>
@@ -261,8 +259,6 @@ class Type type-node
 									<div>
     Gets or sets a value indicating whether verbose mode is enabled.
     <p>Enable verbose output.</p>
-    <value><c>true</c> - enabled run with debug information;</value>
-    <value><c>false</c> - standard logging level;</value>
     </div>
 								</td>
 							</tr>
@@ -290,7 +286,63 @@ class Type type-node
             </footer>
         </div>
         <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
-        
+        <div class="github-button">
+    <a href="https://github.com/michalkowal/Cake.MkDocs"><i class="fa fa-github"></i> GitHub</a>
+</div>
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'cake-contrib/Lobby'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="" defer=""></script>
+
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/anchor.min.js"></script>
+<script type="text/javascript" src="/Cake.MkDocs/assets/js/clipboard.min.js"></script>
+<script type="text/javascript">
+    anchors.options.placement = 'left';
+    anchors.add('#content > h1,h2,h3,h4');
+
+    var snippets = document.querySelectorAll("pre > code");
+    [].forEach.call(snippets, function(snippet) {
+        snippet.insertAdjacentHTML("beforebegin", "<button class='btn-copy' data-clipboard-snippet><img class='clippy' width=13 src='/Cake.MkDocs/assets/images/clippy.svg' alt='Copy to clipboard'></button>");
+    });
+    var clipboardSnippets = new Clipboard('[data-clipboard-snippet]', {
+        target: function(trigger) {
+            return trigger.nextElementSibling;
+        }
+    });
+    clipboardSnippets.on('success', function(e) {
+        e.clearSelection();
+        showTooltip(e.trigger, "Copied!");
+    });
+    clipboardSnippets.on('error', function(e) {
+        showTooltip(e.trigger, fallbackMessage(e.action));
+    });
+    var btns = document.querySelectorAll('.btn-copy');
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('mouseleave', function(e) {
+            e.currentTarget.setAttribute('class', 'btn-copy');
+            e.currentTarget.removeAttribute('aria-label');
+        });
+    }    
+    function showTooltip(elem, msg) {
+        elem.setAttribute('class', 'btn-copy tooltipped tooltipped-s');
+        elem.setAttribute('aria-label', msg);
+    }
+    function fallbackMessage(action) {
+        var actionMsg = '';
+        var actionKey = (action === 'cut' ? 'X' : 'C');
+        if (/iPhone|iPad/i.test(navigator.userAgent)) {
+            actionMsg = 'No support :(';
+        } else if (/Mac/i.test(navigator.userAgent)) {
+            actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+        } else {
+            actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+        }
+        return actionMsg;
+    }        
+</script>
+
         <script>           
             // Close the sidebar if we select an anchor link
             $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
