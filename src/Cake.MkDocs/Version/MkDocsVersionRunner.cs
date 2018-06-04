@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Cake.Core;
 using Cake.Core.IO;
@@ -8,7 +9,7 @@ using Semver;
 namespace Cake.MkDocs.Version
 {
     /// <summary>
-    /// The MkDocs version tool provides information about tool and addin versions compatibility.
+    /// The <c>MkDocs</c> version tool provides information about tool and addin versions compatibility.
     /// </summary>
     public sealed class MkDocsVersionRunner : MkDocsTool<MkDocsSettings>
     {
@@ -28,10 +29,19 @@ namespace Cake.MkDocs.Version
         }
 
         /// <summary>
-        /// Gets provided MkDocs tool version.
+        /// Gets provided <c>MkDocs</c> tool version.
         /// </summary>
         /// <param name="settings">The settings.</param>
-        /// <returns>Provided MkDocs version.</returns>
+        /// <returns>Provided <c>MkDocs</c> version.</returns>
+        /// <example>
+        /// <code>
+        /// var mkDocsVersion = runner.Version(new MkDocsVersionSettings());
+        /// Console.WriteLine(mkDocsVersion.ToString()); // 0.17.3
+        /// </code>
+        /// </example>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> are not set.</exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
         public System.Version Version(MkDocsSettings settings)
         {
             System.Version result = null;
@@ -65,10 +75,18 @@ namespace Cake.MkDocs.Version
         }
 
         /// <summary>
-        /// Checks if provided MkDocs tool version is compatible with addin
+        /// Checks if provided <c>MkDocs</c> tool version is compatible with addin
         /// </summary>
         /// <param name="settings">The settings.</param>
-        /// <returns><c>true</c> - MkDocs version is compatible with addin; otherwise, <c>false</c>.</returns>
+        /// <returns><c>true</c> - <c>MkDocs</c> version is compatible with addin; otherwise, <c>false</c>.</returns>
+        /// <example>
+        /// <code>
+        /// bool isSupported = runner.IsSupportedVersion(new MkDocsNewSettings() { ToolPath = "./path-to-local-tool/bin/mkdocs" });
+        /// </code>
+        /// </example>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> are not set.</exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
         public bool IsSupportedVersion(MkDocsSettings settings)
         {
             System.Version toolVersion = Version(settings);

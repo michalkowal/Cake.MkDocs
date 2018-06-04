@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading;
 using Cake.Core.IO;
-using Cake.MkDocs.Tests.Fixtures.Serve;
 using Cake.Testing;
 
-namespace Cake.MkDocs.Tests.Fixtures
+namespace Cake.MkDocs.Tests.Fixtures.Serve
 {
     public static class BaseMkDocsServeAsyncFixtureExtensions
     {

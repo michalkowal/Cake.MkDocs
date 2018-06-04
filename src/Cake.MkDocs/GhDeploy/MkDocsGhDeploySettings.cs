@@ -4,66 +4,70 @@ using Cake.MkDocs.Attributes;
 namespace Cake.MkDocs.GhDeploy
 {
     /// <summary>
-    /// MkDocsGhDeploySettings
+    /// Contains settings used by <see cref="MkDocsGhDeployRunner"/>.
     /// </summary>
+    /// <remarks>
+    /// <para>See <a href="https://pages.github.com/">GitHub Pages</a>.</para>
+    /// <para>See <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#github-pages">MkDocs guide</a>.</para>
+    /// </remarks>
     [MkDocsCommand("gh-deploy")]
     public sealed class MkDocsGhDeploySettings : MkDocsSettings
     {
         /// <summary>
         /// Gets or sets a value indicating whether clean mode is enabled.
         /// <para>Remove old files from the site_dir before building (the default).</para>
+        /// </summary>
         /// <value><c>true</c> - force clean mode build</value>
         /// <value><c>false</c> - default cleaning mode;</value>
-        /// </summary>
         [MkDocsArgument("clean", ShortArgument = "c")]
         public bool Clean { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether dirty mode is enabled.
         /// <para>DO NOT remove old files from the site_dir before building.</para>
+        /// </summary>
         /// <value><c>true</c> - force dirty mode build</value>
         /// <value><c>false</c> - default cleaning mode;</value>
-        /// </summary>
         [MkDocsArgument("dirty")]
         public bool Dirty { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether a specific config is provided.
-        /// <para>Provide a specific MkDocs config.</para>
-        /// <value>Configuration file path and name;</value>
+        /// <para>Provide a specific <c>MkDocs</c> config.</para>
         /// </summary>
+        /// <value>Configuration file path and name;</value>
         [MkDocsArgument("config-file", ShortArgument = "f", Quoted = true)]
         public FilePath ConfigFile { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether a specific commit message is provided.
-        /// <para>A commit message to use when commiting to the GitHub Pages remote branch.</para>
-        /// <value>Commit message;</value>
+        /// <para>A commit message to use when commiting to the <c>GitHub Pages</c> remote branch.</para>
         /// </summary>
+        /// <value>Commit message;</value>
         [MkDocsArgument("message", ShortArgument = "m", Quoted = true)]
         public string Message { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether a custom remote branch is provided.
-        /// <para>The remote branch to commit to for GitHub Pages. This overrides the value specified in config.</para>
-        /// <value>Remote branch;</value>
+        /// <para>The remote branch to commit to for <c>GitHub Pages</c>. This overrides the value specified in config.</para>
         /// </summary>
+        /// <value>Remote branch;</value>
         [MkDocsArgument("remote-branch", ShortArgument = "b", Quoted = true)]
         public string RemoteBranch { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether a custom remote name is provided.
-        /// <para>The remote name to commit to for GitHub Pages. This overrides the value specified in config.</para>
-        /// <value>Remote branch;</value>
+        /// <para>The remote name to commit to for <c>GitHub Pages</c>. This overrides the value specified in config.</para>
         /// </summary>
+        /// <value>Remote branch;</value>
         [MkDocsArgument("remote-name", ShortArgument = "r", Quoted = true)]
         public string RemoteName { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether force push is required.
         /// <para>Force the push to the repository.</para>
-        /// <value><c>true</c> - force push enabled; otherwise - <c>false</c></value>
         /// </summary>
+        /// <value><c>true</c> - force push enabled; otherwise - <c>false</c></value>
         [MkDocsArgument("force")]
         public bool Force { get; set; }
     }

@@ -6,7 +6,7 @@ using Cake.Core.Tooling;
 namespace Cake.MkDocs.New
 {
     /// <summary>
-    /// The MkDocs new tool creates a new MkDocs project.
+    /// The <c>MkDocs</c> new tool creates a new <c>MkDocs</c> project.
     /// </summary>
     public sealed class MkDocsNewRunner : MkDocsTool<MkDocsNewSettings>
     {
@@ -26,9 +26,17 @@ namespace Cake.MkDocs.New
         }
 
         /// <summary>
-        /// Create a new MkDocs project in current directory.
+        /// Create a new <c>MkDocs</c> project in current directory.
         /// </summary>
         /// <param name="settings">The settings</param>
+        /// <example>
+        /// <code>
+        /// runner.New(new MkDocsNewSettings());
+        /// </code>
+        /// </example>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> is not set.</exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
         public void New(MkDocsNewSettings settings)
         {
             var directoryArgument = _environment.WorkingDirectory.MakeAbsolute(_environment).FullPath;
@@ -36,10 +44,18 @@ namespace Cake.MkDocs.New
         }
 
         /// <summary>
-        /// Create a new MkDocs project.
+        /// Create a new <c>MkDocs</c> project.
         /// </summary>
         /// <param name="projectDirectory">New project directory path.</param>
         /// <param name="settings">The settings</param>
+        /// <example>
+        /// <code>
+        /// runner.New(new DirectoryPath("./project-with-docs-is-here"), new MkDocsNewSettings());
+        /// </code>
+        /// </example>
+        /// <exception cref="ArgumentNullException">Thrown when <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
         public void New(DirectoryPath projectDirectory, MkDocsNewSettings settings)
         {
             if (projectDirectory == null)

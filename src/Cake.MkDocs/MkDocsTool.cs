@@ -7,7 +7,7 @@ using Cake.Core.Tooling;
 namespace Cake.MkDocs
 {
     /// <summary>
-    /// Base class for all MkDocs related tools.
+    /// Base class for all <c>MkDocs</c> related tools.
     /// </summary>
     /// <typeparam name="TSettings">the settings type.</typeparam>
     public abstract class MkDocsTool<TSettings> : Tool<TSettings>
@@ -34,6 +34,13 @@ namespace Cake.MkDocs
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>
+        /// <example>
+        /// <code>
+        /// // MkDocsNewSettings are related to "new" process command
+        /// var settings = new MkDocsNewSettings();
+        /// Run(settings, arguments => arguments.Append("./project-directory"));
+        /// </code>
+        /// </example>
         protected void Run(TSettings settings, Action<ProcessArgumentBuilder> setCommandValues = null)
         {
             Run(settings, new ProcessSettings(), null, setCommandValues);
@@ -46,6 +53,13 @@ namespace Cake.MkDocs
         /// <param name="settings">The settings.</param>
         /// <param name="projectDirectory">Process working directory.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>
+        /// <example>
+        /// <code>
+        /// // MkDocsBuildSettings are related to "build" process command
+        /// var settings = new MkDocsBuildSettings();
+        /// Run(settings, new DirectoryPath("./project-with-docs-is-here"));
+        /// </code>
+        /// </example>
         protected void Run(TSettings settings, DirectoryPath projectDirectory, Action<ProcessArgumentBuilder> setCommandValues = null)
         {
             if (projectDirectory == null)
@@ -69,6 +83,14 @@ namespace Cake.MkDocs
         /// <param name="processSettings">The process settings.</param>
         /// <param name="postAction">If specified called after process exit.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>
+        /// <example>
+        /// <code>
+        /// // MkDocsBuildSettings are related to "build" process command
+        /// var settings = new MkDocsBuildSettings();
+        /// IEnumerable&lt;string&gt; output = null;
+        /// Run(settings, new DirectoryPath("./project-with-docs-is-here"), process => output = process.GetStandardOutput());
+        /// </code>
+        /// </example>
         protected void Run(TSettings settings, ProcessSettings processSettings, Action<IProcess> postAction, Action<ProcessArgumentBuilder> setCommandValues = null)
         {
             ProcessArgumentBuilder arguments = BuildArguments(settings, setCommandValues);
@@ -81,6 +103,18 @@ namespace Cake.MkDocs
         /// <param name="settings">The settings.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>
         /// <returns><see cref="ProcessArgumentBuilder"/> with all commands and arguments for process.</returns>
+        /// <example>
+        /// <code>
+        /// // MkDocsNewSettings are related to "new" process command
+        /// var settings = new MkDocsNewSettings()
+        /// {
+        ///     Quiet = true
+        /// };
+        /// var argumentBuilder = BuildArguments(settings, arguments => arguments.Append("./project-directory"));
+        ///
+        /// // Generate arguments: "new ./project-directory --quiet"
+        /// </code>
+        /// </example>
         protected ProcessArgumentBuilder BuildArguments(TSettings settings, Action<ProcessArgumentBuilder> setCommandValues = null)
         {
             if (settings == null)
@@ -112,7 +146,7 @@ namespace Cake.MkDocs
         /// <summary>
         /// Gets the name of the tool.
         /// </summary>
-        /// <returns>The name of the tool.</returns>
+        /// <returns>The name of the tool (<c>MkDocs</c>).</returns>
         protected override string GetToolName()
         {
             return "MkDocs";
@@ -121,7 +155,7 @@ namespace Cake.MkDocs
         /// <summary>
         /// Gets the possible names of the tool executable.
         /// </summary>
-        /// <returns>The tool executable name.</returns>
+        /// <returns>The tool executable name (<c>mkdocs</c>, <c>mkdocs.exe</c>).</returns>
         protected override IEnumerable<string> GetToolExecutableNames()
         {
             yield return "mkdocs";

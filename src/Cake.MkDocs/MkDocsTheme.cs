@@ -3,7 +3,7 @@
 namespace Cake.MkDocs
 {
     /// <summary>
-    /// Represents MkDocs themes.
+    /// Represents <c>MkDocs</c> themes.
     /// </summary>
     public enum MkDocsTheme
     {
