@@ -3,6 +3,9 @@
 Environment.SetVariableNames();
 
 var shouldRunIntegrationTests = Argument("Target", "Default") == "Run-Integration-Tests";
+// Publish only once during Windows build
+bool shouldPublish = Context.IsRunningOnWindows() ? true : false;
+
 BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./src",
@@ -12,8 +15,15 @@ BuildParameters.SetParameters(context: Context,
                             appVeyorAccountName: "michalkowal",
 							webBaseEditUrl: $"https://github.com/michalkowal/Cake.MkDocs/tree/master/docs/input/",
 							shouldRunIntegrationTests: shouldRunIntegrationTests,
-							// Build issue on Unix
-							shouldExecuteGitLink: Context.IsRunningOnWindows());
+							
+							// Build on Unix
+							shouldRunGitVersion: true,
+							shouldExecuteGitLink: shouldPublish,
+							shouldPublishMyGet: shouldPublish,
+							shouldPublishChocolatey: shouldPublish,
+							shouldPublishNuGet: shouldPublish,
+							shouldPublishGitHub: shouldPublish,
+							shouldGenerateDocumentation: shouldPublish);
 
 BuildParameters.PrintParameters(Context);
 
