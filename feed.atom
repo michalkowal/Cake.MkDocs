@@ -4,5 +4,41 @@
 	<id>http://michalkowal.github.io/Cake.MkDocs</id>
 	<title>Cake.MkDocs</title>
 	<rights>2018</rights>
-	<updated>2018-06-05T05:13:42Z</updated>
+	<updated>2018-06-05T16:47:21Z</updated>
+	<entry>
+		<author>
+			<name>michalkowal</name>
+		</author>
+		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.0.0" />
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.0.0</id>
+		<title>New Release - 1.0.0</title>
+		<updated>2018-06-05T00:00:00Z</updated>
+		<content>&lt;h1 id="release"&gt;1.0.0 Release&lt;/h1&gt;
+&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=1&amp;amp;state=closed"&gt;11 issues&lt;/a&gt; closed.&lt;br /&gt;
+First working version of addin with Cake&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type: Enhancements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/23"&gt;&lt;strong&gt;#23&lt;/strong&gt;&lt;/a&gt; Handle ProjectDirectory parameter in all commands&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/6"&gt;&lt;strong&gt;#6&lt;/strong&gt;&lt;/a&gt; Prepare Options for addin as CLI arguments&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/5"&gt;&lt;strong&gt;#5&lt;/strong&gt;&lt;/a&gt; Prepare MkDocs tool&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/4"&gt;&lt;strong&gt;#4&lt;/strong&gt;&lt;/a&gt; Prepare Cake Aliases for MkDocs&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/2"&gt;&lt;strong&gt;#2&lt;/strong&gt;&lt;/a&gt; Create empty solution for Cake.Addin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Type: Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/14"&gt;&lt;strong&gt;#14&lt;/strong&gt;&lt;/a&gt; Add integration tests for MkDocs aliases&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/9"&gt;&lt;strong&gt;#9&lt;/strong&gt;&lt;/a&gt; Configure AppVeyor&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/8"&gt;&lt;strong&gt;#8&lt;/strong&gt;&lt;/a&gt; Prepare base repository infrastructure&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/1"&gt;&lt;strong&gt;#1&lt;/strong&gt;&lt;/a&gt; Adjust project infrastructure with Cake.Recipe&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Type: Documentation&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/15"&gt;&lt;strong&gt;#15&lt;/strong&gt;&lt;/a&gt; Add examples to documentation&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/3"&gt;&lt;strong&gt;#3&lt;/strong&gt;&lt;/a&gt; Prepare documentation scratch&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please do not hesitate to reach out in the &lt;a href="https://gitter.im/cake-contrib/Lobby"&gt;Gitter Channel&lt;/a&gt; if you have any issues using this addin.&lt;/p&gt;
+</content>
+		<summary>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=1&amp;amp;state=closed"&gt;11 issues&lt;/a&gt; closed.&lt;br&gt;
+First working version of addin with Cake&lt;/p&gt;</summary>
+	</entry>
 </feed>
