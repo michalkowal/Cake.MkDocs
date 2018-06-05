@@ -7,7 +7,7 @@ Author: michalkowal
 
 # 1.0.0 Release
 
-As part of this release we had [11 issues](https://github.com/michalkowal/Cake.MkDocs/issues?milestone=1&state=closed) closed.
+As part of this release we had [11 issues](https://github.com/michalkowal/Cake.MkDocs/issues?milestone=1&state=closed) closed.  
 First working version of addin with Cake
 
 __Type: Enhancements__
