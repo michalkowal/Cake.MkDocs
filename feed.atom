@@ -4,7 +4,29 @@
 	<id>http://michalkowal.github.io/Cake.MkDocs</id>
 	<title>Cake.MkDocs</title>
 	<rights>2018</rights>
-	<updated>2018-06-11T18:38:38Z</updated>
+	<updated>2018-06-11T19:20:37Z</updated>
+	<entry>
+		<author>
+			<name>michalkowal</name>
+		</author>
+		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0" />
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0</id>
+		<title>New Release - 1.1.0</title>
+		<updated>2018-06-11T00:00:00Z</updated>
+		<content>&lt;h1 id="release"&gt;1.1.0 Release&lt;/h1&gt;
+&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.0.0...1.1.0"&gt;6 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=2&amp;amp;state=closed"&gt;3 issues&lt;/a&gt; being closed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type: Enhancements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/19"&gt;&lt;strong&gt;#19&lt;/strong&gt;&lt;/a&gt; Present current version of Cake&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/17"&gt;&lt;strong&gt;#17&lt;/strong&gt;&lt;/a&gt; Present current version of MkDocs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Type: Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/31"&gt;&lt;strong&gt;#31&lt;/strong&gt;&lt;/a&gt; Recommended changes resulting from automated audit&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+		<summary>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.0.0...1.1.0"&gt;6 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=2&amp;amp;state=closed"&gt;3 issues&lt;/a&gt; being closed.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<author>
 			<name>michalkowal</name>

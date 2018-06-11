@@ -5,8 +5,28 @@
 		<link>http://michalkowal.github.io/Cake.MkDocs</link>
 		<description />
 		<copyright>2018</copyright>
-		<pubDate>Mon, 11 Jun 2018 18:38:38 GMT</pubDate>
-		<lastBuildDate>Mon, 11 Jun 2018 18:38:38 GMT</lastBuildDate>
+		<pubDate>Mon, 11 Jun 2018 19:20:37 GMT</pubDate>
+		<lastBuildDate>Mon, 11 Jun 2018 19:20:37 GMT</lastBuildDate>
+		<item>
+			<title>New Release - 1.1.0</title>
+			<link>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0</link>
+			<description>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.0.0...1.1.0"&gt;6 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=2&amp;amp;state=closed"&gt;3 issues&lt;/a&gt; being closed.&lt;/p&gt;</description>
+			<author>michalkowal</author>
+			<guid>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0</guid>
+			<pubDate>Mon, 11 Jun 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="release"&gt;1.1.0 Release&lt;/h1&gt;
+&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.0.0...1.1.0"&gt;6 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=2&amp;amp;state=closed"&gt;3 issues&lt;/a&gt; being closed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type: Enhancements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/19"&gt;&lt;strong&gt;#19&lt;/strong&gt;&lt;/a&gt; Present current version of Cake&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/17"&gt;&lt;strong&gt;#17&lt;/strong&gt;&lt;/a&gt; Present current version of MkDocs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Type: Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/31"&gt;&lt;strong&gt;#31&lt;/strong&gt;&lt;/a&gt; Recommended changes resulting from automated audit&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>New Release - 1.0.0</title>
 			<link>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.0.0</link>
