@@ -14,7 +14,7 @@ namespace Cake.MkDocs.Version
     public sealed class MkDocsVersionRunner : MkDocsTool<MkDocsSettings>
     {
         private readonly Regex _versionRegex = new Regex("version (?<version>.*)$");
-        private static readonly SemVersion SupportedVersion = new SemVersion(0, 17, 3);
+        private static readonly SemVersion SupportedVersion = new SemVersion(0, 17, 4);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MkDocsVersionRunner"/> class.

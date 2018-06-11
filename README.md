@@ -12,6 +12,12 @@ More about Cake at http://cakebuild.net and MkDocs at http://http://www.mkdocs.o
 |GitHub Release|[![GitHub release](https://img.shields.io/github/release/michalkowal/Cake.MkDocs.svg)](https://github.com/michalkowal/Cake.MkDocs/releases/latest)|
 |NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.MkDocs.svg)](https://www.nuget.org/packages/Cake.MkDocs)|
 
+### Supported version
+
+[![MkDocs](https://michalkowal.github.io/Cake.MkDocs/assets/images/mkdocs-badge.svg)](http://http://www.mkdocs.org)
+
+[![Cake](https://michalkowal.github.io/Cake.MkDocs/assets/images/cake-badge.svg)](http://cakebuild.net)
+
 ## Build Status
 
 |Build server|Platform|Master|

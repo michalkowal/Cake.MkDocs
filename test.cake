@@ -4,6 +4,10 @@
 
 #load "tests/integration/MkDocsAliases.cake"
 
+var mkDocsVersion = Argument("mkdocs_version", "");
+if (string.IsNullOrEmpty(mkDocsVersion))
+	throw new ArgumentNullException("mkdocs_version");
+
 Task("Tests")
 	.IsDependentOn("MkDocsAliases")
     .Does(() => {
@@ -13,6 +17,12 @@ Task("Tests")
 Setup(context => {
     Information("Starting integration tests...");
 	CreateDirectory(Paths.Temp);
+	
+	Information("Install global mkdocs");
+	if (Context.IsRunningOnWindows())
+		StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs=={mkDocsVersion}" });
+	else
+		StartProcess("sudo", new ProcessSettings() { Arguments = $"pip install mkdocs=={mkDocsVersion}" });
 });
 
 Teardown(context => {

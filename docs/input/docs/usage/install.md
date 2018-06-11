@@ -26,7 +26,6 @@ For more information and installation instruction see [MkDocs installation guide
 
 # Supported version
 
-| Tool | Version |
-| --- | --- |
-| MkDocs | ~0.17.3 |
-| Cake | ~0.27.2 |
+[![MkDocs](/Cake.MkDocs/assets/images/mkdocs-badge.svg)](http://http://www.mkdocs.org)
+
+[![Cake](/Cake.MkDocs/assets/images/cake-badge.svg)](http://cakebuild.net)

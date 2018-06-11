@@ -12,7 +12,7 @@ versionTasks.Add(
 			
 			// Then
 			Assert.NotNull(result);
-			Assert.Equal("0.17.3", result.ToString());
+			Assert.Equal(mkDocsVersion, result.ToString());
 		}));
 	
 versionTasks.Add(
@@ -118,9 +118,9 @@ versionTasks.Add(
 				
 			Information("Install global mkdocs");
 			if (Context.IsRunningOnWindows())
-				StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.17.3" });
+				StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs=={mkDocsVersion}" });
 			else
-				StartProcess("sudo", new ProcessSettings() { Arguments = $"pip install mkdocs==0.17.3" });
+				StartProcess("sudo", new ProcessSettings() { Arguments = $"pip install mkdocs=={mkDocsVersion}" });
 		}));
 
 Task("MkDocsVersion")

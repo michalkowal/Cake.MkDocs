@@ -16,19 +16,6 @@ for:
   matrix:
     only:
       - image: Visual Studio 2017
-      
-  install:
-    - ps: pip install mkdocs==0.17.3
-    
-  build_script:
-    - ps: .\build.ps1 -Target AppVeyor -Verbosity Diagnostic
--
-  matrix:
-    only:
-      - image: Visual Studio 2017
-      
-  install:
-    - ps: pip install mkdocs==0.17.3
     
   build_script:
     - ps: .\build.ps1 -Target AppVeyor -Verbosity Diagnostic
@@ -36,9 +23,6 @@ for:
   matrix:
     only:
       - image: Ubuntu
-      
-  install:
-    - sh: sudo pip install mkdocs==0.17.3
     
   build_script:
     - sh: chmod +x ./build.sh

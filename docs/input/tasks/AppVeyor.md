@@ -28,4 +28,6 @@ Upload-Coverage-Report-->Upload-Coveralls-Report;
 Upload-Coverage-Report-->Upload-Codecov-Report;
 Publish-Documentation-->Clean-Documentation;
 Publish-Documentation-->Deploy-Graph-Documentation;
+Publish-Documentation-->Download-MkDocs-Badge;
+Publish-Documentation-->Download-Cake-Badge;
 </div>

@@ -1,4 +1,4 @@
-<Project>
+﻿<Project>
 
   <PropertyGroup>
     <PackageId>$(AssemblyName)</PackageId>
@@ -41,6 +41,11 @@
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+	<MkDocsVersion>0.17.4</MkDocsVersion>
+	<CakeVersion>0.28.0</CakeVersion>
   </PropertyGroup>
   
   <PropertyGroup>
