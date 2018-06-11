@@ -102,6 +102,8 @@
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Pack">Dotnetcore Pack</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Restore">Dotnetcore Restore</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Test">Dotnetcore Test</a></li>
+                <li><a href="/Cake.MkDocs/tasks/Download-Cake-Badge">Download Cake Badge</a></li>
+                <li><a href="/Cake.MkDocs/tasks/Download-MkDocs-Badge">Download Mkdocs Badge</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DupFinder">Dupfinder</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Export-Release-Notes">Export Release Notes</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Force-Publish-Documentation">Force Publish Documentation</a></li>
@@ -159,6 +161,8 @@ graph TD;
 PublishDocs-->Force-Publish-Documentation;
 Force-Publish-Documentation-->Clean-Documentation;
 Force-Publish-Documentation-->Deploy-Graph-Documentation;
+Force-Publish-Documentation-->Download-MkDocs-Badge;
+Force-Publish-Documentation-->Download-Cake-Badge;
 </div>
 
 	</section>

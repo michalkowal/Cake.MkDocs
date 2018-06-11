@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.MkDocs - Upload Codecov Report</title>
+        <title>Cake.MkDocs - Download Mkdocs Badge</title>
         <link href="/Cake.MkDocs/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -75,7 +75,7 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/michalkowal/Cake.MkDocs/tree/master/docs/input/tasks/Upload-Codecov-Report.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+        <div><p><a href="https://github.com/michalkowal/Cake.MkDocs/tree/master/docs/input/tasks/Download-MkDocs-Badge.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
     <div id="infobar-headings"></div>
 
                 </section>
@@ -103,7 +103,7 @@
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Restore">Dotnetcore Restore</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Test">Dotnetcore Test</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Download-Cake-Badge">Download Cake Badge</a></li>
-                <li><a href="/Cake.MkDocs/tasks/Download-MkDocs-Badge">Download Mkdocs Badge</a></li>
+                <li class="selected"><a href="/Cake.MkDocs/tasks/Download-MkDocs-Badge">Download Mkdocs Badge</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DupFinder">Dupfinder</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Export-Release-Notes">Export Release Notes</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Force-Publish-Documentation">Force Publish Documentation</a></li>
@@ -137,7 +137,7 @@
                 <li><a href="/Cake.MkDocs/tasks/Transifex-Push-Translations">Transifex Push Translations</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Transifex-Setup">Transifex Setup</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Upload-AppVeyor-Artifacts">Upload Appveyor Artifacts</a></li>
-                <li class="selected"><a href="/Cake.MkDocs/tasks/Upload-Codecov-Report">Upload Codecov Report</a></li>
+                <li><a href="/Cake.MkDocs/tasks/Upload-Codecov-Report">Upload Codecov Report</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Upload-Coverage-Report">Upload Coverage Report</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Upload-Coveralls-Report">Upload Coveralls Report</a></li>
 
@@ -153,20 +153,12 @@
 
 
 	<section class="content-header">
-		<h1>Upload Codecov Report</h1>
+		<h1>Download Mkdocs Badge</h1>
 	</section>
 	<section class="content">
 		<div class="mermaid">
 graph TD;
-Upload-Codecov-Report-->Test;
-Test-->DotNetCore-Build;
-Test-->DotNetCore-Test;
-DotNetCore-Test-->Install-OpenCover;
-Install-OpenCover-->Install-ReportGenerator;
-DotNetCore-Build-->Clean;
-DotNetCore-Build-->DotNetCore-Restore;
-Clean-->Show-Info;
-Clean-->Print-AppVeyor-Environment-Variables;
+Download-MkDocs-Badge;
 </div>
 
 	</section>
