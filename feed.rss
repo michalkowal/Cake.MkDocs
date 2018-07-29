@@ -5,8 +5,24 @@
 		<link>http://michalkowal.github.io/Cake.MkDocs</link>
 		<description />
 		<copyright>2018</copyright>
-		<pubDate>Sun, 29 Jul 2018 08:23:52 GMT</pubDate>
-		<lastBuildDate>Sun, 29 Jul 2018 08:23:52 GMT</lastBuildDate>
+		<pubDate>Sun, 29 Jul 2018 09:15:54 GMT</pubDate>
+		<lastBuildDate>Sun, 29 Jul 2018 09:15:54 GMT</lastBuildDate>
+		<item>
+			<title>New Release - 1.2.0</title>
+			<link>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.2.0</link>
+			<description>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.1.0...1.2.0"&gt;2 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=3&amp;amp;state=closed"&gt;2 issues&lt;/a&gt; being closed.&lt;/p&gt;</description>
+			<author>michalkowal</author>
+			<guid>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.2.0</guid>
+			<pubDate>Sun, 29 Jul 2018 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="release"&gt;1.2.0 Release&lt;/h1&gt;
+&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.1.0...1.2.0"&gt;2 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=3&amp;amp;state=closed"&gt;2 issues&lt;/a&gt; being closed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type: Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/34"&gt;&lt;strong&gt;#34&lt;/strong&gt;&lt;/a&gt; Update Cake reference to 0.29.0&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/33"&gt;&lt;strong&gt;#33&lt;/strong&gt;&lt;/a&gt; Update mkdocs reference to 0.17.5&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>New Release - 1.1.0</title>
 			<link>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0</link>

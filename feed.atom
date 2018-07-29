@@ -4,7 +4,25 @@
 	<id>http://michalkowal.github.io/Cake.MkDocs</id>
 	<title>Cake.MkDocs</title>
 	<rights>2018</rights>
-	<updated>2018-07-29T08:23:52Z</updated>
+	<updated>2018-07-29T09:15:54Z</updated>
+	<entry>
+		<author>
+			<name>michalkowal</name>
+		</author>
+		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.2.0" />
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.2.0</id>
+		<title>New Release - 1.2.0</title>
+		<updated>2018-07-29T00:00:00Z</updated>
+		<content>&lt;h1 id="release"&gt;1.2.0 Release&lt;/h1&gt;
+&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.1.0...1.2.0"&gt;2 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=3&amp;amp;state=closed"&gt;2 issues&lt;/a&gt; being closed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type: Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/34"&gt;&lt;strong&gt;#34&lt;/strong&gt;&lt;/a&gt; Update Cake reference to 0.29.0&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/33"&gt;&lt;strong&gt;#33&lt;/strong&gt;&lt;/a&gt; Update mkdocs reference to 0.17.5&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+		<summary>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.1.0...1.2.0"&gt;2 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=3&amp;amp;state=closed"&gt;2 issues&lt;/a&gt; being closed.&lt;/p&gt;</summary>
+	</entry>
 	<entry>
 		<author>
 			<name>michalkowal</name>
