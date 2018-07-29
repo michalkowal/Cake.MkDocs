@@ -19,4 +19,5 @@ DotNetCore-Test-->Install-OpenCover;
 Install-OpenCover-->Install-ReportGenerator;
 Analyze-->DupFinder;
 Analyze-->InspectCode;
+Analyze-->CreateIssuesReport;
 </div>

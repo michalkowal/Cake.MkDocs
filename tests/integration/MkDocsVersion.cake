@@ -1,7 +1,7 @@
 #load "utilities/paths.cake"
 #load "utilities/xunit.cake"
 
-var versionTasks = new List<CakeTaskBuilder<ActionTask>>();
+var versionTasks = new List<CakeTaskBuilder>();
 
 versionTasks.Add(
 	Task("Should-Return-MkDocs-Version")

@@ -10,7 +10,6 @@ Task("Download-Cake-Badge")
 		DownloadBadge("Cake", Version.Cake, "orange");
 	});
 
-BuildParameters.Tasks.PublishDocumentationTask.Task.Actions.Clear();
 BuildParameters.Tasks.PublishDocumentationTask
 	.IsDependentOn("Download-MkDocs-Badge")
 	.IsDependentOn("Download-Cake-Badge")
@@ -71,7 +70,6 @@ BuildParameters.Tasks.PublishDocumentationTask
     })
 );
 
-BuildParameters.Tasks.PreviewDocumentationTask.Task.Actions.Clear();
 BuildParameters.Tasks.PreviewDocumentationTask
 	.IsDependentOn("Download-MkDocs-Badge")
 	.IsDependentOn("Download-Cake-Badge")
@@ -101,7 +99,6 @@ BuildParameters.Tasks.PreviewDocumentationTask
     })
 );
 
-BuildParameters.Tasks.ForcePublishDocumentationTask.Task.Actions.Clear();
 BuildParameters.Tasks.ForcePublishDocumentationTask
 	.IsDependentOn("Download-MkDocs-Badge")
 	.IsDependentOn("Download-Cake-Badge")

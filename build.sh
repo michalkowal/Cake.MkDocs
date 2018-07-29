@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define default arguments.
-SCRIPT="setup.cake"
+SCRIPT="recipe.cake"
 TARGET="Default"
 CONFIGURATION="Release"
 VERBOSITY="Verbose"

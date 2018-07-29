@@ -2,7 +2,7 @@
 #load "utilities/paths.cake"
 #load "utilities/xunit.cake"
 
-var newTasks = new List<CakeTaskBuilder<ActionTask>>();
+var newTasks = new List<CakeTaskBuilder>();
 
 newTasks.Add(
 	Task("Should-Create-New-Project")

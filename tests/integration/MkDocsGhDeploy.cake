@@ -2,7 +2,7 @@
 #load "utilities/paths.cake"
 #load "utilities/xunit.cake"
 
-var ghDeployTasks = new List<CakeTaskBuilder<ActionTask>>();
+var ghDeployTasks = new List<CakeTaskBuilder>();
 
 ghDeployTasks.Add(
 	Task("Try-To-Deploy")

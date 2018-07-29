@@ -3,7 +3,7 @@
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://cake-contrib.mit-license.org)
 
 Cake Addin that extends Cake with ability to run the MkDocs.  
-More about Cake at http://cakebuild.net and MkDocs at http://http://www.mkdocs.org
+More about Cake at http://cakebuild.net and MkDocs at http://www.mkdocs.org
 
 ## Information
 
@@ -14,7 +14,7 @@ More about Cake at http://cakebuild.net and MkDocs at http://http://www.mkdocs.o
 
 ### Supported version
 
-[![MkDocs](https://michalkowal.github.io/Cake.MkDocs/assets/images/mkdocs-badge.svg)](http://http://www.mkdocs.org)
+[![MkDocs](https://michalkowal.github.io/Cake.MkDocs/assets/images/mkdocs-badge.svg)](http://www.mkdocs.org)
 
 [![Cake](https://michalkowal.github.io/Cake.MkDocs/assets/images/cake-badge.svg)](http://cakebuild.net)
 

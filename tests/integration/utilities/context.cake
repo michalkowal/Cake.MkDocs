@@ -85,7 +85,7 @@ public sealed class ConsoleOutputContextAdapter : ICakeContext
 		_processRunner = new OutputRedirectProcessRunnerDecorator(context.ProcessRunner);
 		_cakeContext = new CakeContext(context.FileSystem, context.Environment,
 			context.Globber, context.Log, context.Arguments, 
-			_processRunner, context.Registry, context.Tools);
+			_processRunner, context.Registry, context.Tools, (ICakeDataService)context.Data);
 	}
 
 	public void CollectOutput()
@@ -110,6 +110,7 @@ public sealed class ConsoleOutputContextAdapter : ICakeContext
 	public IProcessRunner ProcessRunner => _cakeContext.ProcessRunner;
 	public IRegistry Registry => _cakeContext.Registry;
 	public IToolLocator Tools => _cakeContext.Tools;
+	public ICakeDataResolver Data => _cakeContext.Data;
 	
 	public IEnumerable<string> Output => _output;
 }

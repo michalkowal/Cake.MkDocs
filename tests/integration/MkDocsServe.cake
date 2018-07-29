@@ -4,7 +4,7 @@
 #load "utilities/xunit.cake"
 
 LongRunTaskContext _taskData;
-var serveTasks = new List<CakeTaskBuilder<ActionTask>>();
+var serveTasks = new List<CakeTaskBuilder>();
 
 serveTasks.Add(
 	Task("Should-Serve-Project")

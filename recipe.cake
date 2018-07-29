@@ -62,7 +62,6 @@ Task("Run-Integration-Tests-Standalone")
 		}
 	});
 
-BuildParameters.Tasks.IntegrationTestTask.Task.Actions.Clear();
 BuildParameters.Tasks.IntegrationTestTask
 	.IsDependentOn("Run-Integration-Tests-Standalone");
 

@@ -24,6 +24,7 @@ DotNetCore-Test-->Install-OpenCover;
 Install-OpenCover-->Install-ReportGenerator;
 Analyze-->DupFinder;
 Analyze-->InspectCode;
+Analyze-->CreateIssuesReport;
 Upload-Coverage-Report-->Upload-Coveralls-Report;
 Upload-Coverage-Report-->Upload-Codecov-Report;
 Publish-Documentation-->Clean-Documentation;

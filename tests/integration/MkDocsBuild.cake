@@ -1,7 +1,7 @@
 #load "utilities/paths.cake"
 #load "utilities/xunit.cake"
 
-var buildTasks = new List<CakeTaskBuilder<ActionTask>>();
+var buildTasks = new List<CakeTaskBuilder>();
 
 buildTasks.Add(
 	Task("Should-Build-Project")
