@@ -34,22 +34,6 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"MkDocsAddress",
-        content:"MkDocsAddress",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:1,
-        title:"MkDocsArgumentAttribute",
-        content:"MkDocsArgumentAttribute",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
         title:"MkDocsTool",
         content:"MkDocsTool",
         description:'',
@@ -57,47 +41,7 @@ var searchModule = function() {
     });
 
     a({
-        id:3,
-        title:"MkDocsArgumentValueAttribute",
-        content:"MkDocsArgumentValueAttribute",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:4,
-        title:"MkDocsTheme",
-        content:"MkDocsTheme",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:5,
-        title:"MkDocsNewSettings",
-        content:"MkDocsNewSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:6,
-        title:"MkDocsNewRunner",
-        content:"MkDocsNewRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:7,
-        title:"MkDocsVersionRunner",
-        content:"MkDocsVersionRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:8,
+        id:1,
         title:"MkDocsVersionSettings",
         content:"MkDocsVersionSettings",
         description:'',
@@ -105,55 +49,23 @@ var searchModule = function() {
     });
 
     a({
-        id:9,
-        title:"MkDocsServeSettings",
-        content:"MkDocsServeSettings",
+        id:2,
+        title:"MkDocsNewSettings",
+        content:"MkDocsNewSettings",
         description:'',
         tags:''
     });
 
     a({
-        id:10,
-        title:"MkDocsGhDeployRunner",
-        content:"MkDocsGhDeployRunner",
+        id:3,
+        title:"MkDocsSettings",
+        content:"MkDocsSettings",
         description:'',
         tags:''
     });
 
     a({
-        id:11,
-        title:"MkDocsBuildRunner",
-        content:"MkDocsBuildRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:12,
-        title:"MkDocsServeAsyncSettings",
-        content:"MkDocsServeAsyncSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:13,
-        title:"MkDocsAliases",
-        content:"MkDocsAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:14,
-        title:"MkDocsServeAsyncRunner",
-        content:"MkDocsServeAsyncRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:15,
+        id:4,
         title:"MkDocsBuildSettings",
         content:"MkDocsBuildSettings",
         description:'',
@@ -161,7 +73,15 @@ var searchModule = function() {
     });
 
     a({
-        id:16,
+        id:5,
+        title:"MkDocsAddress",
+        content:"MkDocsAddress",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:6,
         title:"MkDocsGhDeploySettings",
         content:"MkDocsGhDeploySettings",
         description:'',
@@ -169,7 +89,39 @@ var searchModule = function() {
     });
 
     a({
-        id:17,
+        id:7,
+        title:"MkDocsServeAsyncRunner",
+        content:"MkDocsServeAsyncRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:8,
+        title:"MkDocsArgumentValueAttribute",
+        content:"MkDocsArgumentValueAttribute",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:9,
+        title:"MkDocsServeAsyncSettings",
+        content:"MkDocsServeAsyncSettings",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:10,
+        title:"MkDocsNewRunner",
+        content:"MkDocsNewRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:11,
         title:"MkDocsServeRunner",
         content:"MkDocsServeRunner",
         description:'',
@@ -177,58 +129,64 @@ var searchModule = function() {
     });
 
     a({
+        id:12,
+        title:"MkDocsBuildRunner",
+        content:"MkDocsBuildRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:13,
+        title:"MkDocsTheme",
+        content:"MkDocsTheme",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:14,
+        title:"MkDocsGhDeployRunner",
+        content:"MkDocsGhDeployRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:15,
+        title:"MkDocsArgumentAttribute",
+        content:"MkDocsArgumentAttribute",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:16,
+        title:"MkDocsVersionRunner",
+        content:"MkDocsVersionRunner",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:17,
+        title:"MkDocsAliases",
+        content:"MkDocsAliases",
+        description:'',
+        tags:''
+    });
+
+    a({
         id:18,
-        title:"MkDocsSettings",
-        content:"MkDocsSettings",
+        title:"MkDocsServeSettings",
+        content:"MkDocsServeSettings",
         description:'',
         tags:''
     });
 
     y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAddress',
-        title:"MkDocsAddress",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentAttribute',
-        title:"MkDocsArgumentAttribute",
-        description:""
-    });
-
-    y({
         url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1',
         title:"MkDocsTool<TSettings>",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentValueAttribute',
-        title:"MkDocsArgumentValueAttribute",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsTheme',
-        title:"MkDocsTheme",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings',
-        title:"MkDocsNewSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner',
-        title:"MkDocsNewRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner',
-        title:"MkDocsVersionRunner",
         description:""
     });
 
@@ -239,38 +197,14 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeSettings',
-        title:"MkDocsServeSettings",
+        url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings',
+        title:"MkDocsNewSettings",
         description:""
     });
 
     y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner',
-        title:"MkDocsGhDeployRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner',
-        title:"MkDocsBuildRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncSettings',
-        title:"MkDocsServeAsyncSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAliases',
-        title:"MkDocsAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner',
-        title:"MkDocsServeAsyncRunner",
+        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings',
+        title:"MkDocsSettings",
         description:""
     });
 
@@ -281,8 +215,38 @@ var searchModule = function() {
     });
 
     y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAddress',
+        title:"MkDocsAddress",
+        description:""
+    });
+
+    y({
         url:'/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeploySettings',
         title:"MkDocsGhDeploySettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner',
+        title:"MkDocsServeAsyncRunner",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentValueAttribute',
+        title:"MkDocsArgumentValueAttribute",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncSettings',
+        title:"MkDocsServeAsyncSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner',
+        title:"MkDocsNewRunner",
         description:""
     });
 
@@ -293,8 +257,44 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings',
-        title:"MkDocsSettings",
+        url:'/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner',
+        title:"MkDocsBuildRunner",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsTheme',
+        title:"MkDocsTheme",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner',
+        title:"MkDocsGhDeployRunner",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentAttribute',
+        title:"MkDocsArgumentAttribute",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner',
+        title:"MkDocsVersionRunner",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAliases',
+        title:"MkDocsAliases",
+        description:""
+    });
+
+    y({
+        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeSettings',
+        title:"MkDocsServeSettings",
         description:""
     });
 

@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.MkDocs - Dotnetcore Restore</title>
+        <title>Cake.MkDocs - Createissuesreport</title>
         <link href="/Cake.MkDocs/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -75,7 +75,7 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/michalkowal/Cake.MkDocs/tree/master/docs/input/tasks/DotNetCore-Restore.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+        <div><p><a href="https://github.com/michalkowal/Cake.MkDocs/tree/master/docs/input/tasks/CreateIssuesReport.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
     <div id="infobar-headings"></div>
 
                 </section>
@@ -96,12 +96,12 @@
                 <li><a href="/Cake.MkDocs/tasks/Create-Nuget-Package">Create Nuget Package</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Create-NuGet-Packages">Create Nuget Packages</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Create-Release-Notes">Create Release Notes</a></li>
-                <li><a href="/Cake.MkDocs/tasks/CreateIssuesReport">Createissuesreport</a></li>
+                <li class="selected"><a href="/Cake.MkDocs/tasks/CreateIssuesReport">Createissuesreport</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Default">Default</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Deploy-Graph-Documentation">Deploy Graph Documentation</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Build">Dotnetcore Build</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Pack">Dotnetcore Pack</a></li>
-                <li class="selected"><a href="/Cake.MkDocs/tasks/DotNetCore-Restore">Dotnetcore Restore</a></li>
+                <li><a href="/Cake.MkDocs/tasks/DotNetCore-Restore">Dotnetcore Restore</a></li>
                 <li><a href="/Cake.MkDocs/tasks/DotNetCore-Test">Dotnetcore Test</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Download-Cake-Badge">Download Cake Badge</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Download-MkDocs-Badge">Download Mkdocs Badge</a></li>
@@ -154,12 +154,16 @@
 
 
 	<section class="content-header">
-		<h1>Dotnetcore Restore</h1>
+		<h1>Createissuesreport</h1>
 	</section>
 	<section class="content">
 		<div class="mermaid">
 graph TD;
-DotNetCore-Restore;
+CreateIssuesReport-->DotNetCore-Build;
+DotNetCore-Build-->Clean;
+DotNetCore-Build-->DotNetCore-Restore;
+Clean-->Show-Info;
+Clean-->Print-AppVeyor-Environment-Variables;
 </div>
 
 	</section>
