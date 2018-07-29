@@ -8,7 +8,7 @@ namespace Cake.MkDocs.Tests.Fixtures.Version
 
         public BaseMkDocsVersionRunnerFixture()
         {
-            GivenMkDocsVersion("0.17.3");
+            GivenMkDocsVersion("0.17.5");
         }
 
         public void GivenMkDocsVersion(string version)

@@ -20,7 +20,7 @@ namespace Cake.MkDocs.Tests.Unit
             public TheMkDocsVersionMethod()
             {
                 _process = new FakeProcess();
-                _process.SetStandardOutput(new[] { "mkdocs, version 0.17.3" });
+                _process.SetStandardOutput(new[] { "mkdocs, version 0.17.5" });
             }
 
             [Fact]
@@ -74,7 +74,7 @@ namespace Cake.MkDocs.Tests.Unit
             public TheMkDocsIsSupportedVersionMethod()
             {
                 _process = new FakeProcess();
-                _process.SetStandardOutput(new[] { "mkdocs, version 0.17.3" });
+                _process.SetStandardOutput(new[] { "mkdocs, version 0.17.5" });
             }
 
             [Fact]

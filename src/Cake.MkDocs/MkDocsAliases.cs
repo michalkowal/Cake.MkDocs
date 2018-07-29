@@ -66,7 +66,7 @@ namespace Cake.MkDocs
         /// {
         ///     Quiet = true
         /// });
-        /// Information($"MkDocs tool version: {mkDocsVersion}"); // 0.17.3
+        /// Information($"MkDocs tool version: {mkDocsVersion}"); // 0.17.5
         /// </code>
         /// </example>
         /// <example>

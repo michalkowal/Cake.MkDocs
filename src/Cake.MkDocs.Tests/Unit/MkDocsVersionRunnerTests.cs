@@ -91,7 +91,7 @@ namespace Cake.MkDocs.Tests.Unit
             : BaseMkDocsVersionTests<MkDocsVersionRunnerFixture>
         {
             [Theory]
-            [InlineData("0.17.3")]
+            [InlineData("0.17.5")]
             [InlineData("0.17.9")]
             [InlineData("0.17.0")]
             [InlineData("0.18.0")]
