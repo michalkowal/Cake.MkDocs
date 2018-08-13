@@ -55,19 +55,22 @@ buildTasks.Add(
 		{
 			// Given
 			CreateDirectory(Paths.Temp.Combine("config/"));
+			CreateDirectory(Paths.Temp.Combine("config/docs"));
 			MoveFile(Paths.Temp.CombineWithFilePath("mkdocs.yml"), Paths.Temp.CombineWithFilePath("config/mkdocs.yml"));
+			MoveFile(Paths.Temp.CombineWithFilePath("docs/index.md"), Paths.Temp.CombineWithFilePath("config/docs/index.md"));
 		
 			// When
 			MkDocsBuild(Paths.Temp, new MkDocsBuildSettings() { ConfigFile = Paths.Temp.CombineWithFilePath("config/mkdocs.yml") });
 			
 			// Then
-			Assert.True(DirectoryExists(Paths.Temp.Combine("site/")));
-			Assert.True(FileExists(Paths.Temp.CombineWithFilePath("site/index.html")));
+			Assert.True(DirectoryExists(Paths.Temp.Combine("config/site/")));
+			Assert.True(FileExists(Paths.Temp.CombineWithFilePath("config/site/index.html")));
 		})
 		.Finally(() =>
 		{
 			MoveFile(Paths.Temp.CombineWithFilePath("config/mkdocs.yml"), Paths.Temp.CombineWithFilePath("mkdocs.yml"));
-			DeleteDirectory(Paths.Temp.Combine("config/"), new DeleteDirectorySettings());
+			MoveFile(Paths.Temp.CombineWithFilePath("config/docs/index.md"), Paths.Temp.CombineWithFilePath("docs/index.md"));
+			DeleteDirectory(Paths.Temp.Combine("config/"), new DeleteDirectorySettings() { Recursive = true });
 		}));
 	
 buildTasks.Add(

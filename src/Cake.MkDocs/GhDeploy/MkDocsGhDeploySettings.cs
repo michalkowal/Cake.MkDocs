@@ -70,5 +70,14 @@ namespace Cake.MkDocs.GhDeploy
         /// <value><c>true</c> - force push enabled; otherwise - <c>false</c></value>
         [MkDocsArgument("force")]
         public bool Force { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether ignore version push is required.
+        /// <para>Ignore check that build is not being deployed
+        /// with an older version of MkDocs.</para>
+        /// </summary>
+        /// <value><c>true</c> - ignore version push enabled; otherwise - <c>false</c></value>
+        [MkDocsArgument("ignore-version")]
+        public bool IgnoreVersion { get; set; }
     }
 }

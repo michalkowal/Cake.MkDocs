@@ -8,12 +8,12 @@ namespace Cake.MkDocs.Tests.Fixtures.Version
 
         public BaseMkDocsVersionRunnerFixture()
         {
-            GivenMkDocsVersion("0.17.5");
+            GivenMkDocsVersion("1.0.0");
         }
 
         public void GivenMkDocsVersion(string version)
         {
-            _toolResult = $"mkdocs, version {version}";
+            _toolResult = $"mkdocs, version {version} from \\local\\python\\python36\\lib\\site-packages\\mkdocs (Python 3.6)";
             ProcessRunner.Process.SetStandardOutput(new[]
             {
                 _toolResult

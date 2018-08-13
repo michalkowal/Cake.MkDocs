@@ -221,6 +221,33 @@ namespace Cake.MkDocs.Tests.Unit
                 // Then
                 Assert.DoesNotContain("--force", result.Args);
             }
+
+            [Fact]
+            public void Should_Add_IgnoreVersion_Argument_If_Defined()
+            {
+                // Given
+                var fixture = new TFixture();
+                fixture.Settings.IgnoreVersion = true;
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.Contains("--ignore-version", result.Args);
+            }
+
+            [Fact]
+            public void Should_Not_Add_IgnoreVersion_Argument_If_Not_Defined()
+            {
+                // Given
+                var fixture = new TFixture();
+
+                // When
+                var result = fixture.Run();
+
+                // Then
+                Assert.DoesNotContain("--ignore-version", result.Args);
+            }
         }
 
         public sealed class TheGhDeployInWorkingDirMethod

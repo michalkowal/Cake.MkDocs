@@ -20,7 +20,7 @@ namespace Cake.MkDocs.Tests.Unit
             public TheMkDocsVersionMethod()
             {
                 _process = new FakeProcess();
-                _process.SetStandardOutput(new[] { "mkdocs, version 0.17.5" });
+                _process.SetStandardOutput(new[] { "mkdocs, version 1.0 from \\local\\python\\python36\\lib\\site-packages\\mkdocs (Python 3.6)" });
             }
 
             [Fact]
@@ -74,7 +74,7 @@ namespace Cake.MkDocs.Tests.Unit
             public TheMkDocsIsSupportedVersionMethod()
             {
                 _process = new FakeProcess();
-                _process.SetStandardOutput(new[] { "mkdocs, version 0.17.5" });
+                _process.SetStandardOutput(new[] { "mkdocs, version 1.0 from \\local\\python\\python36\\lib\\site-packages\\mkdocs (Python 3.6)" });
             }
 
             [Fact]

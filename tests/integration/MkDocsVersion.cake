@@ -38,9 +38,9 @@ versionTasks.Add(
 			
 			Information("Install local mkdocs");
 			if (Context.IsRunningOnWindows())
-				StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.16.3 --target \"{Paths.Temp.Combine("packages/")}\"" });
+				StartProcess("pip", new ProcessSettings() { Arguments = $"install mkdocs==0.17.5 --target \"{Paths.Temp.Combine("packages/")}\"" });
 			else
-				StartProcess("sudo", new ProcessSettings() { Arguments = $"pip install mkdocs==0.16.3 --prefix /usr/local" });
+				StartProcess("sudo", new ProcessSettings() { Arguments = $"pip install mkdocs==0.17.5 --prefix /usr/local" });
 		}));
 	
 versionTasks.Add(
@@ -73,7 +73,7 @@ versionTasks.Add(
 			
 			// Then
 			Assert.NotNull(result);
-			Assert.Equal("0.16.3", result.ToString());
+			Assert.Equal("0.17.5", result.ToString());
 		}));
 	
 versionTasks.Add(

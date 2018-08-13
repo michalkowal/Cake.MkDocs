@@ -91,11 +91,10 @@ namespace Cake.MkDocs.Tests.Unit
             : BaseMkDocsVersionTests<MkDocsVersionRunnerFixture>
         {
             [Theory]
-            [InlineData("0.17.5")]
-            [InlineData("0.17.9")]
-            [InlineData("0.17.0")]
-            [InlineData("0.18.0")]
-            [InlineData("0.18.0-beta.2")]
+            [InlineData("1.0.0")]
+            [InlineData("1.0.2")]
+            [InlineData("1.1.0")]
+            [InlineData("1.1.0-beta.2")]
             public void Should_Return_True(string toolVersion)
             {
                 // Given
@@ -110,9 +109,9 @@ namespace Cake.MkDocs.Tests.Unit
             }
 
             [Theory]
-            [InlineData("1.0.0")]
+            [InlineData("2.0.0")]
             [InlineData("0.16.0")]
-            [InlineData("1.0.0-beta.4")]
+            [InlineData("2.0.0-beta.4")]
             [InlineData("0.16.0-beta.1")]
             public void Should_Return_False(string toolVersion)
             {
