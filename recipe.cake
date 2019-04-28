@@ -70,7 +70,7 @@ Task("MkDocs-Integration-Tests")
 	.IsDependentOn("MkDocs-Integration-Tests-Standalone");
 	
 Task("AppVeyor-With-Integration-Tests")
-	.IsDependentOn("MkDocs-Integration-Tests-Standalone")
+	.IsDependentOn("MkDocs-Integration-Tests")
 	.IsDependentOn("AppVeyor");
 
 Build.RunDotNetCore();
