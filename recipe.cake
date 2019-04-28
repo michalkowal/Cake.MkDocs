@@ -4,7 +4,9 @@
 
 Environment.SetVariableNames();
 
-var shouldRunIntegrationTests = Argument("Target", "Default") == "Run-Integration-Tests";
+var target = Argument("Target", "Default");
+var shouldRunIntegrationTests = target.StartsWith("MkDocs-Integration-Tests");
+
 // Publish only once during Windows build
 bool shouldPublish = Context.IsRunningOnWindows();
 
@@ -36,7 +38,8 @@ Information("Cake version: {0}", Version.Cake);
 Information("MkDocs version: {0}", Version.MkDocs);
 
 // Task for integration tests without build
-Task("Run-Integration-Tests-Standalone")
+Task("MkDocs-Integration-Tests-Standalone")
+	.WithCriteria(() => BuildParameters.ShouldRunIntegrationTests)
 	.Does(() => 
     {
 		CakeExecuteScript(BuildParameters.IntegrationTestScriptPath,
@@ -61,15 +64,13 @@ Task("Run-Integration-Tests-Standalone")
 			});
 		}
 	});
-
-BuildParameters.Tasks.IntegrationTestTask
-	.IsDependentOn("Run-Integration-Tests-Standalone");
+	
+Task("MkDocs-Integration-Tests")
+	.IsDependentOn("Package")
+	.IsDependentOn("MkDocs-Integration-Tests-Standalone");
+	
+Task("AppVeyor-With-Integration-Tests")
+	.IsDependentOn("MkDocs-Integration-Tests-Standalone")
+	.IsDependentOn("AppVeyor");
 
 Build.RunDotNetCore();
-
-// If target is not Run-Integration-Tests and tests are allowed
-// Run them after all
-if (!shouldRunIntegrationTests && BuildParameters.ShouldRunIntegrationTests)
-{
-	RunTarget("Run-Integration-Tests-Standalone");
-}
