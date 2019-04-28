@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.MkDocs - API - MkDocsNewRunner Class</title>
-        <link href="/Cake.MkDocs/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.MkDocs/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.MkDocs/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.MkDocs/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/respond.min.js"></script>
@@ -178,8 +178,8 @@
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>Tool<wbr>&lt;&gt;<wbr></li>								
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></li>								
+											<li>Tool<wbr>&lt;<a href="/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings">MkDocsNewSettings</a>&gt;<wbr></li>								
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool</a><wbr>&lt;<a href="/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings">MkDocsNewSettings</a>&gt;<wbr></li>								
 									</ul>
 								</dd>				
 							
@@ -188,10 +188,9 @@
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
-							graph TD
-	Base0["MkDocsTool&lt;TSettings&gt;"]--&gt;Type
-	click Base0 "/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1"
-	Base1["Tool&lt;&gt;"]--&gt;Base0
+							graph BT
+	Type--&gt;Base0["MkDocsTool&lt;MkDocsNewSettings&gt;"]
+	Base0--&gt;Base1["Tool&lt;MkDocsNewSettings&gt;"]
 	Type["MkDocsNewRunner"]
 class Type type-node
 
@@ -203,6 +202,7 @@ class Type type-node
 
 	<h1 id="Syntax">Syntax</h1>
 	<pre><code>public sealed class MkDocsNewRunner : MkDocsTool&lt;MkDocsNewSettings&gt;</code></pre>
+
 
 
 
@@ -245,36 +245,6 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1/4F14A0CF">BuildArguments<wbr>(TSettings, <wbr>Action<wbr>&lt;<wbr>Process<wbr>Argument<wbr>Builder&gt;<wbr>)<wbr></a></td>
-								<td>Process<wbr>Argument<wbr>Builder</td>
-								<td>
-									<div>
-     Builds process arguments based on settings
-     </div>
-											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1/2C46BC34">Get<wbr>Tool<wbr>Executable<wbr>Names<wbr>()<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;T&gt;<wbr></td>
-								<td>
-									<div>
-    Gets the possible names of the tool executable.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1/9B985479">GetToolName<wbr>()<wbr></a></td>
-								<td>string</td>
-								<td>
-									<div>
-    Gets the name of the tool.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></em></small></div>
-								</td>
-							</tr>
-							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner/26393140">New<wbr>(DirectoryPath, <wbr>MkDocsNewSettings)<wbr></a></td>
 								<td>void</td>
 								<td>
@@ -290,39 +260,6 @@ class Type type-node
 									<div>
     Create a new <code class="cs">MkDocs</code> project in current directory.
     </div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1/F8F742FF">Run<wbr>(TSettings, <wbr>Action<wbr>&lt;<wbr>Process<wbr>Argument<wbr>Builder&gt;<wbr>)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Runs the tool using the specified settings.
-    Creates process arguments based on settings attribute.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1/B6C618F8">Run<wbr>(TSettings, <wbr>DirectoryPath, <wbr>Action<wbr>&lt;<wbr>Process<wbr>Argument<wbr>Builder&gt;<wbr>)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Runs the tool using the specified settings and change process workig directory.
-    Creates process arguments based on settings attribute.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></em></small></div>
-								</td>
-							</tr>
-							<tr>
-								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1/9B047378">Run<wbr>(TSettings, <wbr>ProcessSettings, <wbr>Action<wbr>&lt;IProcess&gt;<wbr>, <wbr>Action<wbr>&lt;<wbr>Process<wbr>Argument<wbr>Builder&gt;<wbr>)<wbr></a></td>
-								<td>void</td>
-								<td>
-									<div>
-    Runs the tool using a custom tool path and the specified settings.
-    Creates process arguments based on settings attribute.
-    </div>
-											<div><small><em>Inherited from <a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></em></small></div>
 								</td>
 							</tr>
 					</tbody></table>
@@ -411,22 +348,53 @@ class Type type-node
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

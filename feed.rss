@@ -4,9 +4,24 @@
 		<title>Cake.MkDocs</title>
 		<link>http://michalkowal.github.io/Cake.MkDocs</link>
 		<description />
-		<copyright>2018</copyright>
-		<pubDate>Mon, 13 Aug 2018 18:20:15 GMT</pubDate>
-		<lastBuildDate>Mon, 13 Aug 2018 18:20:15 GMT</lastBuildDate>
+		<copyright>2019</copyright>
+		<pubDate>Sun, 28 Apr 2019 17:28:24 GMT</pubDate>
+		<lastBuildDate>Sun, 28 Apr 2019 17:28:24 GMT</lastBuildDate>
+		<item>
+			<title>New Release - 2.1.0</title>
+			<link>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.1.0</link>
+			<description>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/milestone/5?closed=1"&gt;1 issue&lt;/a&gt; closed.&lt;/p&gt;</description>
+			<author>michalkowal</author>
+			<guid>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.1.0</guid>
+			<pubDate>Sun, 28 Apr 2019 00:00:00 GMT</pubDate>
+			<content:encoded>&lt;h1 id="release"&gt;2.1.0 Release&lt;/h1&gt;
+&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/milestone/5?closed=1"&gt;1 issue&lt;/a&gt; closed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type: Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/41"&gt;&lt;strong&gt;#41&lt;/strong&gt;&lt;/a&gt; Recommended changes resulting from automated audit&lt;/li&gt;
+&lt;/ul&gt;
+</content:encoded>
+		</item>
 		<item>
 			<title>New Release - 2.0.0</title>
 			<link>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.0.0</link>

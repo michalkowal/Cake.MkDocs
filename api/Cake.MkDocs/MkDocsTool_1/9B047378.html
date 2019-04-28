@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.MkDocs - API - MkDocsTool&lt;TSettings&gt;.Run(TSettings, ProcessSettings, Action&lt;IProcess&gt;, Action&lt;ProcessArgumentBuilder&gt;) Method</title>
-        <link href="/Cake.MkDocs/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.MkDocs/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.MkDocs/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.MkDocs/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/respond.min.js"></script>
@@ -164,7 +164,7 @@
 
 
 <section class="content-header">
-			<h3><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a>.</h3>
+			<h3><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool</a><wbr>&lt;<a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1#typeparam-TSettings">TSettings</a>&gt;<wbr>.</h3>
 	<h1>Run<wbr>(TSettings, <wbr>ProcessSettings, <wbr>Action<wbr>&lt;IProcess&gt;<wbr>, <wbr>Action<wbr>&lt;<wbr>Process<wbr>Argument<wbr>Builder&gt;<wbr>)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
@@ -184,7 +184,7 @@
 						<dd><a href="/Cake.MkDocs/api/Cake.MkDocs">Cake<wbr>.MkDocs</a></dd>
 					
 						<dt>Containing Type</dt>
-						<dd><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool<wbr>&lt;TSettings&gt;<wbr></a></dd>		
+						<dd><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1">MkDocsTool</a><wbr>&lt;<a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1#typeparam-TSettings">TSettings</a>&gt;<wbr></dd>		
 					
 				</dl>
   			</div>
@@ -227,12 +227,12 @@ Run(settings, new DirectoryPath("./project-with-docs-is-here"), process =&gt; ou
 					</tr>
 					<tr>
 						<td>postAction</td>
-						<td>Action<wbr>&lt;T&gt;<wbr></td>
+						<td>Action<wbr>&lt;IProcess&gt;<wbr></td>
 						<td>If specified called after process exit.</td>
 					</tr>
 					<tr>
 						<td>setCommandValues</td>
-						<td>Action<wbr>&lt;T&gt;<wbr></td>
+						<td>Action<wbr>&lt;Process<wbr>Argument<wbr>Builder&gt;<wbr></td>
 						<td>If specified called during process argument building.</td>
 					</tr>
 			</tbody></table>
@@ -337,22 +337,53 @@ Run(settings, new DirectoryPath("./project-with-docs-is-here"), process =&gt; ou
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

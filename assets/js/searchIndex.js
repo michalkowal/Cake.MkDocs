@@ -1,301 +1,318 @@
 
-var camelCaseTokenizer = function (obj) {
+var camelCaseTokenizer = function (builder) {
+
+  var pipelineFunction = function (token) {
     var previous = '';
-    return obj.toString().trim().split(/[\s\-]+|(?=[A-Z])/).reduce(function(acc, cur) {
-        var current = cur.toLowerCase();
-        if(acc.length === 0) {
-            previous = current;
-            return acc.concat(current);
-        }
-        previous = previous.concat(current);
-        return acc.concat([current, previous]);
+    // split camelCaseString to on each word and combined words
+    // e.g. camelCaseTokenizer -> ['camel', 'case', 'camelcase', 'tokenizer', 'camelcasetokenizer']
+    var tokenStrings = token.toString().trim().split(/[\s\-]+|(?=[A-Z])/).reduce(function(acc, cur) {
+      var current = cur.toLowerCase();
+      if (acc.length === 0) {
+        previous = current;
+        return acc.concat(current);
+      }
+      previous = previous.concat(current);
+      return acc.concat([current, previous]);
     }, []);
+
+    // return token for each string
+    // will copy any metadata on input token
+    return tokenStrings.map(function(tokenString) {
+      return token.clone(function(str) {
+        return tokenString;
+      })
+    });
+  }
+
+  lunr.Pipeline.registerFunction(pipelineFunction, 'camelCaseTokenizer')
+
+  builder.pipeline.before(lunr.stemmer, pipelineFunction)
 }
-lunr.tokenizer.registerFunction(camelCaseTokenizer, 'camelCaseTokenizer')
 var searchModule = function() {
+    var documents = [];
     var idMap = [];
-    function y(e) { 
-        idMap.push(e); 
+    function a(a,b) { 
+        documents.push(a);
+        idMap.push(b); 
     }
+
+    a(
+        {
+            id:0,
+            title:"MkDocsNewRunner",
+            content:"MkDocsNewRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner',
+            title:"MkDocsNewRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:1,
+            title:"MkDocsBuildRunner",
+            content:"MkDocsBuildRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner',
+            title:"MkDocsBuildRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:2,
+            title:"MkDocsAliases",
+            content:"MkDocsAliases",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAliases',
+            title:"MkDocsAliases",
+            description:""
+        }
+    );
+    a(
+        {
+            id:3,
+            title:"MkDocsArgumentAttribute",
+            content:"MkDocsArgumentAttribute",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentAttribute',
+            title:"MkDocsArgumentAttribute",
+            description:""
+        }
+    );
+    a(
+        {
+            id:4,
+            title:"MkDocsSettings",
+            content:"MkDocsSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings',
+            title:"MkDocsSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:5,
+            title:"MkDocsVersionSettings",
+            content:"MkDocsVersionSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionSettings',
+            title:"MkDocsVersionSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:6,
+            title:"MkDocsServeRunner",
+            content:"MkDocsServeRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner',
+            title:"MkDocsServeRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:7,
+            title:"MkDocsGhDeploySettings",
+            content:"MkDocsGhDeploySettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeploySettings',
+            title:"MkDocsGhDeploySettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:8,
+            title:"MkDocsBuildSettings",
+            content:"MkDocsBuildSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildSettings',
+            title:"MkDocsBuildSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:9,
+            title:"MkDocsServeAsyncRunner",
+            content:"MkDocsServeAsyncRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner',
+            title:"MkDocsServeAsyncRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:10,
+            title:"MkDocsServeAsyncSettings",
+            content:"MkDocsServeAsyncSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncSettings',
+            title:"MkDocsServeAsyncSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:11,
+            title:"MkDocsTool",
+            content:"MkDocsTool",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1',
+            title:"MkDocsTool<TSettings>",
+            description:""
+        }
+    );
+    a(
+        {
+            id:12,
+            title:"MkDocsServeSettings",
+            content:"MkDocsServeSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeSettings',
+            title:"MkDocsServeSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"MkDocsGhDeployRunner",
+            content:"MkDocsGhDeployRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner',
+            title:"MkDocsGhDeployRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:14,
+            title:"MkDocsTheme",
+            content:"MkDocsTheme",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsTheme',
+            title:"MkDocsTheme",
+            description:""
+        }
+    );
+    a(
+        {
+            id:15,
+            title:"MkDocsAddress",
+            content:"MkDocsAddress",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAddress',
+            title:"MkDocsAddress",
+            description:""
+        }
+    );
+    a(
+        {
+            id:16,
+            title:"MkDocsVersionRunner",
+            content:"MkDocsVersionRunner",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner',
+            title:"MkDocsVersionRunner",
+            description:""
+        }
+    );
+    a(
+        {
+            id:17,
+            title:"MkDocsNewSettings",
+            content:"MkDocsNewSettings",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings',
+            title:"MkDocsNewSettings",
+            description:""
+        }
+    );
+    a(
+        {
+            id:18,
+            title:"MkDocsArgumentValueAttribute",
+            content:"MkDocsArgumentValueAttribute",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentValueAttribute',
+            title:"MkDocsArgumentValueAttribute",
+            description:""
+        }
+    );
     var idx = lunr(function() {
-        this.field('title', { boost: 10 });
+        this.field('title');
         this.field('content');
-        this.field('description', { boost: 5 });
-        this.field('tags', { boost: 50 });
+        this.field('description');
+        this.field('tags');
         this.ref('id');
-        this.tokenizer(camelCaseTokenizer);
+        this.use(camelCaseTokenizer);
 
         this.pipeline.remove(lunr.stopWordFilter);
         this.pipeline.remove(lunr.stemmer);
-    });
-    function a(e) { 
-        idx.add(e); 
-    }
-
-    a({
-        id:0,
-        title:"MkDocsBuildRunner",
-        content:"MkDocsBuildRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:1,
-        title:"MkDocsGhDeployRunner",
-        content:"MkDocsGhDeployRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:2,
-        title:"MkDocsVersionRunner",
-        content:"MkDocsVersionRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:3,
-        title:"MkDocsServeSettings",
-        content:"MkDocsServeSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:4,
-        title:"MkDocsSettings",
-        content:"MkDocsSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:5,
-        title:"MkDocsServeAsyncSettings",
-        content:"MkDocsServeAsyncSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:6,
-        title:"MkDocsNewRunner",
-        content:"MkDocsNewRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:7,
-        title:"MkDocsArgumentValueAttribute",
-        content:"MkDocsArgumentValueAttribute",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:8,
-        title:"MkDocsGhDeploySettings",
-        content:"MkDocsGhDeploySettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:9,
-        title:"MkDocsTheme",
-        content:"MkDocsTheme",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:10,
-        title:"MkDocsBuildSettings",
-        content:"MkDocsBuildSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:11,
-        title:"MkDocsServeRunner",
-        content:"MkDocsServeRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:12,
-        title:"MkDocsAliases",
-        content:"MkDocsAliases",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:13,
-        title:"MkDocsNewSettings",
-        content:"MkDocsNewSettings",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:14,
-        title:"MkDocsServeAsyncRunner",
-        content:"MkDocsServeAsyncRunner",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:15,
-        title:"MkDocsArgumentAttribute",
-        content:"MkDocsArgumentAttribute",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:16,
-        title:"MkDocsTool",
-        content:"MkDocsTool",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:17,
-        title:"MkDocsAddress",
-        content:"MkDocsAddress",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:18,
-        title:"MkDocsVersionSettings",
-        content:"MkDocsVersionSettings",
-        description:'',
-        tags:''
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner',
-        title:"MkDocsBuildRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner',
-        title:"MkDocsGhDeployRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner',
-        title:"MkDocsVersionRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeSettings',
-        title:"MkDocsServeSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsSettings',
-        title:"MkDocsSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncSettings',
-        title:"MkDocsServeAsyncSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner',
-        title:"MkDocsNewRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentValueAttribute',
-        title:"MkDocsArgumentValueAttribute",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeploySettings',
-        title:"MkDocsGhDeploySettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsTheme',
-        title:"MkDocsTheme",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildSettings',
-        title:"MkDocsBuildSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner',
-        title:"MkDocsServeRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAliases',
-        title:"MkDocsAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewSettings',
-        title:"MkDocsNewSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner',
-        title:"MkDocsServeAsyncRunner",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Attributes/MkDocsArgumentAttribute',
-        title:"MkDocsArgumentAttribute",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1',
-        title:"MkDocsTool<TSettings>",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs/MkDocsAddress',
-        title:"MkDocsAddress",
-        description:""
-    });
-
-    y({
-        url:'/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionSettings',
-        title:"MkDocsVersionSettings",
-        description:""
+        documents.forEach(function (doc) { this.add(doc) }, this)
     });
 
     return {

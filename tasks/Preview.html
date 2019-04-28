@@ -9,7 +9,6 @@
         <link rel="shortcut icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.MkDocs - Preview</title>
-        <link href="/Cake.MkDocs/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
         <link href="/Cake.MkDocs/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
@@ -24,6 +23,7 @@
         <script src="/Cake.MkDocs/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.MkDocs/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.MkDocs/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/respond.min.js"></script>
@@ -85,14 +85,17 @@
 
                     <ul class="sidebar-menu">
                         
+
                 <li><a href="/Cake.MkDocs/tasks/Analyze">Analyze</a></li>
                 <li><a href="/Cake.MkDocs/tasks/AppVeyor">Appveyor</a></li>
+                <li><a href="/Cake.MkDocs/tasks/AppVeyor-With-Integration-Tests">Appveyor With Integration Tests</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Build">Build</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Clean">Clean</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Clean-Documentation">Clean Documentation</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Clear-AppVeyor-Cache">Clear Appveyor Cache</a></li>
                 <li><a href="/Cake.MkDocs/tasks/ClearCache">Clearcache</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Create-Chocolatey-Packages">Create Chocolatey Packages</a></li>
+                <li><a href="/Cake.MkDocs/tasks/Create-Default-Labels">Create Default Labels</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Create-Nuget-Package">Create Nuget Package</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Create-NuGet-Packages">Create Nuget Packages</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Create-Release-Notes">Create Release Notes</a></li>
@@ -112,6 +115,9 @@
                 <li><a href="/Cake.MkDocs/tasks/Install-OpenCover">Install Opencover</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Install-ReportGenerator">Install Reportgenerator</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Install-ReportUnit">Install Reportunit</a></li>
+                <li><a href="/Cake.MkDocs/tasks/Labels">Labels</a></li>
+                <li><a href="/Cake.MkDocs/tasks/MkDocs-Integration-Tests">Mkdocs Integration Tests</a></li>
+                <li><a href="/Cake.MkDocs/tasks/MkDocs-Integration-Tests-Standalone">Mkdocs Integration Tests Standalone</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Package">Package</a></li>
                 <li class="selected"><a href="/Cake.MkDocs/tasks/Preview">Preview</a></li>
                 <li><a href="/Cake.MkDocs/tasks/Preview-Documentation">Preview Documentation</a></li>
@@ -153,9 +159,9 @@
 
 
 
-	<section class="content-header">
-		<h1>Preview</h1>
-	</section>
+		<section class="content-header">
+			<h1>Preview</h1>
+		</section>
 	<section class="content">
 		<div class="mermaid">
 graph TD;
@@ -243,22 +249,53 @@ Preview-Documentation-->Download-Cake-Badge;
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

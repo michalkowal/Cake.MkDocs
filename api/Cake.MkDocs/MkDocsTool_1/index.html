@@ -7,7 +7,6 @@
         <link rel="shortcut icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.MkDocs/assets/img/favicon.ico" type="image/x-icon">
         <title>Cake.MkDocs - API - MkDocsTool&lt;TSettings&gt; Class</title>
-        <link href="/Cake.MkDocs/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="/Cake.MkDocs/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
@@ -22,6 +21,7 @@
         <script src="/Cake.MkDocs/assets/js/jquery.slimscroll.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/jquery.sticky-kit.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/mermaid.min.js"></script>
+        <script src="/Cake.MkDocs/assets/js/svg-pan-zoom.min.js"></script>
         <!--[if lt IE 9]>
         <script src="/Cake.MkDocs/assets/js/html5shiv.min.js"></script>
         <script src="/Cake.MkDocs/assets/js/respond.min.js"></script>
@@ -183,19 +183,19 @@
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>Tool<wbr>&lt;&gt;<wbr></li>								
+											<li>Tool<wbr>&lt;<a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1#typeparam-TSettings">TSettings</a>&gt;<wbr></li>								
 									</ul>
 								</dd>				
 							
 								<dt>Derived Types</dt>
 								<dd>
 									<ul class="list-unstyled">
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner">MkDocsNewRunner</a></li>								
+											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner">MkDocsBuildRunner</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner">MkDocsServeRunner</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner">Mk<wbr>Docs<wbr>Serve<wbr>Async<wbr>Runner</a></li>								
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner">MkDocsBuildRunner</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner">MkDocsGhDeployRunner</a></li>								
 											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner">MkDocsVersionRunner</a></li>								
-											<li><a href="/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner">MkDocsNewRunner</a></li>								
 									</ul>
 								</dd>			
 							
@@ -203,22 +203,22 @@
 					</div>		
 					<div class="col-md-6">
 						<div class="mermaid">
-							graph TD
-	Base0["Tool&lt;&gt;"]--&gt;Type
+							graph BT
+	Type--&gt;Base0["Tool&lt;TSettings&gt;"]
 	Type["MkDocsTool&lt;TSettings&gt;"]
 class Type type-node
-	Type--&gt;Derived0["MkDocsServeRunner"]
-	click Derived0 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner"
-	Type--&gt;Derived1["MkDocsServeAsyncRunner"]
-	click Derived1 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner"
-	Type--&gt;Derived2["MkDocsBuildRunner"]
-	click Derived2 "/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner"
-	Type--&gt;Derived3["MkDocsGhDeployRunner"]
-	click Derived3 "/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner"
-	Type--&gt;Derived4["MkDocsVersionRunner"]
-	click Derived4 "/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner"
-	Type--&gt;Derived5["MkDocsNewRunner"]
-	click Derived5 "/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner"
+	Derived0["MkDocsNewRunner"]--&gt;Type
+	click Derived0 "/Cake.MkDocs/api/Cake.MkDocs.New/MkDocsNewRunner"
+	Derived1["MkDocsBuildRunner"]--&gt;Type
+	click Derived1 "/Cake.MkDocs/api/Cake.MkDocs.Build/MkDocsBuildRunner"
+	Derived2["MkDocsServeRunner"]--&gt;Type
+	click Derived2 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeRunner"
+	Derived3["MkDocsServeAsyncRunner"]--&gt;Type
+	click Derived3 "/Cake.MkDocs/api/Cake.MkDocs.Serve/MkDocsServeAsyncRunner"
+	Derived4["MkDocsGhDeployRunner"]--&gt;Type
+	click Derived4 "/Cake.MkDocs/api/Cake.MkDocs.GhDeploy/MkDocsGhDeployRunner"
+	Derived5["MkDocsVersionRunner"]--&gt;Type
+	click Derived5 "/Cake.MkDocs/api/Cake.MkDocs.Version/MkDocsVersionRunner"
 
 						</div>
 					</div>
@@ -249,6 +249,7 @@ class Type type-node
 			</tbody></table>
 		</div>
 	</div>	
+
 
 
 			<h1 id="Constructors">Constructors</h1>
@@ -291,13 +292,13 @@ class Type type-node
 								<td>Process<wbr>Argument<wbr>Builder</td>
 								<td>
 									<div>
-     Builds process arguments based on settings
+     Builds process arguments based on settings.
      </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.MkDocs/api/Cake.MkDocs/MkDocsTool_1/2C46BC34">Get<wbr>Tool<wbr>Executable<wbr>Names<wbr>()<wbr></a></td>
-								<td>IEnumerable<wbr>&lt;T&gt;<wbr></td>
+								<td>IEnumerable<wbr>&lt;string&gt;<wbr></td>
 								<td>
 									<div>
     Gets the possible names of the tool executable.
@@ -429,22 +430,53 @@ class Type type-node
                 $(document.body).removeClass('sidebar-open');
             });
             
-            $(document).load(function() {
+            $(document).ready(function() {
                 mermaid.initialize(
                 {
                     flowchart:
                     {
-                        htmlLabels: false,
-                        useMaxWidth:false
-                    }
-                });  
-                mermaid.init(undefined, ".mermaid")
-                $('svg').addClass('img-responsive');
+                        useMaxWidth: false
+                    },
+					startOnLoad: false,
+					cloneCssStyles: false
+                });     
+                mermaid.init(undefined, ".mermaid");
+
+                // Remove the max-width setting that Mermaid sets
+                var mermaidSvg = $('.mermaid svg');
+                mermaidSvg.addClass('img-responsive');
+                mermaidSvg.css('max-width', '');
+
+                // Make it scrollable
+				var target = document.querySelector(".mermaid svg");
+				if(target !== null)
+				{
+					var panZoom = window.panZoom = svgPanZoom(target, {
+						zoomEnabled: true,
+						controlIconsEnabled: true,
+						fit: true,
+						center: true,
+                        maxZoom: 20,
+                        zoomScaleSensitivity: 0.6
+					});			                          
+
+                    // Do the reset once right away to fit the diagram
+                    panZoom.resize();
+                    panZoom.fit();
+                    panZoom.center();
+                    
+                    $(window).resize(function(){
+                        panZoom.resize();
+                        panZoom.fit();
+                        panZoom.center();
+                    });
+				}
                 
                 $('pre code').each(function(i, block) {
                     hljs.highlightBlock(block);
                 });  
             });
+
             hljs.initHighlightingOnLoad();
 
             // Back to top

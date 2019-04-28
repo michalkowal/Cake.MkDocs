@@ -1,17 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<link rel="self" href="http://michalkowal.github.io/Cake.MkDocs" />
 	<id>http://michalkowal.github.io/Cake.MkDocs</id>
 	<title>Cake.MkDocs</title>
-	<rights>2018</rights>
-	<updated>2018-08-13T18:20:15Z</updated>
+	<link rel="self" href="http://michalkowal.github.io/Cake.MkDocs" />
+	<rights>2019</rights>
+	<updated>2019-04-28T17:28:24Z</updated>
 	<entry>
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.1.0</id>
+		<title>New Release - 2.1.0</title>
+		<author>
+			<name>michalkowal</name>
+		</author>
+		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.1.0" />
+		<updated>2019-04-28T00:00:00Z</updated>
+		<content>&lt;h1 id="release"&gt;2.1.0 Release&lt;/h1&gt;
+&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/milestone/5?closed=1"&gt;1 issue&lt;/a&gt; closed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Type: Maintenance&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues/41"&gt;&lt;strong&gt;#41&lt;/strong&gt;&lt;/a&gt; Recommended changes resulting from automated audit&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+		<summary>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/milestone/5?closed=1"&gt;1 issue&lt;/a&gt; closed.&lt;/p&gt;</summary>
+	</entry>
+	<entry>
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.0.0</id>
+		<title>New Release - 2.0.0</title>
 		<author>
 			<name>michalkowal</name>
 		</author>
 		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.0.0" />
-		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-2.0.0</id>
-		<title>New Release - 2.0.0</title>
 		<updated>2018-08-13T00:00:00Z</updated>
 		<content>&lt;h1 id="release"&gt;2.0.0 Release&lt;/h1&gt;
 &lt;h3 id="warning-mkdocs-0.17.x-and-below-is-not-supported-any-longer"&gt;Warning! MkDocs 0.17.x and below is not supported any longer&lt;/h3&gt;
@@ -24,12 +41,12 @@
 		<summary>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.2.0...2.0.0"&gt;1 commit&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=4&amp;amp;state=closed"&gt;1 issue&lt;/a&gt; being closed.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.2.0</id>
+		<title>New Release - 1.2.0</title>
 		<author>
 			<name>michalkowal</name>
 		</author>
 		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.2.0" />
-		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.2.0</id>
-		<title>New Release - 1.2.0</title>
 		<updated>2018-07-29T00:00:00Z</updated>
 		<content>&lt;h1 id="release"&gt;1.2.0 Release&lt;/h1&gt;
 &lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.1.0...1.2.0"&gt;2 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=3&amp;amp;state=closed"&gt;2 issues&lt;/a&gt; being closed.&lt;/p&gt;
@@ -42,12 +59,12 @@
 		<summary>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.1.0...1.2.0"&gt;2 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=3&amp;amp;state=closed"&gt;2 issues&lt;/a&gt; being closed.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0</id>
+		<title>New Release - 1.1.0</title>
 		<author>
 			<name>michalkowal</name>
 		</author>
 		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0" />
-		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.1.0</id>
-		<title>New Release - 1.1.0</title>
 		<updated>2018-06-11T00:00:00Z</updated>
 		<content>&lt;h1 id="release"&gt;1.1.0 Release&lt;/h1&gt;
 &lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.0.0...1.1.0"&gt;6 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=2&amp;amp;state=closed"&gt;3 issues&lt;/a&gt; being closed.&lt;/p&gt;
@@ -64,12 +81,12 @@
 		<summary>&lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/compare/1.0.0...1.1.0"&gt;6 commits&lt;/a&gt; which resulted in &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=2&amp;amp;state=closed"&gt;3 issues&lt;/a&gt; being closed.&lt;/p&gt;</summary>
 	</entry>
 	<entry>
+		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.0.0</id>
+		<title>New Release - 1.0.0</title>
 		<author>
 			<name>michalkowal</name>
 		</author>
 		<link href="http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.0.0" />
-		<id>http://michalkowal.github.io/Cake.MkDocs/blog/new-release-1.0.0</id>
-		<title>New Release - 1.0.0</title>
 		<updated>2018-06-05T00:00:00Z</updated>
 		<content>&lt;h1 id="release"&gt;1.0.0 Release&lt;/h1&gt;
 &lt;p&gt;As part of this release we had &lt;a href="https://github.com/michalkowal/Cake.MkDocs/issues?milestone=1&amp;amp;state=closed"&gt;11 issues&lt;/a&gt; closed.&lt;br /&gt;
