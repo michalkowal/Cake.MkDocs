@@ -31,7 +31,7 @@ namespace Cake.MkDocs.Serve
         /// <summary>
         /// Run the builtin development server in working directory async.
         /// </summary>
-        /// <param name="settings">The settings</param>
+        /// <param name="settings">The settings.</param>
         /// <returns>Long running task.</returns>
         /// <example>
         /// <code>
@@ -53,8 +53,8 @@ namespace Cake.MkDocs.Serve
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> is not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         /// <exception cref="OperationCanceledException">Thrown in a thread upon cancellation of an operation that the task was executing.</exception>
         public Task ServeAsync(MkDocsServeAsyncSettings settings)
         {
@@ -65,7 +65,7 @@ namespace Cake.MkDocs.Serve
         /// Run the builtin development server async.
         /// </summary>
         /// <param name="projectDirectory">Project dir to serve.</param>
-        /// <param name="settings">The settings</param>
+        /// <param name="settings">The settings.</param>
         /// <returns>Long running task.</returns>
         /// <example>
         /// <code>
@@ -88,8 +88,8 @@ namespace Cake.MkDocs.Serve
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         /// <exception cref="OperationCanceledException">Thrown in a thread upon cancellation of an operation that the task was executing.</exception>
         public Task ServeAsync(DirectoryPath projectDirectory, MkDocsServeAsyncSettings settings)
         {

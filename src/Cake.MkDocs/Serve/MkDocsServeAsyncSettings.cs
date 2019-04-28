@@ -12,7 +12,7 @@ namespace Cake.MkDocs.Serve
         /// <summary>
         /// Gets or sets a value indicating whether cancellation token is defined for async operation.
         /// </summary>
-        /// <value><c>CancellationToken.None</c> - default value</value>
+        /// <value><c>CancellationToken.None</c> - default value.</value>
         public CancellationToken Token { get; set; }
     }
 }

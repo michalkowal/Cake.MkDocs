@@ -25,15 +25,15 @@ namespace Cake.MkDocs.Build
         /// <summary>
         /// Build the <c>MkDocs</c> documentation in working directory.
         /// </summary>
-        /// <param name="settings">The settings</param>
+        /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
         /// runner.Build(new MkDocsBuildSettings());
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> is not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         public void Build(MkDocsBuildSettings settings)
         {
             Run(settings);
@@ -43,15 +43,15 @@ namespace Cake.MkDocs.Build
         /// Build the <c>MkDocs</c> documentation.
         /// </summary>
         /// <param name="projectDirectory">Project dir to build.</param>
-        /// <param name="settings">The settings</param>
+        /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
         /// runner.Build(new DirectoryPath("./project-with-docs-is-here"), new MkDocsBuildSettings());
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         public void Build(DirectoryPath projectDirectory, MkDocsBuildSettings settings)
         {
             Run(settings, projectDirectory);

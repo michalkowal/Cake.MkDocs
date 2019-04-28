@@ -27,8 +27,8 @@ namespace Cake.MkDocs
     /// </para>
     /// </summary>
     /// <remarks>
-    /// <para>See <a href="https://www.nuget.org/packages/Cake.MkDocs/">NuGet.org</a></para>
-    /// <para>See <a href="https://github.com/mkdocs/mkdocs">MkDocs repository</a></para>
+    /// <para>See <a href="https://www.nuget.org/packages/Cake.MkDocs/">NuGet.org</a>.</para>
+    /// <para>See <a href="https://github.com/mkdocs/mkdocs">MkDocs repository</a>.</para>
     /// </remarks>
     [CakeAliasCategory("MkDocs")]
     public static class MkDocsAliases
@@ -45,7 +45,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> is not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Version")]
         [CakeNamespaceImport("Cake.MkDocs.Version")]
@@ -66,7 +66,7 @@ namespace Cake.MkDocs
         /// {
         ///     Quiet = true
         /// });
-        /// Information($"MkDocs tool version: {mkDocsVersion}"); // 1.0.0
+        /// Information($"MkDocs tool version: {mkDocsVersion}"); // 1.0.4
         /// </code>
         /// </example>
         /// <example>
@@ -79,8 +79,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Version")]
         [CakeNamespaceImport("Cake.MkDocs.Version")]
@@ -104,7 +104,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> is not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Version")]
         [CakeNamespaceImport("Cake.MkDocs.Version")]
@@ -117,7 +117,7 @@ namespace Cake.MkDocs
         /// Check is provided <c>MkDocs</c> tool is in supported version.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="settings">settings</param>
+        /// <param name="settings">settings.</param>
         /// <returns><c>true</c> - version is supported; otherwise, <c>false</c>.</returns>
         /// <example>
         /// <code>
@@ -139,8 +139,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Version")]
         [CakeNamespaceImport("Cake.MkDocs.Version")]
@@ -162,7 +162,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> is not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("New")]
         [CakeNamespaceImport("Cake.MkDocs.New")]
@@ -185,8 +185,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("New")]
         [CakeNamespaceImport("Cake.MkDocs.New")]
@@ -212,7 +212,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="projectDirectory"/> are not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("New")]
         [CakeNamespaceImport("Cake.MkDocs.New")]
@@ -244,8 +244,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/>, <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("New")]
         [CakeNamespaceImport("Cake.MkDocs.New")]
@@ -265,7 +265,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> is not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Build")]
         [CakeNamespaceImport("Cake.MkDocs.Build")]
@@ -289,8 +289,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Build")]
         [CakeNamespaceImport("Cake.MkDocs.Build")]
@@ -316,7 +316,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="projectDirectory"/> are not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Build")]
         [CakeNamespaceImport("Cake.MkDocs.Build")]
@@ -350,8 +350,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/>, <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Build")]
         [CakeNamespaceImport("Cake.MkDocs.Build")]
@@ -374,7 +374,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> is not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
@@ -416,8 +416,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
@@ -446,7 +446,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="projectDirectory"/> are not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
@@ -498,8 +498,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/>, <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
@@ -528,7 +528,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> is not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
@@ -594,8 +594,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         /// <exception cref="OperationCanceledException">Thrown in a thread upon cancellation of an operation that the task was executing.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
@@ -633,7 +633,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="projectDirectory"/> are not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
         [CakeNamespaceImport("Cake.MkDocs.Serve")]
@@ -722,8 +722,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/>, <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         /// <exception cref="OperationCanceledException">Thrown in a thread upon cancellation of an operation that the task was executing.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("Serve")]
@@ -748,7 +748,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> is not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("GhDeploy")]
         [CakeNamespaceImport("Cake.MkDocs.GhDeploy")]
@@ -776,8 +776,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("GhDeploy")]
         [CakeNamespaceImport("Cake.MkDocs.GhDeploy")]
@@ -807,7 +807,7 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/> or <paramref name="projectDirectory"/> are not set.</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("GhDeploy")]
         [CakeNamespaceImport("Cake.MkDocs.GhDeploy")]
@@ -845,8 +845,8 @@ namespace Cake.MkDocs
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="context"/>, <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         [CakeMethodAlias]
         [CakeAliasCategory("GhDeploy")]
         [CakeNamespaceImport("Cake.MkDocs.GhDeploy")]

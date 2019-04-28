@@ -26,15 +26,15 @@ namespace Cake.MkDocs.Serve
         /// <summary>
         /// Run the builtin development server in working directory.
         /// </summary>
-        /// <param name="settings">The settings</param>
+        /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
         /// runner.Serve(new MkDocsServeSettings());
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> is not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         public void Serve(MkDocsServeSettings settings)
         {
             Run(settings);
@@ -44,15 +44,15 @@ namespace Cake.MkDocs.Serve
         /// Run the builtin development server.
         /// </summary>
         /// <param name="projectDirectory">Project dir to serve.</param>
-        /// <param name="settings">The settings</param>
+        /// <param name="settings">The settings.</param>
         /// <example>
         /// <code>
         /// runner.Serve(new DirectoryPath("./project-with-docs-is-here"), new MkDocsServeSettings());
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="projectDirectory"/> or <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         public void Serve(DirectoryPath projectDirectory, MkDocsServeSettings settings)
         {
             Run(settings, projectDirectory);

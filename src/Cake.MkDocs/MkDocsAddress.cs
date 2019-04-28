@@ -8,15 +8,15 @@ namespace Cake.MkDocs
     public class MkDocsAddress
     {
         /// <summary>
-        /// Gets address <c>IP</c>/host
+        /// Gets address <c>IP</c>/host.
         /// </summary>
-        /// <value><c>localhost</c> - default</value>
+        /// <value><c>localhost</c> - default.</value>
         public string Ip { get; }
 
         /// <summary>
-        /// Gets address port
+        /// Gets address port.
         /// </summary>
-        /// <value><c>8000</c> - default</value>
+        /// <value><c>8000</c> - default.</value>
         public int Port { get; }
 
         /// <summary>
@@ -32,10 +32,10 @@ namespace Cake.MkDocs
         /// Initializes a new instance of the <see cref="MkDocsAddress"/> class.
         /// </summary>
         /// <param name="ip">The address Host/<c>IP</c>.</param>
-        /// <param name="port">The address port (from <c>1</c> to <c>65535</c>)</param>
+        /// <param name="port">The address port (from <c>1</c> to <c>65535</c>).</param>
         /// <exception cref="ArgumentNullException">Thrown when ip parameter is empty or white space.</exception>
         /// <exception cref="ArgumentException">Thrown when ip parameter is unknown <c>IP</c> or Host. See <see cref="Uri.CheckHostName(string)"/> validation.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown when port paramter is out of <c>1</c> to <c>65535</c> range.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when port parameter is out of <c>1</c> to <c>65535</c> range.</exception>
         public MkDocsAddress(string ip, int port)
         {
             if (string.IsNullOrWhiteSpace(ip))
@@ -59,7 +59,7 @@ namespace Cake.MkDocs
         /// <summary>
         /// Overrides default string representation.
         /// </summary>
-        /// <returns><c>IP</c> address in format: <c>IP:PORT</c></returns>
+        /// <returns><c>IP</c> address in format: <c>IP:PORT</c>.</returns>
         public override string ToString() => $"{Ip}:{Port}";
     }
 }

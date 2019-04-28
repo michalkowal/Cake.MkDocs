@@ -3,7 +3,7 @@
 namespace Cake.MkDocs.Attributes
 {
     /// <summary>
-    /// Describes tool argument related to settings <see cref="MkDocsSettings"/>
+    /// Describes tool argument related to settings <see cref="MkDocsSettings"/>.
     /// </summary>
     /// <example>
     /// <code>
@@ -34,12 +34,12 @@ namespace Cake.MkDocs.Attributes
     public sealed class MkDocsArgumentAttribute : Attribute
     {
         /// <summary>
-        /// Prefix of argument
+        /// Prefix of argument.
         /// </summary>
         public const string ArgumentPrefix = "--";
 
         /// <summary>
-        /// Prefix of short version argument
+        /// Prefix of short version argument.
         /// </summary>
         public const string ShortArgumentPrefix = "-";
 
@@ -53,12 +53,12 @@ namespace Cake.MkDocs.Attributes
         }
 
         /// <summary>
-        /// Gets tool argument
+        /// Gets tool argument.
         /// </summary>
         public string Argument { get; }
 
         /// <summary>
-        /// Gets or sets tool arguments (one letter version)
+        /// Gets or sets tool arguments (one letter version).
         /// </summary>
         public string ShortArgument { get; set; }
 

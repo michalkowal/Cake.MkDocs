@@ -98,7 +98,7 @@ namespace Cake.MkDocs
         }
 
         /// <summary>
-        /// Builds process arguments based on settings
+        /// Builds process arguments based on settings.
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <param name="setCommandValues">If specified called during process argument building.</param>

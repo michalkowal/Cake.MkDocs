@@ -3,7 +3,7 @@
 namespace Cake.MkDocs.Attributes
 {
     /// <summary>
-    /// Describes tool commands related to settings <see cref="MkDocsSettings"/>
+    /// Describes tool commands related to settings <see cref="MkDocsSettings"/>.
     /// </summary>
     /// <example>
     /// <code>
@@ -19,7 +19,7 @@ namespace Cake.MkDocs.Attributes
     internal sealed class MkDocsCommandAttribute : Attribute
     {
         /// <summary>
-        /// Gets tool command
+        /// Gets tool command.
         /// </summary>
         public string Command { get; }
 

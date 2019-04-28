@@ -14,7 +14,7 @@ namespace Cake.MkDocs.Version
     public sealed class MkDocsVersionRunner : MkDocsTool<MkDocsSettings>
     {
         private readonly Regex _versionRegex = new Regex("mkdocs, version (?<version>\\S*)");
-        private static readonly SemVersion SupportedVersion = new SemVersion(1, 0, 0);
+        private static readonly SemVersion SupportedVersion = new SemVersion(1, 0, 4);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MkDocsVersionRunner"/> class.
@@ -36,12 +36,12 @@ namespace Cake.MkDocs.Version
         /// <example>
         /// <code>
         /// var mkDocsVersion = runner.Version(new MkDocsVersionSettings());
-        /// Console.WriteLine(mkDocsVersion.ToString()); // 1.0.0
+        /// Console.WriteLine(mkDocsVersion.ToString()); // 1.0.4
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         public System.Version Version(MkDocsSettings settings)
         {
             System.Version result = null;
@@ -75,7 +75,7 @@ namespace Cake.MkDocs.Version
         }
 
         /// <summary>
-        /// Checks if provided <c>MkDocs</c> tool version is compatible with addin
+        /// Checks if provided <c>MkDocs</c> tool version is compatible with addin.
         /// </summary>
         /// <param name="settings">The settings.</param>
         /// <returns><c>true</c> - <c>MkDocs</c> version is compatible with addin; otherwise, <c>false</c>.</returns>
@@ -85,8 +85,8 @@ namespace Cake.MkDocs.Version
         /// </code>
         /// </example>
         /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> are not set.</exception>
-        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time</exception>
-        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c></exception>
+        /// <exception cref="TimeoutException">Thrown when ToolTimeout specifed and process is still working after this time.</exception>
+        /// <exception cref="CakeException">Thrown when tool process ends with code different than <c>0</c>.</exception>
         public bool IsSupportedVersion(MkDocsSettings settings)
         {
             System.Version toolVersion = Version(settings);

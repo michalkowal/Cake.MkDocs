@@ -3,7 +3,7 @@
 namespace Cake.MkDocs.Attributes
 {
     /// <summary>
-    /// Describes tool argument named values related to settings <see cref="MkDocsSettings"/>
+    /// Describes tool argument named values related to settings <see cref="MkDocsSettings"/>.
     /// </summary>
     /// <example>
     /// <code>
@@ -39,7 +39,7 @@ namespace Cake.MkDocs.Attributes
         }
 
         /// <summary>
-        /// Gets tool argument value
+        /// Gets tool argument value.
         /// </summary>
         public string Value { get; }
     }
