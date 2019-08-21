@@ -1,4 +1,4 @@
-#load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&prerelease
+#load nuget:?package=Cake.Recipe&version=1.0.0
 #load version.cake
 #load wyam.cake
 
@@ -19,7 +19,7 @@ BuildParameters.SetParameters(context: Context,
                             appVeyorAccountName: "michalkowal",
 							webBaseEditUrl: "https://github.com/michalkowal/Cake.MkDocs/tree/master/docs/input/",
 							shouldRunIntegrationTests: shouldRunIntegrationTests,
-							
+
 							// Build on Unix
 							shouldRunGitVersion: true,
 							shouldExecuteGitLink: shouldPublish,
@@ -40,10 +40,10 @@ Information("MkDocs version: {0}", Version.MkDocs);
 // Task for integration tests without build
 Task("MkDocs-Integration-Tests-Standalone")
 	.WithCriteria(() => BuildParameters.ShouldRunIntegrationTests)
-	.Does(() => 
+	.Does(() =>
     {
 		CakeExecuteScript(BuildParameters.IntegrationTestScriptPath,
-			new CakeSettings 
+			new CakeSettings
 			{
 				Arguments = new Dictionary<string, string>
 				{
@@ -64,11 +64,11 @@ Task("MkDocs-Integration-Tests-Standalone")
 			});
 		}
 	});
-	
+
 Task("MkDocs-Integration-Tests")
 	.IsDependentOn("Package")
 	.IsDependentOn("MkDocs-Integration-Tests-Standalone");
-	
+
 Task("AppVeyor-With-Integration-Tests")
 	.IsDependentOn("MkDocs-Integration-Tests")
 	.IsDependentOn("AppVeyor");

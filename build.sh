@@ -1,113 +1,110 @@
 #!/usr/bin/env bash
 
-# Define default arguments.
-SCRIPT="recipe.cake"
-TARGET="Default"
-CONFIGURATION="Release"
-VERBOSITY="Verbose"
-EXPERIMENTAL=false
-WHATIF=false
-MONO=false
-SKIPTOOLPACKAGERESTORE=false
-SCRIPT_ARGUMENTS=()
-
-# Parse arguments.
-for i in "$@"; do
-    case $1 in
-		-s|--script) SCRIPT="$2"; shift;;
-        -t|--target) TARGET="$2"; shift ;;
-        -c|--configuration) CONFIGURATION="$2"; shift ;;
-        -v|--verbosity) VERBOSITY="$2"; shift ;;
-		-e|--experimental) EXPERIMENTAL=true ;;
-		-wi|--whatif) WHATIF=true ;;
-		-m|--mono) MONO=true ;;
-		-sr|--skiptoolpackagerestore) SKIPTOOLPACKAGERESTORE=true ;;
-        --) shift; SCRIPT_ARGUMENTS+=("$@"); break ;;
-        *) SCRIPT_ARGUMENTS+=("$1") ;;
-    esac
-    shift
-done
-
-echo "Preparing to run build script..."
+##########################################################################
+# This is the Cake bootstrapper script for Linux and OS X.
+# This file was downloaded from https://github.com/cake-build/resources
+# Feel free to change this file to fit your needs.
+##########################################################################
 
 # Define directories.
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 TOOLS_DIR=$SCRIPT_DIR/tools
+ADDINS_DIR=$TOOLS_DIR/Addins
+MODULES_DIR=$TOOLS_DIR/Modules
 NUGET_EXE=$TOOLS_DIR/nuget.exe
 CAKE_EXE=$TOOLS_DIR/Cake/Cake.exe
-NUGET_URL=https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
 PACKAGES_CONFIG=$TOOLS_DIR/packages.config
 PACKAGES_CONFIG_MD5=$TOOLS_DIR/packages.config.md5sum
+ADDINS_PACKAGES_CONFIG=$ADDINS_DIR/packages.config
+MODULES_PACKAGES_CONFIG=$MODULES_DIR/packages.config
 
-# Should we use mono?
-USE_MONO=""
-if [ "$MONO" = true ]; then
-	echo "Using the Mono based scripting engine."
-	USE_MONO="-mono"
+# Define md5sum or md5 depending on Linux/OSX
+MD5_EXE=
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    MD5_EXE="md5 -r"
+else
+    MD5_EXE="md5sum"
 fi
 
-# Should we use the new Roslyn?
-USE_EXPERIMENTAL=""
-if [ "$EXPERIMENTAL" = true ]; then
-	echo "Using experimental version of Roslyn."
-	USE_EXPERIMENTAL="-experimental"
-fi
+# Define default arguments.
+SCRIPT="recipe.cake"
+CAKE_ARGUMENTS=()
 
-# Should we use the new Roslyn?
-USE_DRYRUN=""
-if [ "$WHATIF" = true ]; then
-	USE_DRYRUN="-dryrun"
-fi
+# Parse arguments.
+for i in "$@"; do
+    case $1 in
+        -s|--script) SCRIPT="$2"; shift ;;
+        --) shift; CAKE_ARGUMENTS+=("$@"); break ;;
+        *) CAKE_ARGUMENTS+=("$1") ;;
+    esac
+    shift
+done
 
 # Make sure the tools folder exist.
 if [ ! -d "$TOOLS_DIR" ]; then
-	echo "Creating tools directory..."
-	mkdir "$TOOLS_DIR"
+  mkdir "$TOOLS_DIR"
 fi
 
 # Make sure that packages.config exist.
-if [ ! -f "$PACKAGES_CONFIG" ]; then
+if [ ! -f "$TOOLS_DIR/packages.config" ]; then
     echo "Downloading packages.config..."
-    curl -Lsfo "$PACKAGES_CONFIG" "http://cakebuild.net/download/bootstrapper/packages"
+    curl -Lsfo "$TOOLS_DIR/packages.config" https://cakebuild.net/download/bootstrapper/packages
     if [ $? -ne 0 ]; then
-        echo "Could not download packages.config."
+        echo "An error occurred while downloading packages.config."
         exit 1
     fi
 fi
-
-# TODO: Try find NuGet.exe in path if not exists
 
 # Download NuGet if it does not exist.
 if [ ! -f "$NUGET_EXE" ]; then
     echo "Downloading NuGet..."
-    curl -Lsfo "$NUGET_EXE" $NUGET_URL
+    curl -Lsfo "$NUGET_EXE" https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
     if [ $? -ne 0 ]; then
-        echo "Could not download NuGet.exe."
+        echo "An error occurred while downloading nuget.exe."
         exit 1
     fi
 fi
 
-# Save nuget.exe path to environment to be available to child processed
-export NUGET_EXE
+# Restore tools from NuGet.
+pushd "$TOOLS_DIR" >/dev/null
+if [ ! -f "$PACKAGES_CONFIG_MD5" ] || [ "$( cat "$PACKAGES_CONFIG_MD5" | sed 's/\r$//' )" != "$( $MD5_EXE "$PACKAGES_CONFIG" | awk '{ print $1 }' )" ]; then
+    find . -type d ! -name . ! -name 'Cake.Bakery' | xargs rm -rf
+fi
 
-# Restore tools from Nuget?
-if [ "$SKIPTOOLPACKAGERESTORE" = false ]; then
-	pushd $TOOLS_DIR
-	
-	MD5HASH=($(md5sum "$PACKAGES_CONFIG"| cut -d ' ' -f 1))
-	# TODO: CHECK MD5
-	
-	echo "Restoring tools from NuGet..."
-	chmod +x "$NUGET_EXE"
-	NUGETOUTPUT=$(mono "$NUGET_EXE" install -ExcludeVersion -PreRelease -OutputDirectory "$TOOLS_DIR" -Source https://www.myget.org/F/cake/api/v3/index.json)
-	
-	if [ $? -ne 0 ]; then
-        echo "An error occured while restoring NuGet tools."
+mono "$NUGET_EXE" install -ExcludeVersion
+if [ $? -ne 0 ]; then
+    echo "Could not restore NuGet tools."
+    exit 1
+fi
+
+$MD5_EXE "$PACKAGES_CONFIG" | awk '{ print $1 }' >| "$PACKAGES_CONFIG_MD5"
+
+popd >/dev/null
+
+# Restore addins from NuGet.
+if [ -f "$ADDINS_PACKAGES_CONFIG" ]; then
+    pushd "$ADDINS_DIR" >/dev/null
+
+    mono "$NUGET_EXE" install -ExcludeVersion
+    if [ $? -ne 0 ]; then
+        echo "Could not restore NuGet addins."
         exit 1
     fi
-	
-	echo "$NUGETOUTPUT"
-	popd
+
+    popd >/dev/null
+fi
+
+# Restore modules from NuGet.
+if [ -f "$MODULES_PACKAGES_CONFIG" ]; then
+    pushd "$MODULES_DIR" >/dev/null
+
+    mono "$NUGET_EXE" install -ExcludeVersion
+    if [ $? -ne 0 ]; then
+        echo "Could not restore NuGet modules."
+        exit 1
+    fi
+
+    popd >/dev/null
 fi
 
 # Make sure that Cake has been installed.
@@ -117,6 +114,4 @@ if [ ! -f "$CAKE_EXE" ]; then
 fi
 
 # Start Cake
-echo "Running build script..."
-chmod +x "$CAKE_EXE"
-exec mono "$CAKE_EXE" $SCRIPT --target=$TARGET --configuration=$CONFIGURATION --verbosity=$VERBOSITY $USE_MONO $USE_DRYRUN $USE_EXPERIMENTAL "${SCRIPT_ARGUMENTS[@]}"
+exec mono "$CAKE_EXE" $SCRIPT "${CAKE_ARGUMENTS[@]}"

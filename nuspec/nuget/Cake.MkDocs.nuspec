@@ -8,11 +8,12 @@
 	<owners>Michał Kowal, cake-contrib</owners>
     <description>Cake MkDocs AddIn.</description>
 	<summary>Cake AddIn that extends Cake with ability to run the MkDocs CLI.</summary>
-    <licenseUrl>https://github.com/michalkowal/Cake.MkDocs/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/michalkowal/Cake.MkDocs</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright © Cake Contributions 2016 - Present</copyright>
+    <license type="expression">MIT</license>
+    <repository type="git" url="https://github.com/michalkowal/Cake.MkDocs.git"/>
     <tags>Cake, Script, Build, MkDocs</tags>
   </metadata>
   <files>
